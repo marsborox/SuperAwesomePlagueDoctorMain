@@ -2,7 +2,7 @@
 - Project name: SuperAwesomePlagueDoctorMain
 - Unity version: Unity 6000.1.0a7
 - Active game object:
-  - Name: SpawnPoint (1)
+  - Name: Enemy
   - Tag: Untagged
-  - Layer: Default
+  - Layer: Fighters
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

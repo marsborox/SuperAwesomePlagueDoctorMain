@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -14,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        SpawnEnemy();
     }
 
     // Update is called once per frame
@@ -23,9 +24,11 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
-    void GetNextSpawnTime()
-    { 
-        
+    IEnumerator GetNextSpawnTimeRoutine()
+    {
+        float waitTime = Random.Range(_minSpawnTime,_maxSpawnTime);
+        yield return new WaitForSeconds(waitTime);
+        SpawnEnemy();
     }
     private void SpawnEnemy()
     { 
@@ -34,5 +37,6 @@ public class EnemySpawner : MonoBehaviour
         Enemy enemy = Instantiate(_enemyPrefab);
         enemy.transform.position = _spawnPoints[spawnPointSlot].transform.position;
         enemy.target = _player;
+        StartCoroutine(GetNextSpawnTimeRoutine());
     }
 }
