@@ -10,6 +10,15 @@ public class Enemy : MonoBehaviour
     {
         Move();
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Colision");
+        if (other.tag == "Bullet")
+        {
+            Debug.Log("BulletHitMe");
+            Destroy(this.gameObject);
+        }
+    }
     private void Move()
     {
         if (target == null)
@@ -18,4 +27,5 @@ public class Enemy : MonoBehaviour
         //Vector3 delta = target.transform.position*movementSpeed*Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position,target.transform.position,movementSpeed*Time.deltaTime);
     }
+
 }

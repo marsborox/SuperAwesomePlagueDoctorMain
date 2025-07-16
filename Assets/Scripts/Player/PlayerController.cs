@@ -29,8 +29,5 @@ public class PlayerController : MonoBehaviour
             _playerAttack.Shoot();
         }
     }
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        Debug.Log("Crash");
-    }
+
 }
