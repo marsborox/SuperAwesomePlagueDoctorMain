@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     {
         if (target == null)
             return;
-        Debug.Log("target not null");
+        //Debug.Log("target not null");
         //Vector3 delta = target.transform.position*movementSpeed*Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position,target.transform.position,movementSpeed*Time.deltaTime);
     }

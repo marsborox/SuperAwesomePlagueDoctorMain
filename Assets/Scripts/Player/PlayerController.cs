@@ -5,9 +5,13 @@ public class PlayerController : MonoBehaviour
 {
     public Vector2 moveInput;
     private PlayerMovement _playerMovement;
+    private PlayerAttack _playerAttack;
+
+    
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
+        _playerAttack = GetComponent<PlayerAttack>();
     }
     private void Update()
     {
@@ -16,13 +20,13 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue value)
     { 
         moveInput = value.Get<Vector2>();
-        Debug.Log(moveInput);
+        //Debug.Log(moveInput);
     }
     void OnAttack(InputValue value)
     {
         if (value.isPressed)
-        { 
-            
+        {
+            _playerAttack.Shoot();
         }
     }
     void OnCollisionEnter2D(Collision2D other)

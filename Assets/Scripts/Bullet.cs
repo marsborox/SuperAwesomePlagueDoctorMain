@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private float movementSpeed = 8f;
+    private void Update()
     {
-        
+        BulletMovement();
     }
-
-    // Update is called once per frame
-    void Update()
+    void BulletMovement()
     {
-        
+        transform.Translate(Vector3.up * Time.deltaTime * movementSpeed);
     }
 }
