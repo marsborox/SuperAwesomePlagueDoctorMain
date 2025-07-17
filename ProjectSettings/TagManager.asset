@@ -12,9 +12,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
-  - Walls
-  - Fighters
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -42,14 +42,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ground
-    uniqueID: 2064315001
+  - name: BackGround
+    uniqueID: 297426955
     locked: 0
-  - name: Walls
-    uniqueID: 20607335
+  - name: Units
+    uniqueID: 3978106839
     locked: 0
-  - name: Fighters
-    uniqueID: 473217247
+  - name: Environment
+    uniqueID: 1898520861
     locked: 0
   m_RenderingLayers:
   - Default
