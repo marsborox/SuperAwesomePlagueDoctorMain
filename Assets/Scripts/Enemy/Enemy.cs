@@ -4,6 +4,8 @@ public class Enemy : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Player target;
+    public int damage = 10;
+    public int rewardScore = 5;
     public float movementSpeed = 300;
 
     private void Update()
@@ -12,10 +14,16 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Colision");
+        //Debug.Log("Colision");
         if (other.tag == "Bullet")
         {
             Debug.Log("BulletHitMe");
+            Die();
+        }
+
+        else if (other.tag == "Player")
+        {
+            target.playerEventHandler.ChangeHealth(-damage);
             Destroy(this.gameObject);
         }
     }
@@ -27,5 +35,9 @@ public class Enemy : MonoBehaviour
         //Vector3 delta = target.transform.position*movementSpeed*Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position,target.transform.position,movementSpeed*Time.deltaTime);
     }
-
+    private void Die()
+    {
+        target.playerEventHandler.ChangeHealth(rewardScore);
+        Destroy(this.gameObject);
+    }
 }

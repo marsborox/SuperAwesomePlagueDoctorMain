@@ -37,5 +37,6 @@ public class EnemySpawner : MonoBehaviour
         enemy.transform.position = _spawnPoints[spawnPointSlot].transform.position;
         enemy.target = _player;
         StartCoroutine(GetNextSpawnTimeRoutine());
+
     }
 }

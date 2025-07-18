@@ -7,13 +7,12 @@ public class PlayerController : MonoBehaviour
     private PlayerMovement _playerMovement;
     private PlayerAttack _playerAttack;
 
-    
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
         _playerAttack = GetComponent<PlayerAttack>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         _playerMovement.Move(moveInput);
     }
