@@ -14,6 +14,6 @@ UI - Display Kills/Score
 
 
 ToDo:
-enemy -  when touch kill hero or something
+
 
 need working wall

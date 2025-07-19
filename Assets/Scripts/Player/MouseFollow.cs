@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class MouseFollow : MonoBehaviour
 {
     private void Update()
@@ -11,7 +12,6 @@ public class MouseFollow : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         Vector2 direction = transform.position - mousePosition;
-
         transform.up = -direction;//was right
     }
 }
