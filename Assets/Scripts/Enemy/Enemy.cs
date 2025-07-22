@@ -8,6 +8,11 @@ public class Enemy : MonoBehaviour
     public int rewardScore = 5;
     public float movementSpeed = 300;
 
+    [SerializeField] private Enemy_SO _enemyTemplate;
+    private void Start()
+    {
+        
+    }
     private void Update()
     {
         Move();
@@ -39,5 +44,13 @@ public class Enemy : MonoBehaviour
     {
         target.playerEventHandler.ChangeHealth(rewardScore);
         Destroy(this.gameObject);
+    }
+    private void SetEnemyProperties()
+    {
+        if (_enemyTemplate == null)
+            return;
+        damage = _enemyTemplate.damage;
+        rewardScore = _enemyTemplate.rewardScore;
+        movementSpeed = _enemyTemplate.movementSpeed;
     }
 }
