@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _minSpawnTime=0.5f;
     [SerializeField] private float _maxSpawnTime = 1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private Enemy_SO _enemyTemplateToSpawn;
     void Start()
     {
         SpawnEnemy();
@@ -31,9 +32,15 @@ public class EnemySpawner : MonoBehaviour
     }
     private void SpawnEnemy()
     { 
-        int spawnPointSlot = Random.Range(0, _spawnPoints.Count);
+        
+        int spawnPointSlot = Random.Range(0, _spawnPoints.Count);//set position
 
         Enemy enemy = Instantiate(_enemyPrefab);
+
+        if (_enemyTemplateToSpawn != null)
+        {
+            enemy.enemyTemplate = _enemyTemplateToSpawn;
+        }
         enemy.transform.position = _spawnPoints[spawnPointSlot].transform.position;
         enemy.target = _player;
         StartCoroutine(GetNextSpawnTimeRoutine());
