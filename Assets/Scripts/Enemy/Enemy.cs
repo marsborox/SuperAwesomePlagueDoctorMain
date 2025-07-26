@@ -8,14 +8,14 @@ public class Enemy : MonoBehaviour
     public int rewardScore = 5;
     public float movementSpeed = 300;
 
-    [SerializeField] private Enemy_SO _enemyTemplate;
+    public Enemy_SO enemyTemplate;
     private void Start()
     {
-        
+        SetEnemyProperties();
     }
     private void Update()
     {
-        Move();
+        PerformEnemyBehavior();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -32,13 +32,20 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    private void Move()
+    private void PerformEnemyBehavior()
     {
         if (target == null)
             return;
-        //Debug.Log("target not null");
-        //Vector3 delta = target.transform.position*movementSpeed*Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position,target.transform.position,movementSpeed*Time.deltaTime);
+        if (enemyTemplate ==null)
+        {
+            //Debug.Log("target not null");
+            //Vector3 delta = target.transform.position*movementSpeed*Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, movementSpeed * Time.deltaTime);
+        }
+        else
+        {
+            enemyTemplate.DoBehavior(target,this);
+        }
     }
     private void Die()
     {
@@ -47,10 +54,10 @@ public class Enemy : MonoBehaviour
     }
     private void SetEnemyProperties()
     {
-        if (_enemyTemplate == null)
+        if (enemyTemplate == null)
             return;
-        damage = _enemyTemplate.damage;
-        rewardScore = _enemyTemplate.rewardScore;
-        movementSpeed = _enemyTemplate.movementSpeed;
+        damage = enemyTemplate.damage;
+        rewardScore = enemyTemplate.rewardScore;
+        movementSpeed = enemyTemplate.movementSpeed;
     }
 }
