@@ -172,7 +172,7 @@ MonoBehaviour:
   - {fileID: 1961881282}
   _minSpawnTime: 1
   _maxSpawnTime: 1.5
-  _enemyTemplateToSpawn: {fileID: 0}
+  _enemyTemplateToSpawn: {fileID: 11400000, guid: 4007158cd1a99dd41b26a162c4de169f, type: 2}
 --- !u!1 &470952583
 GameObject:
   m_ObjectHideFlags: 0

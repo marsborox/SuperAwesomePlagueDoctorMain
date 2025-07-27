@@ -9,6 +9,7 @@ public class Enemy_SO : ScriptableObject
     public int damage = 10;
     public int rewardScore = 5;
     public float movementSpeed = 300;
+    public int range =3;
     public EnemyBehavior_SO enemyBehavior_SO;
 
     public void DoBehavior(Player target, Enemy usedEnemy)
