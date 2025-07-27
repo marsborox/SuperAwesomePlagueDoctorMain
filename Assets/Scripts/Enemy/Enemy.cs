@@ -6,7 +6,12 @@ public class Enemy : MonoBehaviour
     public Player target;
     public int damage = 10;
     public int rewardScore = 5;
-    public float movementSpeed = 300;
+    public float movementSpeed = 3;
+    public int range = 3;
+
+    public float attackInterval;
+    public float attackTimer;
+
 
     public Enemy_SO enemyTemplate;
     private void Start()
@@ -59,5 +64,6 @@ public class Enemy : MonoBehaviour
         damage = enemyTemplate.damage;
         rewardScore = enemyTemplate.rewardScore;
         movementSpeed = enemyTemplate.movementSpeed;
+        range = enemyTemplate.range;
     }
 }
