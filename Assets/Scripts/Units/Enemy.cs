@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Unit
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Player target;
@@ -25,11 +25,12 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("Colision");
-        if (other.tag == "Bullet")
+        if (other.tag == "Projectile")
         {
             Debug.Log("BulletHitMe");
             Die();
         }
+       
 
         else if (other.tag == "Player")
         {
@@ -65,5 +66,9 @@ public class Enemy : MonoBehaviour
         rewardScore = enemyTemplate.rewardScore;
         movementSpeed = enemyTemplate.movementSpeed;
         range = enemyTemplate.range;
+    }
+    void Test()
+    {
+        this.tag = "enemy";
     }
 }

@@ -2,13 +2,22 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private Bullet _bullet;
+    [SerializeField] private Projectile _bullet;
     [SerializeField] private MouseFollow _mouseFollow;
-
     [SerializeField] private Weapon_SO _currentWeapon;
+    [SerializeField] private Player _player;
+
+
+    private void Awake()
+    {
+        _player = GetComponent<Player>();
+        
+    }
     public void Shoot()
     {
-        Instantiate(_bullet.gameObject, transform.position, _mouseFollow.transform.rotation);
+        Projectile bullet;
+        bullet = Instantiate(_bullet, transform.position, _mouseFollow.transform.rotation);
+        
     }
     public void Attack()
     { 

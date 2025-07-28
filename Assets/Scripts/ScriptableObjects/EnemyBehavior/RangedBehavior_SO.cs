@@ -3,11 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RangedBehavior_SO", menuName = "Scriptable Objects/EnemyBehavior_SO/RangedBehavior_SO")]
 public class RangedBehavior_SO : EnemyBehavior_SO
 {
+    [SerializeField] Projectile _projectilePrefab;
     public override void EnemyBehavior(Player target, Enemy usedEnemy)
     {
         if (IsInRange(target, usedEnemy))
         {
-            Attack();
+            Attack(target, usedEnemy);
         }
         else
         {
@@ -15,10 +16,6 @@ public class RangedBehavior_SO : EnemyBehavior_SO
         }
     }
     
-    private void Attack()
-    {
-        Debug.Log("Shooting bam bam");
-    }
     private bool IsInRange(Player target, Enemy usedEnemy)
     { 
         float distance = Vector2.Distance(usedEnemy.transform.position,usedEnemy.transform.position);
@@ -30,5 +27,9 @@ public class RangedBehavior_SO : EnemyBehavior_SO
         {
             return false;
         }
+    }
+    private void Attack(Player target,Enemy usedEnemy)
+    {
+        Instantiate(_projectilePrefab/*,usedEnemy.transform.position*/);
     }
 }
