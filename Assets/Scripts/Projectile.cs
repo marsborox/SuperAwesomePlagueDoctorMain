@@ -2,8 +2,16 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public string targetTag;
+    public string targetTag = "Projectile";
     [SerializeField] private float movementSpeed = 8f;
+
+    private void Start()
+    {
+        if (targetTag == null)
+        {
+            targetTag = "NoTag";
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Wall")

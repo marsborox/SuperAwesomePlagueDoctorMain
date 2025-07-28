@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : Unit
 {
-    [SerializeField] private Projectile Bullet;
+    //[SerializeField] private Projectile Bullet;
     public PlayerEventHandler playerEventHandler;
 
     public int score=20;
