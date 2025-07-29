@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Unit
 {
-    [SerializeField] private Bullet Bullet;
+    //[SerializeField] private Projectile Bullet;
     public PlayerEventHandler playerEventHandler;
 
     public int score=20;

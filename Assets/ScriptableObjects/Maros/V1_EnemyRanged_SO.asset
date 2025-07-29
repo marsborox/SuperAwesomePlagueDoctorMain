@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 007cda95c889360469764a108726ef80, type: 3}
-  m_Name: V1_Enemy_SO
+  m_Name: V1_EnemyRanged_SO
   m_EditorClassIdentifier: 
   damage: 10
   rewardScore: 5
   movementSpeed: 3
-  enemyBehavior_SO: {fileID: 0}
+  range: 3
+  enemyBehavior_SO: {fileID: 11400000, guid: 37e3b64a47a285f448d03b276cb992d8, type: 2}

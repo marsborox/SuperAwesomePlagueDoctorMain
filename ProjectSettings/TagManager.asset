@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Wall
+  - Projectile
+  - NoTag
   layers:
   - Default
   - TransparentFX
