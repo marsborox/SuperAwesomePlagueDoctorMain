@@ -12,6 +12,7 @@ public class Enemy : Unit
     public float attackInterval;
     public float attackTimer;
 
+    [SerializeField] private string _targetTag = "Player";
 
     public Enemy_SO enemyTemplate;
     private void Start()
@@ -28,14 +29,20 @@ public class Enemy : Unit
         if (other.tag == "Projectile")
         {
             Debug.Log("BulletHitMe");
+
+            Projectile projectile = other.gameObject.GetComponent<Projectile>();
+            if (projectile.targetTag == gameObject.tag)
+            { 
             Die();
+            }
         }
        
-
-        else if (other.tag == "Player")
+        else if (other.tag == _targetTag)
         {
             target.playerEventHandler.ChangeHealth(-damage);
             Destroy(this.gameObject);
+
+
         }
     }
     private void PerformEnemyBehavior()
@@ -71,4 +78,5 @@ public class Enemy : Unit
     {
         this.tag = "enemy";
     }
+
 }

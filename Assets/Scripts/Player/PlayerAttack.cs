@@ -6,7 +6,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private MouseFollow _mouseFollow;
     [SerializeField] private Weapon_SO _currentWeapon;
     [SerializeField] private Player _player;
+    [SerializeField] private int _damage = 1;
 
+    [SerializeField] private string _targetTag = "Enemy";
 
     private void Awake()
     {
@@ -15,9 +17,11 @@ public class PlayerAttack : MonoBehaviour
     }
     public void Shoot()
     {
-        Projectile bullet;
-        bullet = Instantiate(_projectile, transform.position, _mouseFollow.transform.rotation);
-        
+        Projectile projectile;
+        projectile = Instantiate(_projectile, transform.position, _mouseFollow.transform.rotation);
+        projectile.damage = _damage;
+        projectile.targetTag = _targetTag;
+
     }
     public void Attack()
     { 

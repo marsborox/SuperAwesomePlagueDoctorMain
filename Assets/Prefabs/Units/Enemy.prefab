@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6722560089914719067}
   m_Layer: 8
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,3 +151,8 @@ MonoBehaviour:
   damage: 10
   rewardScore: 5
   movementSpeed: 3
+  range: 3
+  attackInterval: 0
+  attackTimer: 0
+  _targetTag: Player
+  enemyTemplate: {fileID: 0}

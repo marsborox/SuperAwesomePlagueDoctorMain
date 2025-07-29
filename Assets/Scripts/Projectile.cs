@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public string targetTag = "Projectile";
+    public string targetTag;
     [SerializeField] private float movementSpeed = 8f;
-
+    public int damage;
     private void Start()
     {
-        if (targetTag == null)
-        {
-            targetTag = "NoTag";
-        }
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -20,7 +17,7 @@ public class Projectile : MonoBehaviour
         }
         else if (other.tag == targetTag)
         { 
-            
+            //
         }
     }
     private void Update()
