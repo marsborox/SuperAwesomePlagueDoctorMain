@@ -147,6 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b527e203266417d419ea63b8677983f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _projectile: {fileID: 3087324221369710027, guid: 7bb97bc4f62fcbf43ba49f672eb091f1, type: 3}
+  _targetTag: Player
+  enemyTemplate: {fileID: 0}
   target: {fileID: 0}
   damage: 10
   rewardScore: 5
@@ -154,5 +157,3 @@ MonoBehaviour:
   range: 3
   attackInterval: 0
   attackTimer: 0
-  _targetTag: Player
-  enemyTemplate: {fileID: 0}

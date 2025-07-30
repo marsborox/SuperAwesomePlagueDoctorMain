@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
         }
         else if (other.tag == targetTag)
         { 
-            //
+            // if we want logic here
         }
     }
     private void Update()

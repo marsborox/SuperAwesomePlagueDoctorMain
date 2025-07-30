@@ -3,18 +3,19 @@ using UnityEngine;
 public class Enemy : Unit
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private Projectile _projectile;
+    [SerializeField] private string _targetTag = "Player";
+    public Enemy_SO enemyTemplate;
     public Player target;
+
     public int damage = 10;
     public int rewardScore = 5;
     public float movementSpeed = 3;
     public int range = 3;
-
+    
     public float attackInterval;
     public float attackTimer;
 
-    [SerializeField] private string _targetTag = "Player";
-
-    public Enemy_SO enemyTemplate;
     private void Start()
     {
         SetEnemyProperties();
