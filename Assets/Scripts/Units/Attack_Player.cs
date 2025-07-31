@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class Attack_Player: MonoBehaviour
 {
     [SerializeField] private Projectile _projectile;
     [SerializeField] private MouseFollow _mouseFollow;
@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
         projectile = Instantiate(_projectile, transform.position, _mouseFollow.transform.rotation);
         projectile.damage = _damage;
         projectile.targetTag = _targetTag;
-
+        projectile.sourceUnit = _player;
     }
     public void Attack()
     { 

@@ -40,7 +40,7 @@ public class Enemy : Unit
        
         else if (other.tag == _targetTag)
         {
-            target.playerEventHandler.ChangeHealth(-damage);
+            target.unitEventHandler.ChangeHealth(-damage);
             Destroy(this.gameObject);
 
 
@@ -63,7 +63,7 @@ public class Enemy : Unit
     }
     private void Die()
     {
-        target.playerEventHandler.ChangeHealth(rewardScore);
+        target.unitEventHandler.ChangeHealth(rewardScore);
         Destroy(this.gameObject);
     }
     private void SetEnemyProperties()

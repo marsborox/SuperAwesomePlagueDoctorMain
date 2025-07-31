@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerEventHandler : MonoBehaviour
+public class EventHandler_Unit : MonoBehaviour
 {
     public delegate void HealthChangeEvent(int healthChangeValue);
     public event HealthChangeEvent OnHealthChange;

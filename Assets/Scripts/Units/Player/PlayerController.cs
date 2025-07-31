@@ -5,12 +5,12 @@ public class PlayerController : MonoBehaviour
 {
     public Vector2 moveInput;
     private PlayerMovement _playerMovement;
-    private PlayerAttack _playerAttack;
+    private Attack_Player _playerAttack;
 
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
-        _playerAttack = GetComponent<PlayerAttack>();
+        _playerAttack = GetComponent<Attack_Player>();
     }
     private void FixedUpdate()
     {
