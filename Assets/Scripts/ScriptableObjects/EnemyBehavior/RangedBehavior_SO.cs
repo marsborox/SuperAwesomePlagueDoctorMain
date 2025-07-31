@@ -32,11 +32,9 @@ public class RangedBehavior_SO : EnemyBehavior_SO
     private void Attack(Player target,Enemy usedEnemy)
     {
         Vector3 shootPosition = target.transform.position;
-
         Projectile spawnedProjectile = Instantiate(_projectilePrefab);
         spawnedProjectile.transform.position = usedEnemy.transform.position;
         spawnedProjectile.transform.up = -(usedEnemy.transform.position - shootPosition);
-        
     }
     private void GetShootDirection(Player target, Enemy usedEnemy)
     { 
