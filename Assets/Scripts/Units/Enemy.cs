@@ -1,3 +1,5 @@
+using System.Threading;
+
 using UnityEngine;
 
 public class Enemy : Unit
@@ -8,14 +10,22 @@ public class Enemy : Unit
     public Enemy_SO enemyTemplate;
     public Player target;
 
+
+
     public int damage = 10;
     public int rewardScore = 5;
-    public float movementSpeed = 3;
     public int range = 3;
     
+    public float movementSpeed = 3;
     public float attackInterval;
-    public float attackTimer;
+    public float attackTimer=0;
 
+    public bool attackReady = true;
+
+    private void Awake()
+    {
+        base.Awake();
+    }
     private void Start()
     {
         SetEnemyProperties();
@@ -23,6 +33,8 @@ public class Enemy : Unit
     private void Update()
     {
         PerformEnemyBehavior();
+        ShotReload();
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -74,6 +86,19 @@ public class Enemy : Unit
         rewardScore = enemyTemplate.rewardScore;
         movementSpeed = enemyTemplate.movementSpeed;
         range = enemyTemplate.range;
+        attackInterval = enemyTemplate.attackInterval;
+    }
+    private void ShotReload()
+    {
+        if (!attackReady)
+        {
+            attackTimer += Time.deltaTime;
+            if (attackTimer >= attackInterval)
+            {
+                attackTimer =-attackInterval;
+                attackReady = true;
+            }
+        }
     }
     void Test()
     {

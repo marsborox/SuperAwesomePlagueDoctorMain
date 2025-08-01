@@ -6,11 +6,12 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 [CreateAssetMenu(fileName = "Enemy_SO", menuName = "Scriptable Objects/Enemy_SO")]
 public class Enemy_SO : ScriptableObject
 {
+    public EnemyBehavior_SO enemyBehavior_SO;
     public int damage = 10;
     public int rewardScore = 5;
-    public float movementSpeed = 300;
     public int range =3;
-    public EnemyBehavior_SO enemyBehavior_SO;
+    public float movementSpeed = 300;
+    public float attackInterval = 2f;
 
     public void DoBehavior(Player target, Enemy usedEnemy)
     {
