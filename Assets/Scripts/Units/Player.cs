@@ -3,14 +3,14 @@ using UnityEngine;
 public class Player : Unit
 {
     //[SerializeField] private Projectile Bullet;
-    public EventHandler_Unit unitEventHandler;
+    //public EventHandler_Unit unitEventHandler;
 
     public int score=20;
 
 
     private void Awake()
     {
-        unitEventHandler = GetComponent<EventHandler_Unit>();
+        base.Awake();//unitEventHandler = GetComponent<EventHandler_Unit>();
     }
     void Start()
     {
@@ -32,4 +32,5 @@ public class Player : Unit
         score += changeHealthValue;
         Debug.Log("HeroGotHit");
     }
+
 }
