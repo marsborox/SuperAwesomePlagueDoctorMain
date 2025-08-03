@@ -17,8 +17,8 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
         else if (other.tag == targetTag)
-        { 
-            // if we want logic here
+        {
+            Debug.Log("bullet Hit");
         }
     }
     private void Update()

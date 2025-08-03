@@ -14,13 +14,24 @@ public class Player : Unit
     }
     void Start()
     {
-        
+        targetTag = "Enemy";
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Projectile")
+        { 
+            Projectile projectile = other.gameObject.GetComponent<Projectile>();
+            if (projectile.targetTag == gameObject.tag)
+            {
+                unitEventHandler.ChangeHealth(-projectile.damage);
+            }
+        }
     }
     public void OnEnable()
     {
@@ -30,7 +41,7 @@ public class Player : Unit
     void ChangeScore(int changeHealthValue)
     {
         score += changeHealthValue;
-        Debug.Log("HeroGotHit");
+        //Debug.Log("HeroGotHit");
     }
 
 }

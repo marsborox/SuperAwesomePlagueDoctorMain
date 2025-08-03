@@ -22,7 +22,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
     
     private bool IsInRange(Unit target, Unit usedEnemy)
     { 
-        float distance = Vector2.Distance(usedEnemy.transform.position,usedEnemy.transform.position);
+        float distance = Vector2.Distance(target.transform.position,usedEnemy.transform.position);
         if (distance < ((Enemy)usedEnemy).range)
         {
             return true;
@@ -40,6 +40,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
         Projectile spawnedProjectile = Instantiate(_projectilePrefab);
         spawnedProjectile.transform.position = usedEnemy.transform.position;
         spawnedProjectile.transform.up = -(usedEnemy.transform.position - shootPosition);
+        spawnedProjectile.targetTag = ((Enemy)usedEnemy).targetTag;
+        spawnedProjectile.damage = ((Enemy)usedEnemy).damage;
     }
-
 }
