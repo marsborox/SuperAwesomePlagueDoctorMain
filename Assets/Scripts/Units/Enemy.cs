@@ -6,7 +6,7 @@ public class Enemy : Unit
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private Projectile _projectile;
-    [SerializeField] private string _targetTag = "Player";
+    //[SerializeField] public string targetTag = "Player";
     public Enemy_SO enemyTemplate;
     public Player target;
 
@@ -14,7 +14,7 @@ public class Enemy : Unit
 
     public int damage = 10;
     public int rewardScore = 5;
-    public int range = 3;
+    public float range = 3;
     
     public float movementSpeed = 3;
     public float attackInterval;
@@ -28,6 +28,7 @@ public class Enemy : Unit
     }
     private void Start()
     {
+        targetTag = "Player";
         SetEnemyProperties();
     }
     private void Update()
@@ -41,8 +42,7 @@ public class Enemy : Unit
         //Debug.Log("Colision");
         if (other.tag == "Projectile")
         {
-            Debug.Log("BulletHitMe");
-
+            //Debug.Log("BulletHitMe");
             Projectile projectile = other.gameObject.GetComponent<Projectile>();
             if (projectile.targetTag == gameObject.tag)
             { 
@@ -50,7 +50,7 @@ public class Enemy : Unit
             }
         }
        
-        else if (other.tag == _targetTag)
+        else if (other.tag == targetTag)
         {
             target.unitEventHandler.ChangeHealth(-damage);
             Destroy(this.gameObject);
