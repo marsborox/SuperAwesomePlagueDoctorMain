@@ -16,16 +16,16 @@ public class PlayerController : MonoBehaviour
     {
         _playerMovement.Move(moveInput);
     }
-    void OnMove(InputValue value)
+    private void OnMove(InputValue value)
     { 
         moveInput = value.Get<Vector2>();
         //Debug.Log(moveInput);
     }
-    void OnAttack(InputValue value)
+    private void OnAttack(InputValue value)
     {
         if (value.isPressed)
         {
-            _playerAttack.Shoot();
+            _playerAttack.Attack();
         }
     }
 
