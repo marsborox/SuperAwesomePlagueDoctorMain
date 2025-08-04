@@ -7,7 +7,7 @@ public class Player : Unit
 
     public int score=20;
 
-
+    
     private void Awake()
     {
         base.Awake();//unitEventHandler = GetComponent<EventHandler_Unit>();

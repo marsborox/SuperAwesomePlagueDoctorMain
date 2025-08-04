@@ -49,13 +49,10 @@ public class Enemy : Unit
             Die();
             }
         }
-       
         else if (other.tag == targetTag)
         {
             target.unitEventHandler.ChangeHealth(-damage);
             Destroy(this.gameObject);
-
-
         }
     }
     private void PerformEnemyBehavior()

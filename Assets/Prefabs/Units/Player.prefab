@@ -182,6 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitEventHandler: {fileID: 0}
+  targetTag: 
+  damage: 0
   score: 0
 --- !u!114 &2336925100564582378
 MonoBehaviour:
@@ -207,12 +209,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df464d1cc68ced748b96c174693308cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 3087324221369710027, guid: 7bb97bc4f62fcbf43ba49f672eb091f1, type: 3}
+  projectile: {fileID: 3087324221369710027, guid: 7bb97bc4f62fcbf43ba49f672eb091f1, type: 3}
+  damage: 1
   _mouseFollow: {fileID: 3672550521405967202}
-  _currentWeapon: {fileID: 0}
+  _currentWeapon: {fileID: 11400000, guid: c737c09154b9cce449b40dab9c507657, type: 2}
   _player: {fileID: 0}
-  _damage: 1
-  _targetTag: Enemy
 --- !u!114 &1789071070035419239
 MonoBehaviour:
   m_ObjectHideFlags: 0
