@@ -12,7 +12,7 @@ public class Enemy : Unit
 
 
 
-    public int damage = 10;
+    //public int damage = 10;
     public int rewardScore = 5;
     public float range = 3;
     
@@ -30,6 +30,7 @@ public class Enemy : Unit
     {
         targetTag = "Player";
         SetEnemyProperties();
+        
     }
     private void Update()
     {
@@ -55,6 +56,26 @@ public class Enemy : Unit
             Destroy(this.gameObject);
         }
     }
+
+    private void SetEnemyProperties()
+    {
+        if (enemyTemplate == null)
+        {
+            SetDefaultEnemyPropertioes();
+        }
+        else
+        {
+            damage = enemyTemplate.damage;
+            rewardScore = enemyTemplate.rewardScore;
+            movementSpeed = enemyTemplate.movementSpeed;
+            range = enemyTemplate.range;
+            attackInterval = enemyTemplate.attackInterval;
+        }
+    }
+    private void SetDefaultEnemyPropertioes()
+    { 
+        damage = 10;
+    }
     private void PerformEnemyBehavior()
     {
         if (target == null)
@@ -70,21 +91,6 @@ public class Enemy : Unit
             enemyTemplate.DoBehavior(target,this);
         }
     }
-    private void Die()
-    {
-        target.unitEventHandler.ChangeHealth(rewardScore);
-        Destroy(this.gameObject);
-    }
-    private void SetEnemyProperties()
-    {
-        if (enemyTemplate == null)
-            return;
-        damage = enemyTemplate.damage;
-        rewardScore = enemyTemplate.rewardScore;
-        movementSpeed = enemyTemplate.movementSpeed;
-        range = enemyTemplate.range;
-        attackInterval = enemyTemplate.attackInterval;
-    }
     private void ShotReload()
     {
         if (!attackReady)
@@ -96,6 +102,11 @@ public class Enemy : Unit
                 attackReady = true;
             }
         }
+    }
+    private void Die()
+    {
+        target.unitEventHandler.ChangeHealth(rewardScore);
+        Destroy(this.gameObject);
     }
     void Test()
     {
