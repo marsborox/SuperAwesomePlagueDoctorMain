@@ -9,16 +9,7 @@ public class SpreadShot_SO : Weapon_SO
     [Tooltip("dont use higher number than 360")]
     [SerializeField] private float _spreadAngle = 30f;
     [SerializeField] int _numberOfShots = 5;
-    public /*override*/ void Attackkk(Projectile projectilePrefab, Unit sourceUnit, Transform attackDirection)
-    {
-        Debug.Log("shot from SpreadShot_SO");
-        Debug.Log(attackDirection);
-        Projectile projectile;
-        projectile = Instantiate(projectilePrefab, sourceUnit.transform.position/*transform.position*/, attackDirection.rotation/* _mouseFollow.transform.rotation*/);
-        projectile.damage = sourceUnit.damage;
-        projectile.targetTag = sourceUnit.targetTag;
-        projectile.sourceUnit = sourceUnit;
-    }
+
     public override void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform attackDirection)
     {
         Debug.Log("shot from SpreadShot_SO");
