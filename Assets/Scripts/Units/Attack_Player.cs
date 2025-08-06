@@ -32,7 +32,7 @@ public class Attack_Player: MonoBehaviour
         else
         {
             //add logic if ranged
-            //_currentWeapon.Attack();
+            
             Debug.Log("WeaponEquipped");
             _currentWeapon.Attack(projectile,_player, _mouseFollow.transform);
         }
