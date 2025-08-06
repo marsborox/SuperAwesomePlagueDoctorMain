@@ -28,7 +28,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
                     //Transform shootingTransform = usedEnemy.transform;
                     shootingDirection = Quaternion.LookRotation(targetPosition);
                     //shootingTransform.rotation = shootingDirection;
-                    _rangedWeapon.Attack(_projectilePrefab,usedEnemy, shootingDirection/*target.transform*/);
+                    _rangedWeapon.Attack(_projectilePrefab,usedEnemy, /*shootingDirection*/target.transform);
                 }
             }
             else
