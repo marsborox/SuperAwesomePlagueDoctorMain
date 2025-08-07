@@ -53,4 +53,4 @@ MonoBehaviour:
   - {fileID: 0}
   _minSpawnTime: 1
   _maxSpawnTime: 1.5
-  _enemyTemplateToSpawn: {fileID: 0}
+  _enemyTemplateToSpawn: {fileID: 11400000, guid: dfe8114fec790554cba6c9c300b3e0d2, type: 2}
