@@ -10,19 +10,19 @@ public class SpreadShot_SO : Weapon_SO
     [SerializeField] private float _spreadAngle = 30f;
     [SerializeField] int _numberOfShots = 5;
 
-    public override void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform attackDirection)
+    public override void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform shootRotation, Quaternion shootDirection)
     {
         Debug.Log("shot from SpreadShot_SO");
         int angles = _numberOfShots - 1;
         float angleBetweenTwoProjectiles = _spreadAngle / (_numberOfShots - 1);
-        float attackDirectionInDegree = attackDirection.rotation.eulerAngles.z;
+        float attackDirectionInDegree = shootRotation.rotation.eulerAngles.z;
                 
         //Debug.Log(attackDirectionInDegree.ToString());
         float angleOfShot = attackDirectionInDegree - (_spreadAngle / 2);
         
         for (int i = 0; i < _numberOfShots; i++)
         {
-            Quaternion directionOfProjectile = Quaternion.Euler(attackDirection.rotation.x, attackDirection.rotation.y, angleOfShot);
+            Quaternion directionOfProjectile = Quaternion.Euler(shootRotation.rotation.x, shootRotation.rotation.y, angleOfShot);
 
             Projectile projectile;
             projectile = Instantiate(projectilePrefab, sourceUnit.transform.position, directionOfProjectile);
