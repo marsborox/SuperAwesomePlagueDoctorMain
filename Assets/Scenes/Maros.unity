@@ -956,7 +956,7 @@ PrefabInstance:
     - target: {fileID: 1843425061436485748, guid: caed51350451db9439abdf6e2b96302d, type: 3}
       propertyPath: _enemyTemplateToSpawn
       value: 
-      objectReference: {fileID: 11400000, guid: 4c0fb82712540d84bb8f5358edb15638, type: 2}
+      objectReference: {fileID: 11400000, guid: 6b5c4d310dc9e4144bc051c886db7665, type: 2}
     - target: {fileID: 1843425061436485748, guid: caed51350451db9439abdf6e2b96302d, type: 3}
       propertyPath: '_spawnPoints.Array.data[0]'
       value: 
