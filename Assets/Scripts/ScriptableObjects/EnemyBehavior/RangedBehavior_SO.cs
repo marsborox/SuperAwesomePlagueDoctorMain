@@ -20,15 +20,17 @@ public class RangedBehavior_SO : EnemyBehavior_SO
                 else
                 {
                     Transform attackDirection;
-                    
+
                     ((Enemy)usedEnemy).attackReady = false;
 
-                    Vector2 targetPosition = (usedEnemy.transform.position -target.transform.position).normalized;
-                    Quaternion shootingDirection;/* = Quaternion.Euler(targetPosition.x,targetPosition.y,targetPosition.z);*/
+                    Vector3 targetPosition = (target.transform.position - usedEnemy.transform.position).normalized;
+                    float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
+                    angle -= 90f;
+                    //Quaternion shootingDirection;/* = Quaternion.Euler(targetPosition.x,targetPosition.y,targetPosition.z);*/
                     //Transform shootingTransform = usedEnemy.transform;
-                    shootingDirection = Quaternion.LookRotation(targetPosition);
+                    Quaternion shootingDirection = Quaternion.Euler(0,0,angle);
                     //shootingTransform.rotation = shootingDirection;
-                    _rangedWeapon.Attack(_projectilePrefab,usedEnemy, /*shootingDirection*/target.transform);
+                    _rangedWeapon.Attack(_projectilePrefab,usedEnemy, target.transform, shootingDirection);
                 }
             }
             else
@@ -60,6 +62,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
         spawnedProjectile.transform.up = -(usedEnemy.transform.position - shootPosition);
         spawnedProjectile.targetTag = ((Enemy)usedEnemy).targetTag;
         spawnedProjectile.damage = ((Enemy)usedEnemy).damage;
+        
     }
     private void AttackFromSO()
     { 

@@ -34,7 +34,7 @@ public class Attack_Player: MonoBehaviour
             //add logic if ranged
             
             Debug.Log("WeaponEquipped");
-            _currentWeapon.Attack(projectile,_player, _mouseFollow.transform);
+            //_currentWeapon.Attack(projectile,_player, _mouseFollow.transform);
             _currentWeapon.Attack(projectile, _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
         }
     }

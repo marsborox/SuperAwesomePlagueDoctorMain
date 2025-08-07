@@ -4,11 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SingleShot_SO", menuName = "Scriptable Objects/Weapon_SO/SingleShot_SO")]
 public class SingleShot_SO : Weapon_SO
 {
-    public override void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform shootRotation )
+    public override void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform shootRotation, Quaternion shootDirection)
     {
         Debug.Log("shot from SingleShot_SO");
         Projectile projectile;
-        projectile = Instantiate(projectilePrefab, sourceUnit.transform.position/*transform.position*/, shootRotation.rotation/* _mouseFollow.transform.rotation*/);
+        projectile = Instantiate(projectilePrefab, sourceUnit.transform.position, shootDirection);
         projectile.damage = sourceUnit.damage;
         projectile.targetTag = sourceUnit.targetTag;
         projectile.sourceUnit = sourceUnit;

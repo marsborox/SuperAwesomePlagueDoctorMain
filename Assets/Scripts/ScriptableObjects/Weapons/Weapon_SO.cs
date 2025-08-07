@@ -12,6 +12,10 @@ public class Weapon_SO : ScriptableObject
     { 
     
     }
+    public virtual void Attack(Projectile projectilePrefab, Unit sourceUnit, Quaternion shootDirection)
+    {
+
+    }
     public virtual void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform shootRotation, Quaternion shootDirection)
     {
 

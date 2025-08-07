@@ -250,7 +250,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.43, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -956,7 +956,7 @@ PrefabInstance:
     - target: {fileID: 1843425061436485748, guid: caed51350451db9439abdf6e2b96302d, type: 3}
       propertyPath: _enemyTemplateToSpawn
       value: 
-      objectReference: {fileID: 11400000, guid: 6b5c4d310dc9e4144bc051c886db7665, type: 2}
+      objectReference: {fileID: 11400000, guid: 4c0fb82712540d84bb8f5358edb15638, type: 2}
     - target: {fileID: 1843425061436485748, guid: caed51350451db9439abdf6e2b96302d, type: 3}
       propertyPath: '_spawnPoints.Array.data[0]'
       value: 
@@ -1126,7 +1126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3509358026528709863, guid: 451deff3783204445b1f71a82dcd2a24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.67
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 3509358026528709863, guid: 451deff3783204445b1f71a82dcd2a24, type: 3}
       propertyPath: m_LocalPosition.y

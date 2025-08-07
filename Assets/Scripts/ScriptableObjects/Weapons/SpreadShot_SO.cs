@@ -15,15 +15,13 @@ public class SpreadShot_SO : Weapon_SO
         Debug.Log("shot from SpreadShot_SO");
         int angles = _numberOfShots - 1;
         float angleBetweenTwoProjectiles = _spreadAngle / (_numberOfShots - 1);
-        float attackDirectionInDegree = shootRotation.rotation.eulerAngles.z;
-                
-        //Debug.Log(attackDirectionInDegree.ToString());
+        float attackDirectionInDegree = shootDirection.eulerAngles.z;
+
         float angleOfShot = attackDirectionInDegree - (_spreadAngle / 2);
         
         for (int i = 0; i < _numberOfShots; i++)
         {
-            Quaternion directionOfProjectile = Quaternion.Euler(shootRotation.rotation.x, shootRotation.rotation.y, angleOfShot);
-
+            Quaternion directionOfProjectile = Quaternion.Euler(shootDirection.x, shootDirection.y, angleOfShot);
             Projectile projectile;
             projectile = Instantiate(projectilePrefab, sourceUnit.transform.position, directionOfProjectile);
             projectile.damage = sourceUnit.damage;
