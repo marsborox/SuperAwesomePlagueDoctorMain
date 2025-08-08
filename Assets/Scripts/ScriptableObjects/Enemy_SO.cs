@@ -1,7 +1,5 @@
 using UnityEngine;
 
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 [CreateAssetMenu(fileName = "Enemy_SO", menuName = "Scriptable Objects/Enemy_SO")]
 public class Enemy_SO : ScriptableObject

@@ -1,0 +1,24 @@
+using UnityEngine;
+
+
+public class Action_SO : ScriptableObject
+{
+
+    public virtual void Attack()
+    { 
+    
+    }
+    public virtual void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform shootRotation)
+    { 
+    
+    }
+    public virtual void Attack(Projectile projectilePrefab, Unit sourceUnit, Quaternion shootDirection)
+    {
+
+    }
+    public virtual void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform shootRotation, Quaternion shootDirection)
+    {
+
+    }
+
+}

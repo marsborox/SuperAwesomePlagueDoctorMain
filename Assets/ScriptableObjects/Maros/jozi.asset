@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5892f00506b619843bb8d943971fd70b, type: 3}
-  m_Name: RangedBehavior_SO
+  m_Script: {fileID: 11500000, guid: 007cda95c889360469764a108726ef80, type: 3}
+  m_Name: jozi
   m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 3087324221369710027, guid: 7bb97bc4f62fcbf43ba49f672eb091f1, type: 3}
-  _rangedWeapon: {fileID: 11400000, guid: c737c09154b9cce449b40dab9c507657, type: 2}
+  enemyBehavior_SO: {fileID: 11400000, guid: 37e3b64a47a285f448d03b276cb992d8, type: 2}
+  damage: 10
+  rewardScore: 5
+  range: 3
+  movementSpeed: 300
+  attackInterval: 0.66
