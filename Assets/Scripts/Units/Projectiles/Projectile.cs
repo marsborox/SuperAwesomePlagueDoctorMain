@@ -21,11 +21,11 @@ public class Projectile : MonoBehaviour
             //Debug.Log("bullet Hit");
         }
     }
-    private void Update()
+    public void Update()
     {
         BulletMovement();
     }
-    void BulletMovement()
+    public void BulletMovement()
     {
         transform.Translate(Vector3.up * Time.deltaTime * movementSpeed);
     }

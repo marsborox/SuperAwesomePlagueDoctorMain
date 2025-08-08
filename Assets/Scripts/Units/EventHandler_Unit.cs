@@ -9,5 +9,4 @@ public class EventHandler_Unit : MonoBehaviour
     {
         OnHealthChange?.Invoke(healthChangeValue);
     }
-
 }

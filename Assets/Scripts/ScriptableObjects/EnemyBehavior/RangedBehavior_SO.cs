@@ -5,7 +5,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
 {
     [SerializeField] Projectile _projectilePrefab;
     [Tooltip("rangedAttackPattern")]
-    [SerializeField] Weapon_SO _rangedWeapon;
+    [SerializeField] private Action_SO _attackSO;
     public override void EnemyBehavior(Unit target, Unit usedEnemy)
     {
         var enemy = ((Enemy)usedEnemy);
@@ -13,7 +13,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
         {        
             if (IsInRange(target, usedEnemy))
             {
-                if (_rangedWeapon == null)
+                if (_attackSO == null)
                 {
                     Attack(target, usedEnemy);
                 }
@@ -30,7 +30,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
                     //Transform shootingTransform = usedEnemy.transform;
                     Quaternion shootingDirection = Quaternion.Euler(0,0,angle);
                     //shootingTransform.rotation = shootingDirection;
-                    _rangedWeapon.Attack(_projectilePrefab,usedEnemy, target.transform, shootingDirection);
+                    _attackSO.Attack(_projectilePrefab,usedEnemy, target.transform, shootingDirection);
                 }
             }
             else

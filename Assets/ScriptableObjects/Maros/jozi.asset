@@ -17,4 +17,4 @@ MonoBehaviour:
   rewardScore: 5
   range: 3
   movementSpeed: 300
-  attackInterval: 2
+  attackInterval: 0.66

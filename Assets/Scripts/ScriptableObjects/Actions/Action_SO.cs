@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class Weapon_SO : ScriptableObject
+public class Action_SO : ScriptableObject
 {
 
     public virtual void Attack()

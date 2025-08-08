@@ -1,8 +1,8 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "SingleShot_SO", menuName = "Scriptable Objects/Weapon_SO/SingleShot_SO")]
-public class SingleShot_SO : Weapon_SO
+[CreateAssetMenu(fileName = "SingleShot_SO", menuName = "Scriptable Objects/Action_SO/SingleShot_SO")]
+public class SingleShot_SO : Action_SO
 {
     public override void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform shootRotation, Quaternion shootDirection)
     {
