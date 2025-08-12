@@ -30,7 +30,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
                     //Transform shootingTransform = usedEnemy.transform;
                     Quaternion shootingDirection = Quaternion.Euler(0,0,angle);
                     //shootingTransform.rotation = shootingDirection;
-                    _attackSO.Attack(_projectilePrefab,usedEnemy, target.transform, shootingDirection);
+                    _attackSO.Attack(/*_projectilePrefab,*/usedEnemy, target.transform, shootingDirection);
                 }
             }
             else
@@ -54,7 +54,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
     }
     
     private void Attack(Unit target, Unit usedEnemy)
-    {
+    {//this is just in case
         ((Enemy)usedEnemy).attackReady = false;
         Vector3 shootPosition = target.transform.position;
         Projectile spawnedProjectile = Instantiate(_projectilePrefab);

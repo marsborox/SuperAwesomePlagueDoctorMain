@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Attack_Player: MonoBehaviour
 {
-    [SerializeField] public Projectile projectile;
+    [SerializeField] private Projectile _projectile;
     [SerializeField] public int damage = 1;
     [SerializeField] private MouseFollow _mouseFollow;
     [SerializeField] private Action_SO _activeAction;
@@ -18,7 +18,7 @@ public class Attack_Player: MonoBehaviour
     public void Shoot()
     {
         Projectile projectile;
-        projectile = Instantiate(this.projectile, transform.position, _mouseFollow.transform.rotation);
+        projectile = Instantiate(this._projectile, transform.position, _mouseFollow.transform.rotation);
         projectile.damage = damage;
         projectile.targetTag = _player.targetTag;
         projectile.sourceUnit = _player;
@@ -35,7 +35,7 @@ public class Attack_Player: MonoBehaviour
             
             Debug.Log("WeaponEquipped");
             //_currentWeapon.Attack(projectile,_player, _mouseFollow.transform);
-            _activeAction.Attack(projectile, _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
+            _activeAction.Attack(/*projectile,*/ _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
         }
     }
 }

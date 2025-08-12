@@ -47,7 +47,8 @@ public class Enemy : Unit
             Projectile projectile = other.gameObject.GetComponent<Projectile>();
             if (projectile.targetTag == gameObject.tag)
             { 
-            Die();
+                Die();
+                Destroy(projectile.gameObject);
             }
         }
         else if (other.tag == targetTag)

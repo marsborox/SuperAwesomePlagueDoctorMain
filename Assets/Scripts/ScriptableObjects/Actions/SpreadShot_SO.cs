@@ -9,7 +9,7 @@ public class SpreadShot_SO : Action_SO
     [Tooltip("dont use higher number than 360")]
     [SerializeField] private float _spreadAngle = 30f;
     [SerializeField] int _numberOfShots = 5;
-    public override void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform shootRotation, Quaternion shootDirection)
+    public override void Attack(/*Projectile projectilePrefab,*/ Unit sourceUnit, Transform shootRotation, Quaternion shootDirection)
     {
         Debug.Log("shot from SpreadShot_SO");
         int angles = _numberOfShots - 1;
