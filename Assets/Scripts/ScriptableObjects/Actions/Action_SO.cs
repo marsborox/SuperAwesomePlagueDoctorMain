@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Action_SO : ScriptableObject
 {
+    public Projectile projectilePrefab;
 
     public virtual void Attack()
     { 
@@ -16,9 +17,12 @@ public class Action_SO : ScriptableObject
     {
 
     }
-    public virtual void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform shootRotation, Quaternion shootDirection)
+    /*public virtual void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform shootRotation, Quaternion shootDirection)
+    {
+
+    }*/
+    public virtual void Attack(Unit sourceUnit, Transform shootRotation, Quaternion shootDirection)
     {
 
     }
-
 }

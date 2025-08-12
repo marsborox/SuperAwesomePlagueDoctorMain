@@ -30,6 +30,7 @@ public class Player : Unit
             if (projectile.targetTag == gameObject.tag)
             {
                 unitEventHandler.ChangeHealth(-projectile.damage);
+                Destroy(projectile.gameObject);
             }
         }
     }
