@@ -36,13 +36,21 @@ public class Player : Unit
     }
     public void OnEnable()
     {
-        unitEventHandler.OnHealthChange += ChangeScore;
-
+        //unitEventHandler.OnHealthChange += ChangeScore;
+        unitEventHandler.OnDeath += Die;
+    }
+    private void OnDisable()
+    {
+        //unitEventHandler.OnHealthChange -= ChangeScore;
     }
     void ChangeScore(int changeHealthValue)
     {
         score += changeHealthValue;
         //Debug.Log("HeroGotHit");
     }
-
+    void Die()
+    {
+        score = 0;
+        unitEventHandler.ResetHealth();
+    }
 }

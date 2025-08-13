@@ -38,6 +38,14 @@ public class Enemy : Unit
         ShotReload();
 
     }
+    private void OnEnable()
+    {
+        
+    }
+    private void OnDisable()
+    {
+        
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("Colision");
@@ -71,6 +79,7 @@ public class Enemy : Unit
             movementSpeed = enemyTemplate.movementSpeed;
             range = enemyTemplate.range;
             attackInterval = enemyTemplate.attackInterval;
+            unitEventHandler.ResetHealth();//may be redundant - or take value from SO
         }
     }
     private void SetDefaultEnemyPropertioes()

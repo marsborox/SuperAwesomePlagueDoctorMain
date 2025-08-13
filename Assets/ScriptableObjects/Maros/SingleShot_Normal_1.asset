@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740d108f1d0d6f94ba2b6150b4b8096a, type: 3}
   m_Name: SingleShot_Normal_1
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3087324221369710027, guid: 7bb97bc4f62fcbf43ba49f672eb091f1, type: 3}
