@@ -11,7 +11,6 @@ public class Enemy : Unit
     public Player target;
 
 
-
     //public int damage = 10;
     public int rewardScore = 5;
     public float range = 3;
@@ -21,6 +20,8 @@ public class Enemy : Unit
     public float attackTimer=0;
 
     public bool attackReady = true;
+
+    
 
     private void Awake()
     {
@@ -40,11 +41,11 @@ public class Enemy : Unit
     }
     private void OnEnable()
     {
-        
+        unitEventHandler.OnDeath += Die;
     }
     private void OnDisable()
     {
-        
+        unitEventHandler.OnDeath -= Die;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -54,8 +55,8 @@ public class Enemy : Unit
             //Debug.Log("BulletHitMe");
             Projectile projectile = other.gameObject.GetComponent<Projectile>();
             if (projectile.targetTag == gameObject.tag)
-            { 
-                Die();
+            {
+                unitEventHandler.ChangeHealth(-projectile.damage);
                 Destroy(projectile.gameObject);
             }
         }
@@ -115,7 +116,7 @@ public class Enemy : Unit
     }
     private void Die()
     {
-        target.unitEventHandler.ChangeHealth(rewardScore);
+        target.unitEventHandler.ChangeScore(rewardScore);
         Destroy(this.gameObject);
     }
     void Test()

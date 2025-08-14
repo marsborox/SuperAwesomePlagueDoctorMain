@@ -38,6 +38,7 @@ public class Player : Unit
     {
         //unitEventHandler.OnHealthChange += ChangeScore;
         unitEventHandler.OnDeath += Die;
+        unitEventHandler.OnScoreChange += ChangeScore;
     }
     private void OnDisable()
     {

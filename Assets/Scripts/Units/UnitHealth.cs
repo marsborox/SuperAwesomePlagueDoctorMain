@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class UnitHealth : MonoBehaviour
 {
-    public int healthMax = 10;//might be private
-    public int health;//might be private
+    //public int healthMax = 10;//might be private
+    public int healthCurrent;//might be private
     private Unit _unit;
     private void Awake()
     {
@@ -26,16 +26,26 @@ public class UnitHealth : MonoBehaviour
     }
     private void OnDisable()
     {
-        _unit.unitEventHandler.OnHealthChange += ChangeHealth;
+        _unit.unitEventHandler.OnHealthChange -= ChangeHealth;
+        _unit.unitEventHandler.OnResetHealth -= ResetHealth;
     }
     private void ResetHealth()
     {
-        health = healthMax;
+        if (((Enemy)_unit).enemyTemplate == null)
+        {
+            healthCurrent = 10;
+        }
+        else
+        {
+            healthCurrent = ((Enemy)_unit).enemyTemplate.healthMax;
+        }
+        //healthCurrent = healthMax;
     }
     void ChangeHealth(int changeHealthValue)
     {
-        health += changeHealthValue;
-        if (health < 0)
+        //Debug.Log("changingHelath");
+        healthCurrent += changeHealthValue;
+        if (healthCurrent <= 0)
         { 
             _unit.unitEventHandler.Die();
         }

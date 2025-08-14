@@ -4,11 +4,17 @@ public class EventHandler_Unit : MonoBehaviour
 {
     public delegate void HealthChangeEvent(int healthChangeValue);
     public event HealthChangeEvent OnHealthChange;
+    public delegate void ScoreChangeEvent(int scoreToAdd);
+    public event ScoreChangeEvent OnScoreChange;
     public event Action OnDeath;
     public event Action OnResetHealth;
     public void ChangeHealth(int healthChangeValue)
     {
         OnHealthChange?.Invoke(healthChangeValue);
+    }
+    public void ChangeScore(int healthChangeValue)
+    { 
+        OnScoreChange?.Invoke(healthChangeValue);
     }
     public void Die() 
     {
@@ -18,4 +24,5 @@ public class EventHandler_Unit : MonoBehaviour
     {
         OnResetHealth?.Invoke();
     }
+
 }
