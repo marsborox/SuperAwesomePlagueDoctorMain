@@ -12,4 +12,6 @@ public class Unit : MonoBehaviour
         unitEventHandler = GetComponent<EventHandler_Unit>();
         unitHealth = GetComponent<UnitHealth>();
     }
+    public virtual void OnColliderTrigger(Collider2D other)
+    { }
 }

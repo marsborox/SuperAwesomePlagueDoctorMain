@@ -47,7 +47,7 @@ public class Enemy : Unit
     {
         unitEventHandler.OnDeath -= Die;
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    public override void OnColliderTrigger(Collider2D other)
     {
         //Debug.Log("Colision");
         if (other.tag == "Projectile")
@@ -56,7 +56,7 @@ public class Enemy : Unit
             Projectile projectile = other.gameObject.GetComponent<Projectile>();
             if (projectile.targetTag == gameObject.tag)
             {
-                unitEventHandler.ChangeHealth(-projectile.damage);
+                GotHit(projectile);
                 Destroy(projectile.gameObject);
             }
         }
@@ -67,6 +67,7 @@ public class Enemy : Unit
         }
     }
 
+    
     private void SetEnemyProperties()
     {
         if (enemyTemplate == null)
@@ -87,6 +88,7 @@ public class Enemy : Unit
     private void SetDefaultEnemyProperties()
     { 
         damage = 10;
+        Debug.Log("no template on enemy");
     }
     private void PerformEnemyBehavior()
     {
@@ -124,5 +126,10 @@ public class Enemy : Unit
     {
         this.tag = "enemy";
     }
-
+    private void GotHit(Projectile projectile)
+    {
+        unitEventHandler.ChangeHealth(-projectile.damage);
+        projectile.sourceUnit.unitEventHandler.ChangeHealth(rewardScore);
+    }
+        
 }

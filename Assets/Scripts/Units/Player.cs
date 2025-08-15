@@ -22,18 +22,8 @@ public class Player : Unit
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Projectile")
-        { 
-            Projectile projectile = other.gameObject.GetComponent<Projectile>();
-            if (projectile.targetTag == gameObject.tag)
-            {
-                unitEventHandler.ChangeHealth(-projectile.damage);
-                Destroy(projectile.gameObject);
-            }
-        }
-    }
+
+
     public void OnEnable()
     {
         //unitEventHandler.OnHealthChange += ChangeScore;
@@ -53,5 +43,17 @@ public class Player : Unit
     {
         score = 0;
         unitEventHandler.ResetHealth();
+    }
+    public override void OnColliderTrigger(Collider2D other)
+    {
+        if (other.tag == "Projectile")
+        {
+            Projectile projectile = other.gameObject.GetComponent<Projectile>();
+            if (projectile.targetTag == gameObject.tag)
+            {
+                unitEventHandler.ChangeHealth(-projectile.damage);
+                Destroy(projectile.gameObject);
+            }
+        }
     }
 }

@@ -11,12 +11,10 @@ public class HealthBar : MonoBehaviour
         
     }
 
-    
     void Update()
     {
         SetBarSize();
     }
-
 
     private void OnDisable()
     {

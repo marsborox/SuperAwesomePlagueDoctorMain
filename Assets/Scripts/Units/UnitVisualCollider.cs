@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class UnitVisualCollider : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Unit unit;
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        unit.OnColliderTrigger(other);
+        /*
+        if (unit is Enemy)
+        {
+            ((Enemy)unit).OnColliderTrigger(other);
+        }
+        else if (unit is Player) 
+        {
+            ((Player)unit).OnColliderTrigger(other);
+        }*/
     }
 }

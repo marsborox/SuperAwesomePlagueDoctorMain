@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitEventHandler: {fileID: 0}
-  targetTag: 
+  targetTag: Enemy
   damage: 1
   health: 0
   unitHealth: {fileID: 0}
@@ -536,6 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563bbde28c095584a863dd0fc681dd9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unit: {fileID: 7747861109025471582}
 --- !u!1001 &8457848370452260604
 PrefabInstance:
   m_ObjectHideFlags: 0
