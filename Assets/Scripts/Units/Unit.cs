@@ -6,8 +6,10 @@ public class Unit : MonoBehaviour
     public string targetTag;
     public int damage;
     public int health;
+    public UnitHealth unitHealth;
     public void Awake()
     {
         unitEventHandler = GetComponent<EventHandler_Unit>();
+        unitHealth = GetComponent<UnitHealth>();
     }
 }

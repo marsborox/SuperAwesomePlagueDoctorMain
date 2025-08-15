@@ -71,7 +71,7 @@ public class Enemy : Unit
     {
         if (enemyTemplate == null)
         {
-            SetDefaultEnemyPropertioes();
+            SetDefaultEnemyProperties();
         }
         else
         {
@@ -81,9 +81,10 @@ public class Enemy : Unit
             range = enemyTemplate.range;
             attackInterval = enemyTemplate.attackInterval;
             unitEventHandler.ResetHealth();//may be redundant - or take value from SO
+            unitHealth.healthMax = enemyTemplate.healthMax;
         }
     }
-    private void SetDefaultEnemyPropertioes()
+    private void SetDefaultEnemyProperties()
     { 
         damage = 10;
     }

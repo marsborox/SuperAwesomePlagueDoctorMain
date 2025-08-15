@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class UnitHealth : MonoBehaviour
 {
-    //public int healthMax = 10;//might be private
+    public int healthMax = 10;//might be private
     public int healthCurrent;//might be private
     private Unit _unit;
     private void Awake()
@@ -31,15 +31,15 @@ public class UnitHealth : MonoBehaviour
     }
     private void ResetHealth()
     {
-        if (((Enemy)_unit).enemyTemplate == null)
+        /*if (((Enemy)_unit).enemyTemplate == null)
         {
-            healthCurrent = 10;
+            healthCurrent = healthMax;
         }
         else
         {
             healthCurrent = ((Enemy)_unit).enemyTemplate.healthMax;
-        }
-        //healthCurrent = healthMax;
+        }*/
+        healthCurrent = healthMax;
     }
     void ChangeHealth(int changeHealthValue)
     {
