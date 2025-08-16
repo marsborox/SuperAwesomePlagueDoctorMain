@@ -16,12 +16,13 @@ public class Attack_Player: MonoBehaviour
     }
 
     public void Shoot()
-    {
+    {//not used
         Projectile projectile;
         projectile = Instantiate(this._projectile, transform.position, _mouseFollow.transform.rotation);
-        projectile.damage = damage;
+        projectile.damage = _player.damage;
         projectile.targetTag = _player.targetTag;
         projectile.sourceUnit = _player;
+        Debug.Log("PlayerShoot");
     }
     public void Attack()
     {
@@ -31,10 +32,7 @@ public class Attack_Player: MonoBehaviour
         }
         else
         {
-            //add logic if ranged
-            
-            Debug.Log("WeaponEquipped");
-            //_currentWeapon.Attack(projectile,_player, _mouseFollow.transform);
+
             _activeAction.Attack(/*projectile,*/ _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
         }
     }

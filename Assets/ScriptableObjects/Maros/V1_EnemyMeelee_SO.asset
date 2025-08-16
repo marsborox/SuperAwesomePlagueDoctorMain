@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007cda95c889360469764a108726ef80, type: 3}
   m_Name: V1_EnemyMeelee_SO
   m_EditorClassIdentifier: 
-  damage: 10
+  enemyBehavior_SO: {fileID: 11400000, guid: 971d980681eb8bf4d8dd09fd4b9c4548, type: 2}
+  damage: 1
   rewardScore: 5
+  range: 3
+  healthMax: 2
   movementSpeed: 3
-  enemyBehavior_SO: {fileID: 0}
+  attackInterval: 2

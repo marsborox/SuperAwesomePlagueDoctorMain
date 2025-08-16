@@ -11,7 +11,6 @@ public class Enemy : Unit
     public Player target;
 
 
-
     //public int damage = 10;
     public int rewardScore = 5;
     public float range = 3;
@@ -21,6 +20,8 @@ public class Enemy : Unit
     public float attackTimer=0;
 
     public bool attackReady = true;
+
+    
 
     private void Awake()
     {
@@ -38,7 +39,15 @@ public class Enemy : Unit
         ShotReload();
 
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnEnable()
+    {
+        unitEventHandler.OnDeath += Die;
+    }
+    private void OnDisable()
+    {
+        unitEventHandler.OnDeath -= Die;
+    }
+    public override void OnColliderTrigger(Collider2D other)
     {
         //Debug.Log("Colision");
         if (other.tag == "Projectile")
@@ -46,8 +55,8 @@ public class Enemy : Unit
             //Debug.Log("BulletHitMe");
             Projectile projectile = other.gameObject.GetComponent<Projectile>();
             if (projectile.targetTag == gameObject.tag)
-            { 
-                Die();
+            {
+                GotHit(projectile);
                 Destroy(projectile.gameObject);
             }
         }
@@ -58,11 +67,12 @@ public class Enemy : Unit
         }
     }
 
+    
     private void SetEnemyProperties()
     {
         if (enemyTemplate == null)
         {
-            SetDefaultEnemyPropertioes();
+            SetDefaultEnemyProperties();
         }
         else
         {
@@ -71,11 +81,14 @@ public class Enemy : Unit
             movementSpeed = enemyTemplate.movementSpeed;
             range = enemyTemplate.range;
             attackInterval = enemyTemplate.attackInterval;
+            unitEventHandler.ResetHealth();//may be redundant - or take value from SO
+            unitHealth.healthMax = enemyTemplate.healthMax;
         }
     }
-    private void SetDefaultEnemyPropertioes()
+    private void SetDefaultEnemyProperties()
     { 
         damage = 10;
+        Debug.Log("no template on enemy");
     }
     private void PerformEnemyBehavior()
     {
@@ -84,6 +97,7 @@ public class Enemy : Unit
         if (enemyTemplate ==null)
         {
             //Debug.Log("target not null");
+            Debug.Log("template null");
             //Vector3 delta = target.transform.position*movementSpeed*Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, movementSpeed * Time.deltaTime);
         }
@@ -106,12 +120,19 @@ public class Enemy : Unit
     }
     private void Die()
     {
-        target.unitEventHandler.ChangeHealth(rewardScore);
+        Debug.Log("Implement Loot");
+        target.unitEventHandler.ChangeScore(rewardScore);
         Destroy(this.gameObject);
+
     }
     void Test()
     {
         this.tag = "enemy";
     }
-
+    private void GotHit(Projectile projectile)
+    {
+        unitEventHandler.ChangeHealth(-projectile.damage);
+        projectile.sourceUnit.unitEventHandler.ChangeScore(rewardScore);
+    }
+        
 }

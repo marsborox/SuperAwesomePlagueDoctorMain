@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RangedBehavior_SO
   m_EditorClassIdentifier: 
   _projectilePrefab: {fileID: 3087324221369710027, guid: 7bb97bc4f62fcbf43ba49f672eb091f1, type: 3}
-  _rangedWeapon: {fileID: 11400000, guid: c737c09154b9cce449b40dab9c507657, type: 2}
+  _attackSO: {fileID: 11400000, guid: c737c09154b9cce449b40dab9c507657, type: 2}
