@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1789071070035419239}
   - component: {fileID: 276873268226481901}
   - component: {fileID: 2021190335892129596}
-  - component: {fileID: 5000335589084241605}
+  - component: {fileID: 7720377023653862749}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df464d1cc68ced748b96c174693308cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 0}
+  _projectile: {fileID: 3087324221369710027, guid: 7bb97bc4f62fcbf43ba49f672eb091f1, type: 3}
   damage: 1
   _mouseFollow: {fileID: 3672550521405967202}
   _activeAction: {fileID: 0}
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
---- !u!114 &5000335589084241605
+--- !u!114 &7720377023653862749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70812aa5c9506845a9c528898ff9a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 10
+  healthMax: 100
   healthCurrent: 0
 --- !u!1 &3323479504044513688
 GameObject:

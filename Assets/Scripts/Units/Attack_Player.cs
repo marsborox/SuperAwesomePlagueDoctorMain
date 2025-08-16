@@ -19,7 +19,7 @@ public class Attack_Player: MonoBehaviour
     {//not used
         Projectile projectile;
         projectile = Instantiate(this._projectile, transform.position, _mouseFollow.transform.rotation);
-        projectile.damage = damage;
+        projectile.damage = _player.damage;
         projectile.targetTag = _player.targetTag;
         projectile.sourceUnit = _player;
         Debug.Log("PlayerShoot");

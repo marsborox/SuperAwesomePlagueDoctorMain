@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: V1_EnemyRanged_SO
   m_EditorClassIdentifier: 
   enemyBehavior_SO: {fileID: 11400000, guid: 37e3b64a47a285f448d03b276cb992d8, type: 2}
-  damage: 10
+  damage: 1
   rewardScore: 5
   range: 5
+  healthMax: 2
   movementSpeed: 3
   attackInterval: 2

@@ -18,7 +18,6 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemy();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -43,6 +42,7 @@ public class EnemySpawner : MonoBehaviour
         }
         enemy.transform.position = _spawnPoints[spawnPointSlot].transform.position;
         enemy.target = _player;
+        enemy.unitEventHandler.ResetHealth();
         StartCoroutine(GetNextSpawnTimeRoutine());
 
     }

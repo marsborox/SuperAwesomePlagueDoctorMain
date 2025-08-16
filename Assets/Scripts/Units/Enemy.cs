@@ -97,6 +97,7 @@ public class Enemy : Unit
         if (enemyTemplate ==null)
         {
             //Debug.Log("target not null");
+            Debug.Log("template null");
             //Vector3 delta = target.transform.position*movementSpeed*Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, movementSpeed * Time.deltaTime);
         }
@@ -119,8 +120,10 @@ public class Enemy : Unit
     }
     private void Die()
     {
+        Debug.Log("Implement Loot");
         target.unitEventHandler.ChangeScore(rewardScore);
         Destroy(this.gameObject);
+
     }
     void Test()
     {
@@ -129,7 +132,7 @@ public class Enemy : Unit
     private void GotHit(Projectile projectile)
     {
         unitEventHandler.ChangeHealth(-projectile.damage);
-        projectile.sourceUnit.unitEventHandler.ChangeHealth(rewardScore);
+        projectile.sourceUnit.unitEventHandler.ChangeScore(rewardScore);
     }
         
 }

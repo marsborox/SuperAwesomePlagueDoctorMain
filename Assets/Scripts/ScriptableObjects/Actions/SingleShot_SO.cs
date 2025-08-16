@@ -9,7 +9,7 @@ public class SingleShot_SO : Action_SO
         //Debug.Log("shot from SingleShot_SO");
         Projectile projectile;
         projectile = Instantiate(projectilePrefab, sourceUnit.transform.position, shootDirection);
-        projectile.damage = sourceUnit.damage;
+        projectile.damage = sourceUnit.damage;//should take damage from unitAttack?
         projectile.targetTag = sourceUnit.targetTag;
         projectile.sourceUnit = sourceUnit;
 

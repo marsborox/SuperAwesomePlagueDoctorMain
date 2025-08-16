@@ -2,52 +2,95 @@ using UnityEngine;
 
 public class UnitHealth : MonoBehaviour
 {
-    public int healthMax = 10;//might be private
+    public int healthMax = 1;//might be private
     public int healthCurrent;//might be private
     private Unit _unit;
     private void Awake()
     {
-        _unit = GetComponent<Unit>();        
-    }
-    void Start()
-    {
-        ResetHealth();
+        _unit = GetComponent<Unit>();
+
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        SubscribeToEventsPlayer();// when enable is run here, awake seems not to be finished in Unit for some reason (initialisation Order)
+        InitialiseHealth();
+        ResetHealth();
+    }
     void Update()
     {
         
     }
     private void OnEnable()
     {
-        _unit.unitEventHandler.OnHealthChange += ChangeHealth;
-        _unit.unitEventHandler.OnResetHealth += ResetHealth;
+        
+        ResetHealth();
+        
+        if (_unit.unitEventHandler == null)
+        {
+            Debug.Log(_unit.name + " doesnt see its eventHandler OnEnable");
+        }
+        else if(!(_unit.unitEventHandler == null))
+        {
+            Debug.Log(_unit.name + " does see its eventHandler OnEnable");
+            SubscribeToEvents();
+        }
+        
     }
     private void OnDisable()
     {
         _unit.unitEventHandler.OnHealthChange -= ChangeHealth;
         _unit.unitEventHandler.OnResetHealth -= ResetHealth;
     }
+    private void SubscribeToEvents()
+    {
+        _unit.unitEventHandler.OnHealthChange += ChangeHealth;
+        _unit.unitEventHandler.OnResetHealth += ResetHealth;
+    }
+    private void SubscribeToEventsPlayer()
+    {
+        if (_unit is Player)
+        {
+            if (_unit.unitEventHandler == null)
+            {
+                Debug.Log(_unit.name + " doesnt see its eventHandler PlayerSpecific");
+            }
+            else /*if (!(_unit.unitEventHandler == null))*/
+            {
+                Debug.Log(_unit.name + " does see its eventHandler PlayerSpecific");
+                SubscribeToEvents();//should work
+            }
+        }
+    }
+    private void InitialiseHealth()
+    {
+        if (_unit is Enemy)
+        {
+            healthMax = ((Enemy)_unit).enemyTemplate.healthMax;
+        }
+        else if (_unit is Player)
+        {
+            healthMax = ((Player)_unit).healthMax;
+        }
+    }
     private void ResetHealth()
     {
-        /*if (((Enemy)_unit).enemyTemplate == null)
-        {
-            healthCurrent = healthMax;
-        }
-        else
-        {
-            healthCurrent = ((Enemy)_unit).enemyTemplate.healthMax;
-        }*/
-        healthCurrent = healthMax;
+
+        healthCurrent = healthMax;    
     }
-    void ChangeHealth(int changeHealthValue)
+    private void ChangeHealth(int changeHealthValue)
     {
-        //Debug.Log("changingHelath");
+        Debug.Log(_unit.name+" changingHelath");
         healthCurrent += changeHealthValue;
         if (healthCurrent <= 0)
         { 
             _unit.unitEventHandler.Die();
         }
     }
+    private void GotHit(int i)
+    {//vieme ze event je triggernuty pre co nefunguje u hraca 
+        //just testing
+        Debug.Log("unitHealth healthMax event triggered with dmg " + i);
+    }
+    
 }
