@@ -120,7 +120,7 @@ public class Enemy : Unit
     }
     private void Die()
     {
-        Debug.Log("Implement Loot");
+        //Debug.Log("Implement Loot");
         target.unitEventHandler.ChangeScore(rewardScore);
         Destroy(this.gameObject);
 

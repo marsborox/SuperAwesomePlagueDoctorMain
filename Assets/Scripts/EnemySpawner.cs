@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _maxSpawnTime = 1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private Enemy_SO _enemyTemplateToSpawn;
+    public Coroutine spawnRoutine;
     void Start()
     {
         SpawnEnemy();
@@ -20,15 +21,24 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        
+        SpawnEnemies();
     }
+    private void SpawnEnemies()
+    {
+        if (spawnRoutine == null)
+        {
+            spawnRoutine = StartCoroutine(GetNextSpawnTimeRoutine());
+        }
 
+    }
     IEnumerator GetNextSpawnTimeRoutine()
     {
         float waitTime = Random.Range(_minSpawnTime,_maxSpawnTime);
         yield return new WaitForSeconds(waitTime);
         SpawnEnemy();
+        spawnRoutine = null;
     }
+
     private void SpawnEnemy()
     { 
         
@@ -40,10 +50,17 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy.enemyTemplate = _enemyTemplateToSpawn;
         }
-        enemy.transform.position = _spawnPoints[spawnPointSlot].transform.position;
+        //enemy.transform.position = _spawnPoints[spawnPointSlot].transform.position;
+        enemy.transform.position = ReturnSpawnpoint().position;//will probably be done by SO
         enemy.target = _player;
         enemy.unitEventHandler.ResetHealth();
-        StartCoroutine(GetNextSpawnTimeRoutine());
-
+        //StartCoroutine(GetNextSpawnTimeRoutine());
     }
+    public Transform ReturnSpawnpoint()
+    {
+        int spawnPointSlot = Random.Range(0, _spawnPoints.Count);//set position
+
+        return _spawnPoints[spawnPointSlot].transform; ;
+    }
+
 }
