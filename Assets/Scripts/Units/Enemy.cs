@@ -21,7 +21,7 @@ public class Enemy : Unit
 
     public bool attackReady = true;
 
-    
+    [SerializeField] private SpriteRenderer _sprite;
 
     private void Awake()
     {
@@ -83,6 +83,7 @@ public class Enemy : Unit
             attackInterval = enemyTemplate.attackInterval;
             unitEventHandler.ResetHealth();//may be redundant - or take value from SO
             unitHealth.healthMax = enemyTemplate.healthMax;
+            _sprite.color = enemyTemplate.color;
         }
     }
     private void SetDefaultEnemyProperties()

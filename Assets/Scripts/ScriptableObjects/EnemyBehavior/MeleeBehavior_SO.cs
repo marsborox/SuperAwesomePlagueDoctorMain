@@ -6,7 +6,7 @@ public class MeleeBehavior_SO : EnemyBehavior_SO
 {
     public override void EnemyBehavior(Unit target, Unit usedEnemy)
     {
-        Debug.Log("Enemy is Behaving Melee");
+        //Debug.Log("Enemy is Behaving Melee");
 
         base.MoveToTarget(target,usedEnemy);
     }

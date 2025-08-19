@@ -17,12 +17,12 @@ public class EnemySpawner : MonoBehaviour
     public GameManager gameManager;
     void Start()
     {
-        SpawnEnemy();
+        //SpawnEnemy();
     }
 
     void Update()
     {
-        SpawnEnemies();
+        //SpawnEnemies();
     }
     private void SpawnEnemies()
     {
