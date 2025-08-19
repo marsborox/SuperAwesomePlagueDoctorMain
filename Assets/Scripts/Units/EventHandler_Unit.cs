@@ -12,7 +12,7 @@ public class EventHandler_Unit : MonoBehaviour
     public void ChangeHealth(int healthChangeValue)
     {
         OnHealthChange?.Invoke(healthChangeValue);
-        Debug.Log("HealthChangeEvent run");
+        //Debug.Log("HealthChangeEvent run");
     }
     public void ChangeScore(int healthChangeValue)
     { 

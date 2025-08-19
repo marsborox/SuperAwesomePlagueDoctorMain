@@ -28,11 +28,11 @@ public class UnitHealth : MonoBehaviour
         
         if (_unit.unitEventHandler == null)
         {
-            Debug.Log(_unit.name + " doesnt see its eventHandler OnEnable");
+            //Debug.Log(_unit.name + " doesnt see its eventHandler OnEnable");
         }
         else if(!(_unit.unitEventHandler == null))
         {
-            Debug.Log(_unit.name + " does see its eventHandler OnEnable");
+            //Debug.Log(_unit.name + " does see its eventHandler OnEnable");
             SubscribeToEvents();
         }
         
@@ -53,11 +53,11 @@ public class UnitHealth : MonoBehaviour
         {
             if (_unit.unitEventHandler == null)
             {
-                Debug.Log(_unit.name + " doesnt see its eventHandler PlayerSpecific");
+                //Debug.Log(_unit.name + " doesnt see its eventHandler PlayerSpecific");
             }
             else /*if (!(_unit.unitEventHandler == null))*/
             {
-                Debug.Log(_unit.name + " does see its eventHandler PlayerSpecific");
+                //Debug.Log(_unit.name + " does see its eventHandler PlayerSpecific");
                 SubscribeToEvents();//should work
             }
         }
@@ -80,7 +80,7 @@ public class UnitHealth : MonoBehaviour
     }
     private void ChangeHealth(int changeHealthValue)
     {
-        Debug.Log(_unit.name+" changingHelath");
+        //Debug.Log(_unit.name+" changingHelath");
         healthCurrent += changeHealthValue;
         if (healthCurrent <= 0)
         { 

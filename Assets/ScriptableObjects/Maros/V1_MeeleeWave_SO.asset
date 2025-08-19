@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 354104a04ab9e254186effac97371ff4, type: 3}
-  m_Name: SpreadShot_SO
+  m_Script: {fileID: 11500000, guid: 51a5def6ffd1786428fc845ece32cdd3, type: 3}
+  m_Name: V1_MeeleeWave_SO
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3087324221369710027, guid: 7bb97bc4f62fcbf43ba49f672eb091f1, type: 3}
-  _spreadAngle: 30
-  _numberOfShots: 5
+  enemySO: {fileID: 11400000, guid: 4007158cd1a99dd41b26a162c4de169f, type: 2}
+  numberOfEnemies: 10
+  minSpawnTime: 0.5
+  maxSpawnTime: 0.8

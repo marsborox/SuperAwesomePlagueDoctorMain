@@ -13,23 +13,39 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _maxSpawnTime = 1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private Enemy_SO _enemyTemplateToSpawn;
+    public Coroutine spawnRoutine;
+    public GameManager gameManager;
     void Start()
     {
-        SpawnEnemy();
+        //SpawnEnemy();
     }
 
     void Update()
     {
-        
+        //SpawnEnemies();
     }
-
-    IEnumerator GetNextSpawnTimeRoutine()
+    private void SpawnEnemies()
+    {
+        if (spawnRoutine == null)
+        {
+            spawnRoutine = StartCoroutine(GetNextSpawnTimeRoutine());
+        }
+    }
+    public IEnumerator GetNextSpawnTimeRoutine()
     {
         float waitTime = Random.Range(_minSpawnTime,_maxSpawnTime);
         yield return new WaitForSeconds(waitTime);
         SpawnEnemy();
+        spawnRoutine = null;
     }
-    private void SpawnEnemy()
+    public IEnumerator GetNextSpawnTimeRoutine(float minTime, float maxTime, Enemy_SO enemyTemplate)
+    {
+        float waitTime = Random.Range(minTime, maxTime);
+        yield return new WaitForSeconds(waitTime);
+        SpawnEnemy(enemyTemplate);
+        spawnRoutine = null;
+    }
+    public void SpawnEnemy()
     { 
         
         int spawnPointSlot = Random.Range(0, _spawnPoints.Count);//set position
@@ -40,10 +56,34 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy.enemyTemplate = _enemyTemplateToSpawn;
         }
-        enemy.transform.position = _spawnPoints[spawnPointSlot].transform.position;
+        //enemy.transform.position = _spawnPoints[spawnPointSlot].transform.position;
+        enemy.transform.position = ReturnSpawnpoint().position;//will probably be done by SO
         enemy.target = _player;
         enemy.unitEventHandler.ResetHealth();
-        StartCoroutine(GetNextSpawnTimeRoutine());
-
+        //StartCoroutine(GetNextSpawnTimeRoutine());
     }
+    public void SpawnEnemy(Enemy_SO enemyTemplate)
+    {
+
+        int spawnPointSlot = Random.Range(0, _spawnPoints.Count);//set position
+
+        Enemy enemy = Instantiate(_enemyPrefab);
+
+        if (_enemyTemplateToSpawn != null)
+        {
+            enemy.enemyTemplate = enemyTemplate;
+        }
+        //enemy.transform.position = _spawnPoints[spawnPointSlot].transform.position;
+        enemy.transform.position = ReturnSpawnpoint().position;//will probably be done by SO
+        enemy.target = _player;
+        enemy.unitEventHandler.ResetHealth();
+        //StartCoroutine(GetNextSpawnTimeRoutine());
+    }
+    public Transform ReturnSpawnpoint()
+    {
+        int spawnPointSlot = Random.Range(0, _spawnPoints.Count);//set position
+
+        return _spawnPoints[spawnPointSlot].transform; ;
+    }
+
 }

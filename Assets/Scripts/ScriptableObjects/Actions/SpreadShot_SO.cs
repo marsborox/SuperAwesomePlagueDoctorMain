@@ -11,7 +11,7 @@ public class SpreadShot_SO : Action_SO
     [SerializeField] int _numberOfShots = 5;
     public override void Attack(/*Projectile projectilePrefab,*/ Unit sourceUnit, Transform shootRotation, Quaternion shootDirection)
     {
-        Debug.Log("shot from SpreadShot_SO");
+        //Debug.Log("shot from SpreadShot_SO");
         int angles = _numberOfShots - 1;
         float angleBetweenTwoProjectiles = _spreadAngle / (_numberOfShots - 1);
         float attackDirectionInDegree = shootDirection.eulerAngles.z;
