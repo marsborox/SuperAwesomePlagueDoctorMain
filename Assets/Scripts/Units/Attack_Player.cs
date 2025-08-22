@@ -3,11 +3,14 @@ using UnityEngine;
 public class Attack_Player: MonoBehaviour
 {
     [SerializeField] private Projectile _projectile;
-    [SerializeField] public int damage = 1;
     [SerializeField] private MouseFollow _mouseFollow;
     [SerializeField] private Action_SO _activeAction;
     [SerializeField] private Player _player;
 
+    public int damage = 1;
+    public float attackInterval = 1;
+    public float attackTimer = 1;
+    public bool attackOnCooldown = false;
     //[SerializeField] private string _targetTag = "Enemy";
 
     private void Awake()
@@ -32,7 +35,6 @@ public class Attack_Player: MonoBehaviour
         }
         else
         {
-
             _activeAction.Attack(/*projectile,*/ _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
         }
     }
