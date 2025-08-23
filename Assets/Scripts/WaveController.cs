@@ -6,8 +6,8 @@ public class WaveController : MonoBehaviour
     [SerializeField] public GameManager gameManager;
 
 
-    int _spawnedEnemiesThisWave = 0;
-    private int _waveIndex = 0;
+    [SerializeField] private int _spawnedEnemiesThisWave = 0; //SF only for testing
+    [SerializeField] private int _waveIndex = 0;        //SF only for testing
     [SerializeField] private List<Wave_SO> _waves = new List<Wave_SO>();
     void Start()
     {
@@ -25,13 +25,13 @@ public class WaveController : MonoBehaviour
     private void ProcessWave(Wave_SO waveSO)
     {
         var enemySpawner = gameManager.enemySpawner;
-        if (enemySpawner.spawnRoutine == null)
+        if (enemySpawner.spawnRoutine == null&& _spawnedEnemiesThisWave <= waveSO.numberOfEnemies)
         {
             enemySpawner.spawnRoutine = enemySpawner.StartCoroutine(enemySpawner.GetNextSpawnTimeRoutine(waveSO.minSpawnTime,waveSO.maxSpawnTime,waveSO.enemySO));
             _spawnedEnemiesThisWave++;
             //Debug.Log("enemy will spawn (wave controller)");
         }
-        if (_spawnedEnemiesThisWave==waveSO.numberOfEnemies)
+        if (_spawnedEnemiesThisWave>=waveSO.numberOfEnemies&&(transform.childCount==0))
         {
             PostWave();
         }
