@@ -7,15 +7,22 @@ public class Attack_Player: MonoBehaviour
     [SerializeField] private Action_SO _activeAction;
     [SerializeField] private Player _player;
 
-    public int damage = 1;
-    public float attackInterval = 1;
-    public float attackTimer = 1;
-    public bool attackOnCooldown = false;
+    public bool isAttacking = false;
+    public bool isAttackReady = true;
+
+    //public int damage = 1;
+    //public float attackInterval = 1;
+    //public float attackTimer = 1;
+    //public bool attackOnCooldown = false;
     //[SerializeField] private string _targetTag = "Enemy";
 
     private void Awake()
     {
         _player = GetComponent<Player>();
+    }
+    private void Update()
+    {
+        ContinuousAttacking();
     }
 
     public void Shoot()
@@ -38,4 +45,16 @@ public class Attack_Player: MonoBehaviour
             _activeAction.Attack(/*projectile,*/ _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
         }
     }
+    private void ContinuousAttacking()
+    {
+        if (isAttacking && isAttackReady)
+        {
+            _activeAction.Attack(/*projectile,*/ _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
+        }
+    }
+    private void RefreshTimer()
+    {
+        
+    }
+
 }

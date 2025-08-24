@@ -188,8 +188,13 @@ MonoBehaviour:
   targetTag: Enemy
   damage: 1
   healthMax: 1
-  unitHealth: {fileID: 0}
+  movementSpeed: 3
+  attackInterval: 0
+  attackTimer: 0
+  attackReady: 1
+  unitHealth: {fileID: 7720377023653862749}
   respawnPoint: {fileID: 0}
+  attackPlayer: {fileID: 5210266296709679943}
   score: 0
 --- !u!114 &2336925100564582378
 MonoBehaviour:
@@ -216,10 +221,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 3087324221369710027, guid: 7bb97bc4f62fcbf43ba49f672eb091f1, type: 3}
-  damage: 1
   _mouseFollow: {fileID: 3672550521405967202}
   _activeAction: {fileID: 0}
-  _player: {fileID: 0}
+  _player: {fileID: 7747861109025471582}
+  isAttacking: 0
+  isAttackReady: 1
 --- !u!114 &7720377023653862749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveInput: {x: 0, y: 0}
+  _player: {fileID: 0}
 --- !u!114 &2021190335892129596
 MonoBehaviour:
   m_ObjectHideFlags: 0

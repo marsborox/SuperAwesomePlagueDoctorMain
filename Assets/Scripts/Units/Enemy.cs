@@ -14,13 +14,7 @@ public class Enemy : Unit
     //public int damage = 10;
     public int rewardScore = 5;
     public float range = 3;
-    
-    public float movementSpeed = 3;
-    public float attackInterval;
-    public float attackTimer=0;
-
-    public bool attackReady = true;
-
+   
     [SerializeField] private SpriteRenderer _sprite;
 
     private void Awake()

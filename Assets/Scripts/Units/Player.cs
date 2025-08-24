@@ -5,6 +5,7 @@ public class Player : Unit
     public Transform respawnPoint;
     //[SerializeField] private Projectile Bullet;
     //public EventHandler_Unit unitEventHandler;
+    public Attack_Player attackPlayer;
 
     public int score=0;
     

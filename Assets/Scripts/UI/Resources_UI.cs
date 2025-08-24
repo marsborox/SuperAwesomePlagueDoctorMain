@@ -6,13 +6,17 @@ using UnityEngine.UI;
 public class Resources_UI : UI
 {
     [SerializeField] private TextMeshProUGUI _scoreText;
-    // Update is called once per frame
+    [SerializeField] private TextMeshProUGUI _damageText;
+    [SerializeField] private TextMeshProUGUI _attackIntervalText;
+
     [SerializeField] private TextMeshProUGUI _healthText;
     [SerializeField] private Image _healthBarImage;
+    
     void Update()
     {
-        _scoreText.text = mainUI.player.score.ToString();
+
         UpdateHealth();
+        UpdateStats();
     }
 
     private void UpdateHealth()
@@ -20,5 +24,14 @@ public class Resources_UI : UI
         var playerHealth = mainUI.player.unitHealth;
         _healthText.text = playerHealth.healthCurrent + " / " + playerHealth.healthMax;
         _healthBarImage.fillAmount= ((float)playerHealth.healthCurrent/ (float)playerHealth.healthMax);
+    }
+    private void UpdateStats()
+    {
+        
+        var player = mainUI.player;
+        _scoreText.text = "Score: " + player.score.ToString();
+        _damageText.text = "Damage: " + player.damage.ToString();
+        _attackIntervalText.text = "Atk Interval: " + player.attackInterval.ToString();
+
     }
 }
