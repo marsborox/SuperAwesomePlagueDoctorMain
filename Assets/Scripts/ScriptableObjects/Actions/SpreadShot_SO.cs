@@ -26,7 +26,7 @@ public class SpreadShot_SO : Action_SO
             projectile.damage = sourceUnit.damage;
             projectile.targetTag = sourceUnit.targetTag;
             projectile.sourceUnit = sourceUnit;
-
+            projectile.transform.SetParent(sourceUnit.transform);
             angleOfShot += angleBetweenTwoProjectiles;
         }
     }

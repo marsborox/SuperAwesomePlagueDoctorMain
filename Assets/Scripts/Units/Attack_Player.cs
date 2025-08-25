@@ -8,21 +8,16 @@ public class Attack_Player: MonoBehaviour
     [SerializeField] private Player _player;
 
     public bool isAttacking = false;
-    public bool isAttackReady = true;
-
-    //public int damage = 1;
-    //public float attackInterval = 1;
-    //public float attackTimer = 1;
-    //public bool attackOnCooldown = false;
-    //[SerializeField] private string _targetTag = "Enemy";
+    
 
     private void Awake()
     {
         _player = GetComponent<Player>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         ContinuousAttacking();
+        RefreshTimer();
     }
 
     public void Shoot()
@@ -36,25 +31,38 @@ public class Attack_Player: MonoBehaviour
     }
     public void Attack()
     {
+        
         if (_activeAction == null)
         {
             Debug.Log("NoWeaponEquipped");
         }
         else
         {
+            
             _activeAction.Attack(/*projectile,*/ _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
+            _player.isAttackReady = false;
         }
+
     }
     private void ContinuousAttacking()
     {
-        if (isAttacking && isAttackReady)
+        if (isAttacking && _player.isAttackReady)
         {
             _activeAction.Attack(/*projectile,*/ _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
+            _player.isAttackReady = false;
         }
     }
     private void RefreshTimer()
     {
-        
+        if (!_player.isAttackReady)
+        {
+            _player.attackTimer += Time.deltaTime;
+        }
+        if (_player.attackTimer>=_player.attackInterval)
+        {
+            _player.attackTimer = _player.attackTimer - _player.attackInterval;
+            _player.isAttackReady = true;
+        }
     }
 
 }

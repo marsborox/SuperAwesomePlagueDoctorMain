@@ -1,5 +1,4 @@
 using System.Threading;
-
 using UnityEngine;
 
 public class Enemy : Unit
@@ -103,13 +102,13 @@ public class Enemy : Unit
     }
     private void ShotReload()
     {
-        if (!attackReady)
+        if (!isAttackReady)
         {
             attackTimer += Time.deltaTime;
             if (attackTimer >= attackInterval)
             {
                 attackTimer =-attackInterval;
-                attackReady = true;
+                isAttackReady = true;
             }
         }
     }

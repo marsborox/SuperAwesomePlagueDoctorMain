@@ -12,6 +12,6 @@ public class SingleShot_SO : Action_SO
         projectile.damage = sourceUnit.damage;//should take damage from unitAttack?
         projectile.targetTag = sourceUnit.targetTag;
         projectile.sourceUnit = sourceUnit;
-
+        projectile.transform.SetParent(sourceUnit.transform);
     }
 }

@@ -8,7 +8,6 @@ public class UnitHealth : MonoBehaviour
     private void Awake()
     {
         _unit = GetComponent<Unit>();
-
     }
 
     void Start()
@@ -70,7 +69,7 @@ public class UnitHealth : MonoBehaviour
         }
         else if (_unit is Player)
         {
-            healthMax = ((Player)_unit).healthMax;
+            healthMax = ((Player)_unit).unitStats.healthMax;
         }
     }
     private void ResetHealth()
