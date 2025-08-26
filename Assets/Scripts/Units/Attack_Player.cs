@@ -24,7 +24,7 @@ public class Attack_Player: MonoBehaviour
     {//not used
         Projectile projectile;
         projectile = Instantiate(this._projectile, transform.position, _mouseFollow.transform.rotation);
-        projectile.damage = _player.damage;
+        projectile.damage = _player.unitStats.damage;
         projectile.targetTag = _player.targetTag;
         projectile.sourceUnit = _player;
         Debug.Log("PlayerShoot");
@@ -54,13 +54,14 @@ public class Attack_Player: MonoBehaviour
     }
     private void RefreshTimer()
     {
+        var playerStats = _player.unitStats;
         if (!_player.isAttackReady)
         {
-            _player.attackTimer += Time.deltaTime;
+            playerStats.attackTimer += Time.deltaTime;
         }
-        if (_player.attackTimer>=_player.attackInterval)
+        if (playerStats.attackTimer >= playerStats.attackInterval)
         {
-            _player.attackTimer = _player.attackTimer - _player.attackInterval;
+            playerStats.attackTimer = playerStats.attackTimer - playerStats.attackInterval;
             _player.isAttackReady = true;
         }
     }

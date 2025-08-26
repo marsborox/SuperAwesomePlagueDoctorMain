@@ -38,13 +38,13 @@ public class PlayerController : MonoBehaviour
         moveInput = value.Get<Vector2>();
         //Debug.Log(moveInput);
     }
-    private void OnAttack(InputValue value)
+    /*private void OnAttack(InputValue value)//shoot on click
     {
         if (value.isPressed)
         {
             _playerAttack.Attack();
         }
-    }
+    }*/
     private void StartAttacking()
     {
         _isAttacking = true;

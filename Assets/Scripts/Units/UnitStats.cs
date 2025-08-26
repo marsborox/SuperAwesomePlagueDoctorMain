@@ -9,5 +9,5 @@ public class UnitStats : MonoBehaviour
     public float attackInterval = 1;
     public float attackTimer = 0;
 
-
+    public int score = 0;
 }

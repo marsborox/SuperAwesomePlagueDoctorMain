@@ -28,10 +28,10 @@ public class Resources_UI : UI
     private void UpdateStats()
     {
         
-        var player = mainUI.player;
-        _scoreText.text = "Score: " + player.score.ToString();
-        _damageText.text = "Damage: " + player.damage.ToString();
-        _attackIntervalText.text = "Atk Interval: " + player.attackInterval.ToString();
+        var playerStats = mainUI.player.unitStats;
+        _scoreText.text = "Score: " + playerStats.score.ToString();
+        _damageText.text = "Damage: " + playerStats.damage.ToString();
+        _attackIntervalText.text = "Atk Interval: " + playerStats.attackInterval.ToString();
 
     }
 }

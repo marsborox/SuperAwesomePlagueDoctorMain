@@ -15,7 +15,7 @@ public class Enemy : Unit
     public float range = 3;
    
     [SerializeField] private SpriteRenderer _sprite;
-
+    
     private void Awake()
     {
         base.Awake();
@@ -55,7 +55,7 @@ public class Enemy : Unit
         }
         else if (other.tag == targetTag)
         {
-            target.unitEventHandler.ChangeHealth(-damage);
+            target.unitEventHandler.ChangeHealth(-unitStats.damage);
             Destroy(this.gameObject);
         }
     }
@@ -69,19 +69,19 @@ public class Enemy : Unit
         }
         else
         {
-            damage = enemyTemplate.damage;
+            unitStats.damage = enemyTemplate.damage;
             rewardScore = enemyTemplate.rewardScore;
-            movementSpeed = enemyTemplate.movementSpeed;
+            unitStats.movementSpeed = enemyTemplate.movementSpeed;
             range = enemyTemplate.range;
-            attackInterval = enemyTemplate.attackInterval;
+            unitStats.attackInterval = enemyTemplate.attackInterval;
             unitEventHandler.ResetHealth();//may be redundant - or take value from SO
             unitHealth.healthMax = enemyTemplate.healthMax;
             _sprite.color = enemyTemplate.color;
         }
     }
     private void SetDefaultEnemyProperties()
-    { 
-        damage = 10;
+    {
+        unitStats.damage = 10;
         Debug.Log("no template on enemy");
     }
     private void PerformEnemyBehavior()
@@ -93,7 +93,7 @@ public class Enemy : Unit
             //Debug.Log("target not null");
             Debug.Log("template null");
             //Vector3 delta = target.transform.position*movementSpeed*Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, movementSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, unitStats.movementSpeed * Time.deltaTime);
         }
         else
         {
@@ -104,10 +104,10 @@ public class Enemy : Unit
     {
         if (!isAttackReady)
         {
-            attackTimer += Time.deltaTime;
-            if (attackTimer >= attackInterval)
+            unitStats.attackTimer += Time.deltaTime;
+            if (unitStats.attackTimer >= unitStats.attackInterval)
             {
-                attackTimer =-attackInterval;
+                unitStats.attackTimer =-unitStats.attackInterval;
                 isAttackReady = true;
             }
         }

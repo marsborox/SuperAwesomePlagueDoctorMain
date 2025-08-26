@@ -7,7 +7,7 @@ public class Player : Unit
     //public EventHandler_Unit unitEventHandler;
     public Attack_Player attackPlayer;
 
-    public int score=0;
+    
     
     
     void Awake()
@@ -32,16 +32,11 @@ public class Player : Unit
 
     public void OnEnable()
     {
-        //unitEventHandler.OnHealthChange += ChangeScore;
         unitEventHandler.OnDeath += Die;
-        unitEventHandler.OnScoreChange += ChangeScore;
-        unitEventHandler.OnResetScore += ResetScore;
     }
     private void OnDisable()
     {
         unitEventHandler.OnDeath -= Die;
-        unitEventHandler.OnScoreChange -= ChangeScore;
-        unitEventHandler.OnResetScore -= ResetScore;
     }
     void Die()
     {
@@ -53,16 +48,7 @@ public class Player : Unit
         unitEventHandler.ResetScore();
         transform.position=respawnPoint.position;
     }
-    void ChangeScore(int changeHealthValue)
-    {
-        score += changeHealthValue;
-        //Debug.Log("HeroGotHit");
-    }
 
-    private void ResetScore()
-    { 
-        score = 0;
-    }
     public override void OnColliderTrigger(Collider2D other)
     {
         //Debug.Log("PlayerGotHit");
