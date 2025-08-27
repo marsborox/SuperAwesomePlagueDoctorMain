@@ -39,6 +39,7 @@ public class WaveController : MonoBehaviour
     private void PostWave()
     {
         Debug.Log("WaveEnded");
+        gameManager.myGlobalEventHandler.EndWave();
         _spawnedEnemiesThisWave = 0;
         _waveIndex++;
         if (_waveIndex == _waves.Count)
