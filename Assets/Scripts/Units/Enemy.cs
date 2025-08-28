@@ -73,7 +73,8 @@ public class Enemy : Unit
             rewardScore = enemyTemplate.rewardScore;
             unitStats.movementSpeed = enemyTemplate.movementSpeed;
             range = enemyTemplate.range;
-            unitStats.attackInterval = enemyTemplate.attackInterval;
+            //unitStats.attackInterval = enemyTemplate.attackInterval;
+            unitStats.attackSpeed = enemyTemplate.attackSpeed;
             unitEventHandler.ResetHealth();//may be redundant - or take value from SO
             unitHealth.healthMax = enemyTemplate.healthMax;
             _sprite.color = enemyTemplate.color;

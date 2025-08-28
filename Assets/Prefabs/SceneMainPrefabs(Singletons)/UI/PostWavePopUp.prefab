@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 6045279800981343477}
   - component: {fileID: 2366577639490365340}
   - component: {fileID: 5331377044957054886}
+  - component: {fileID: 5370861904976136197}
   m_Layer: 5
   m_Name: PostWavePopUp
   m_TagString: Untagged
@@ -364,6 +365,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5370861904976136197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4731036914522215167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfca1019e7e34549a53d08ca59767f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 7073065183900201349}
+  statName: {fileID: 6922936899811457740}
+  statValue: {fileID: 2854289084505807628}
 --- !u!1 &4965525159023153584
 GameObject:
   m_ObjectHideFlags: 0

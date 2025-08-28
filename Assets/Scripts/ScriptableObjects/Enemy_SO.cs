@@ -11,8 +11,9 @@ public class Enemy_SO : ScriptableObject
     public int rewardScore = 5;
     public int range = 3;
     public int healthMax = 2;
+    public int attackSpeed = 50;
     public float movementSpeed = 300;
-    public float attackInterval = 2f;
+    //public float attackInterval = 2f;
     
     public void DoBehavior(Player target, Enemy usedEnemy)
     {
