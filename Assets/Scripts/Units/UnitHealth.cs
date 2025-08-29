@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class UnitHealth : MonoBehaviour
 {
-    public int healthMax = 1;//might be private
-    public int healthCurrent;//might be private
+    public float healthMax = 1;//might be private
+    public float healthCurrent;//might be private
     private Unit _unit;
     private void Awake()
     {
@@ -77,7 +77,7 @@ public class UnitHealth : MonoBehaviour
 
         healthCurrent = healthMax;    
     }
-    private void ChangeHealth(int changeHealthValue)
+    private void ChangeHealth(float changeHealthValue)
     {
         //Debug.Log(_unit.name+" changingHelath");
         healthCurrent += changeHealthValue;

@@ -1,18 +1,23 @@
+using NUnit.Framework;
+
 using UnityEngine;
 
 public class UnitStats : MonoBehaviour
 {
     //public UnitStats unitStats;
-    public int damage = 1;
-    public int healthMax = 1;
-    public int attackSpeed = 100; //
+    [Tooltip("Health")]
+    public float healthMax = 1;
+    [Tooltip("Damage")]
+    public float damage = 1;
     public float movementSpeed = 3;
+    [Tooltip("Attack_Damage")]
+    public float attackSpeed = 100; //
     public float attackInterval;
     public float attackTimer = 0;
-    [SerializeField] private int SpeedToIntervaL = 100;
+    [SerializeField] private float SpeedToIntervaL = 100;
 
-    public int score = 0;
-
+    public float score = 0;
+    
     public void Start()
     {
         CountAttackInterval();
@@ -20,6 +25,8 @@ public class UnitStats : MonoBehaviour
 
     public void CountAttackInterval()
     {
-        attackInterval = (float)attackSpeed / (float)SpeedToIntervaL;
+        attackInterval = attackSpeed / SpeedToIntervaL;
+    Debug.Log(nameof(attackSpeed) + " " + attackSpeed);
     }
+    
 }

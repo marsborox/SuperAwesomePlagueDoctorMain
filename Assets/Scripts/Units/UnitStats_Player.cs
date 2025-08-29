@@ -1,9 +1,11 @@
 using UnityEditor;
+using UnityEditor.Rendering.Universal;
 
 using UnityEngine;
 
 public class UnitStats_Player : UnitStats
 {
+    public int upgradeAmount;
     [SerializeField] private Player _player;
 
     private void Start()
@@ -36,7 +38,7 @@ public class UnitStats_Player : UnitStats
         UpgradeStat(_player.unitHealth.healthCurrent, increase);
     }
 
-    private void ChangeScore(int changeHealthValue)
+    private void ChangeScore(float changeHealthValue)
     {
         _player.unitStats.score += changeHealthValue;
         //Debug.Log("HeroGotHit");
@@ -48,6 +50,10 @@ public class UnitStats_Player : UnitStats
     }
 
     private void UpgradeStat(int stat, int increase)
+    {
+        stat += increase;
+    }
+    private void UpgradeStat(float stat, int increase)
     {
         stat += increase;
     }
