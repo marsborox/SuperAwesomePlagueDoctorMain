@@ -8,6 +8,7 @@ public class UnitStats_Player : UnitStats
     public int upgradeAmount;
     [SerializeField] private Player _player;
 
+
     private void Start()
     {
         base.Start();
@@ -22,6 +23,7 @@ public class UnitStats_Player : UnitStats
         _player.unitEventHandler.OnScoreChange -= ChangeScore;
         _player.unitEventHandler.OnResetScore -= ResetScore;
     }
+
 
     public void UpgradeDamage(int increase)
     {
