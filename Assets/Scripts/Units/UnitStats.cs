@@ -7,7 +7,7 @@ public class UnitStats : MonoBehaviour
     [System.Serializable]
     public struct Stat 
     {   public string name; 
-        public float value; 
+        public float amount; 
         Action upgradeMethod; 
     }
     [Header("Stats")]

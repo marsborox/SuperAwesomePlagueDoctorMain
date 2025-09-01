@@ -1,5 +1,4 @@
 using UnityEngine.UI;
-using UnityEngine.Events;
 using System;
 public interface I_InitiateButton
 {
@@ -12,4 +11,14 @@ public interface I_InitiateButton
         });
         //boolUI = false;
     }
+    public void InitiateButton<T>(Button button, Action<T> method, T value)
+    {
+        button.onClick.AddListener(delegate
+        {
+            method(value);
+            //SoundManager.instance.Click();
+        });
+        //boolUI = false;
+    }
+
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 568776734254054181}
   - component: {fileID: 6922936899811457740}
   m_Layer: 5
-  m_Name: Stat
+  m_Name: StatText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 124.9
-  m_fontSizeBase: 124.9
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 5910539205278401289}
   - component: {fileID: 2854289084505807628}
   m_Layer: 5
-  m_Name: Value
+  m_Name: ValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,8 +228,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 124.9
-  m_fontSizeBase: 124.9
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -380,6 +380,7 @@ MonoBehaviour:
   image: {fileID: 7073065183900201349}
   statName: {fileID: 6922936899811457740}
   statValue: {fileID: 2854289084505807628}
+  button: {fileID: 5331377044957054886}
 --- !u!1 &4965525159023153584
 GameObject:
   m_ObjectHideFlags: 0

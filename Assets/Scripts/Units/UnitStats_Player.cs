@@ -59,4 +59,30 @@ public class UnitStats_Player : UnitStats
     {
         stat += increase;
     }
+
+    public void UpgradeStatAny(Stat stat, int increase)
+    {
+        stat.amount += increase;
+    }
+    public void UpgradeStat(string statText)
+    {
+        switch (statText)
+        {
+            case "healthMax":
+                Debug.Log("healthMax");
+                break;
+            case "damage":
+                Debug.Log("damage");
+                break;
+            case "attackSpeed":
+                Debug.Log("attackSpeed");
+                break;
+            case "movementSpeed":
+                Debug.Log("movementSpeed");
+                break;
+            default:
+                Debug.LogError("UnitStat_Player. issueWithStat");
+                break;
+        }
+    }
 }
