@@ -201,11 +201,6 @@ MonoBehaviour:
   unitHealth: {fileID: -5898622976812679044}
   unitStats: {fileID: 5247265383988435941}
   targetTag: 
-  damage: 10
-  healthMax: 1
-  movementSpeed: 3
-  attackInterval: 0
-  attackTimer: 0
   isAttackReady: 1
   _projectile: {fileID: 3087324221369710027, guid: 7bb97bc4f62fcbf43ba49f672eb091f1, type: 3}
   enemyTemplate: {fileID: 0}
@@ -251,11 +246,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc74282174ef94045a5ad07dff6b19e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  healthMax_s:
+    name: healthMax
+    value: 0
+  damage_s:
+    name: damage
+    value: 0
+  movementSpeed_s:
+    name: movementSpeed
+    value: 0
+  attackSpeed_s:
+    name: attackSpeed
+    value: 0
   healthMax: 1
+  damage: 1
   movementSpeed: 3
+  attackSpeed: 100
   attackInterval: 1
   attackTimer: 0
+  SpeedToIntervaL: 100
+  score: 0
+  statListFloat: []
+  statList: []
 --- !u!1001 &8119141346184783399
 PrefabInstance:
   m_ObjectHideFlags: 0

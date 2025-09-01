@@ -1,20 +1,31 @@
 using System;
 using System.Collections.Generic;
-
-using Unity.Hierarchy;
-
 using UnityEngine;
 
 public class UnitStats : MonoBehaviour
 {
-    public struct Stat { string name; float value; Action upgradeMethod; }
+    [System.Serializable]
+    public struct Stat 
+    {   public string name; 
+        public float value; 
+        Action upgradeMethod; 
+    }
+    [Header("Stats")]
+    //dsds
+    [Header("DO NOT CHANGE NAMES")]
+    [SerializeField] Stat healthMax_s;
+    [SerializeField] Stat damage_s;
+    [SerializeField] Stat movementSpeed_s;
+    [SerializeField] Stat attackSpeed_s;
+
+    [Header(" ")]
     //public UnitStats unitStats;
     [Tooltip("Health")]
     public float healthMax = 1;
     [Tooltip("Damage")]
     public float damage = 1;
     public float movementSpeed = 3;
-    [Tooltip("Attack_Damage")]
+    [Tooltip("Attack_Speed")]
     public float attackSpeed = 100; //
     public float attackInterval;
     public float attackTimer = 0;
@@ -39,12 +50,12 @@ public class UnitStats : MonoBehaviour
     }
     private void AddStatsToList()
     {
-        if (statListFloat.Count == 0)
+        if (statList.Count == 0)
         {
-            statListFloat.Add(healthMax);
-            statListFloat.Add(damage);
-            statListFloat.Add(movementSpeed);
-            statListFloat.Add(attackSpeed);
+            statList.Add(healthMax_s);
+            statList.Add(damage_s);
+            statList.Add(movementSpeed_s);
+            statList.Add(attackSpeed_s);
         }
     }
     public float ReturnRandomStat()
@@ -53,7 +64,8 @@ public class UnitStats : MonoBehaviour
         float nbr = 1f;
         return nbr;*/
 
-        int random = Random.Range(0, statListFloat.Count-1);
+        int random = UnityEngine.Random.Range(0, statListFloat.Count-1);
         return statListFloat[random];
     }
+
 }

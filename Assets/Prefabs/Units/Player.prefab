@@ -247,12 +247,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93109a293c24f4cae579079528beaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  healthMax_s:
+    name: healthMax
+    value: 10
+  damage_s:
+    name: damage
+    value: 1
+  movementSpeed_s:
+    name: movementSpeed
+    value: 3
+  attackSpeed_s:
+    name: attackSpeed
+    value: 100
   healthMax: 10
+  damage: 1
   movementSpeed: 3
+  attackSpeed: 100
   attackInterval: 0.5
   attackTimer: 0
+  SpeedToIntervaL: 100
   score: 0
+  statListFloat: []
+  statList: []
+  upgradeAmount: 0
   _player: {fileID: 7747861109025471582}
 --- !u!114 &1789071070035419239
 MonoBehaviour:
