@@ -25,19 +25,23 @@ public class UnitStats_Player : UnitStats
     }
 
 
-    public void UpgradeDamage(int increase)
+    public void UpgradeMaxHealth()
     {
-        UpgradeStat(damage, increase);
+        UpgradeStatAny(ref healthMax_s);
+        UpgradeStat(_player.unitHealth.healthCurrent, healthMax_s.upgradeAmount);
     }
-    public void UpgradeAttackSpeed(int increase)
+    public void UpgradeDamage()
     {
-        UpgradeStat(attackSpeed, increase);
+        UpgradeStatAny(ref damage_s);
+    }
+    public void UpgradeMovementSpeed()
+    {
+        UpgradeStatAny(ref movementSpeed_s);
+    }
+    public void UpgradeAttackSpeed()
+    {
+        UpgradeStatAny(ref attackSpeed_s);
         CountAttackInterval();
-    }
-    public void UpgradeMaxHealth(int increase)
-    {
-        UpgradeStat(healthMax,increase);
-        UpgradeStat(_player.unitHealth.healthCurrent, increase);
     }
 
     private void ChangeScore(float changeHealthValue)
@@ -51,34 +55,32 @@ public class UnitStats_Player : UnitStats
         _player.unitStats.score = 0;
     }
 
-    private void UpgradeStat(int stat, int increase)
-    {
-        stat += increase;
-    }
-    private void UpgradeStat(float stat, int increase)
+
+    private void UpgradeStat(float stat, float increase)
     {
         stat += increase;
     }
 
-    public void UpgradeStatAny(Stat stat, int increase)
+    public void UpgradeStatAny(ref Stat stat)
     {
-        stat.amount += increase;
+        stat.amount += stat.upgradeAmount;
+        Debug.Log("Upgrading stat " + stat.name + " to value " + stat.amount.ToString());
     }
     public void UpgradeStat(string statText)
     {
         switch (statText)
         {
             case "healthMax":
-                Debug.Log("healthMax");
+                UpgradeMaxHealth();
                 break;
             case "damage":
-                Debug.Log("damage");
+                UpgradeDamage();
                 break;
             case "attackSpeed":
-                Debug.Log("attackSpeed");
+                UpgradeAttackSpeed();
                 break;
             case "movementSpeed":
-                Debug.Log("movementSpeed");
+                UpgradeMovementSpeed();
                 break;
             default:
                 Debug.LogError("UnitStat_Player. issueWithStat");

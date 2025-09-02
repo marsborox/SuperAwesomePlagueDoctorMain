@@ -5,18 +5,19 @@ using UnityEngine;
 public class UnitStats : MonoBehaviour
 {
     [System.Serializable]
-    public struct Stat 
+    public class Stat 
     {   public string name; 
-        public float amount; 
+        public float amount;
+        public float upgradeAmount;
         Action upgradeMethod; 
     }
     [Header("Stats")]
     //dsds
     [Header("DO NOT CHANGE NAMES")]
-    [SerializeField] Stat healthMax_s;
-    [SerializeField] Stat damage_s;
-    [SerializeField] Stat movementSpeed_s;
-    [SerializeField] Stat attackSpeed_s;
+    public Stat healthMax_s;
+    public Stat damage_s;
+    public Stat movementSpeed_s;
+    public Stat attackSpeed_s;
 
     [Header(" ")]
     //public UnitStats unitStats;
@@ -46,7 +47,7 @@ public class UnitStats : MonoBehaviour
     public void CountAttackInterval()
     {
         attackInterval = attackSpeed / SpeedToIntervaL;
-        Debug.Log(nameof(attackSpeed) + " " + attackSpeed);
+        //Debug.Log(nameof(attackSpeed) + " " + attackSpeed);
     }
     private void AddStatsToList()
     {

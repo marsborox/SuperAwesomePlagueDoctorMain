@@ -18,6 +18,4 @@ public class TestStuff : MonoBehaviour, I_InitiateButton
     {
         _main_UI.OpenCloseUI(_postWave_UI);
     }
-
-
 }

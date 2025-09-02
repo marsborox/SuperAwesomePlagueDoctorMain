@@ -1718,15 +1718,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6508372840656636024, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
       propertyPath: healthMax_s.amount
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6508372840656636024, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
       propertyPath: attackSpeed_s.amount
       value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 6508372840656636024, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: damage_s.upgradeAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508372840656636024, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
       propertyPath: movementSpeed_s.amount
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508372840656636024, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: healthMax_s.upgradeAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508372840656636024, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: attackSpeed_s.upgradeAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508372840656636024, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: movementSpeed_s.upgradeAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569883249834720368, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.232017
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569883249834720368, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.51824
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

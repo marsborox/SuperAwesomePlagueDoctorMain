@@ -26,21 +26,21 @@ public class PostWave_UI : UI , I_InitiateButton
         foreach (PostWaveButton_UI button in _buttons)
         {
             button.gameObject.SetActive(false);
+            button.button.onClick.RemoveAllListeners();
         }
     }
 
-    private void OpenButtons()
+    public void OpenButtons()
     {
         foreach (PostWaveButton_UI button in _buttons)
         {
             button.gameObject.SetActive(true);
             
             var statlist = mainUI.player.unitStats.statList;
-            int randomStatIndex = Random.Range(0, statlist.Count-1);
-                        
-
+            int randomStatIndex = Random.Range(0, statlist.Count);
+              
             button.statName.text = statlist[randomStatIndex].name;
-            button.statValue.text = statlist[randomStatIndex].amount.ToString();
+            button.statValue.text = statlist[randomStatIndex].amount.ToString() + " + " + statlist[randomStatIndex].upgradeAmount;
             
             var unitStats = mainUI.player.unitStats;
             void SimplifyButtonMethod()
