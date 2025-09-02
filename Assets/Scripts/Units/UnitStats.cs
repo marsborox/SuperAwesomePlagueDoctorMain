@@ -21,13 +21,13 @@ public class UnitStats : MonoBehaviour
 
     [Header(" ")]
     //public UnitStats unitStats;
-    [Tooltip("Health")]
-    public float healthMax = 1;
-    [Tooltip("Damage")]
-    public float damage = 1;
-    public float movementSpeed = 3;
+    //[Tooltip("Health")]
+    //public float healthMax = 1;
+    //[Tooltip("Damage")]
+    //public float damage = 1;
+    //public float movementSpeed = 3;
     [Tooltip("Attack_Speed")]
-    public float attackSpeed = 100; //
+    //public float attackSpeed = 100; //
     public float attackInterval;
     public float attackTimer = 0;
     [SerializeField] private float SpeedToIntervaL = 100;
@@ -46,7 +46,7 @@ public class UnitStats : MonoBehaviour
     }
     public void CountAttackInterval()
     {
-        attackInterval = attackSpeed / SpeedToIntervaL;
+        attackInterval = SpeedToIntervaL/ attackSpeed_s.amount;
         //Debug.Log(nameof(attackSpeed) + " " + attackSpeed);
     }
     private void AddStatsToList()

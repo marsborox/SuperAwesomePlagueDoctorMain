@@ -1,17 +1,12 @@
 
 using System.Collections.Generic;
-
-using NUnit.Framework;
-
-using UnityEditor.Rendering;
-
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PostWave_UI : UI , I_InitiateButton
 {
-
-    [SerializeField]List <PostWaveButton_UI> _buttons = new List<PostWaveButton_UI>();
+    [SerializeField] private List <PostWaveButton_UI> _buttons = new List<PostWaveButton_UI>();
+    [SerializeField] private MyGlobalEventHandler _eventHandler;
 
     void Start()
     { 
@@ -23,18 +18,14 @@ public class PostWave_UI : UI , I_InitiateButton
     }
     void OnDisable()
     {
-        foreach (PostWaveButton_UI button in _buttons)
-        {
-            button.gameObject.SetActive(false);
-            button.button.onClick.RemoveAllListeners();
-        }
+        CloseButtons();
     }
 
     public void OpenButtons()
     {
         foreach (PostWaveButton_UI button in _buttons)
         {
-            button.gameObject.SetActive(true);
+            //button.gameObject.SetActive(true);
             
             var statlist = mainUI.player.unitStats.statList;
             int randomStatIndex = Random.Range(0, statlist.Count);
@@ -46,8 +37,18 @@ public class PostWave_UI : UI , I_InitiateButton
             void SimplifyButtonMethod()
             {
                 ((UnitStats_Player)unitStats).UpgradeStat(button.statName.text);
+                _eventHandler.ResumeGame();
+                mainUI.OpenCloseUI(this);
             }
             ((I_InitiateButton)this).InitiateButton(button.button, SimplifyButtonMethod);
+        }
+    }
+    public void CloseButtons()
+    {
+        foreach (PostWaveButton_UI button in _buttons)
+        {
+            //button.gameObject.SetActive(false);
+            button.button.onClick.RemoveAllListeners();
         }
     }
     void SetButtonProperties(PostWaveButton_UI button)

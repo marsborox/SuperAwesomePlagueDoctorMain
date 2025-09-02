@@ -29,6 +29,7 @@ public class UnitStats_Player : UnitStats
     {
         UpgradeStatAny(ref healthMax_s);
         UpgradeStat(_player.unitHealth.healthCurrent, healthMax_s.upgradeAmount);
+        _player.unitEventHandler.ResetHealth();
     }
     public void UpgradeDamage()
     {

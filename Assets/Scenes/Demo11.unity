@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4731036914522215167, guid: de1b66832f78cf44eb2231fa79de711d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6045279800981343477, guid: de1b66832f78cf44eb2231fa79de711d, type: 3}
       propertyPath: m_Pivot.x
@@ -315,7 +315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4731036914522215167, guid: de1b66832f78cf44eb2231fa79de711d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6045279800981343477, guid: de1b66832f78cf44eb2231fa79de711d, type: 3}
       propertyPath: m_Pivot.x
@@ -703,6 +703,7 @@ MonoBehaviour:
   - {fileID: 1651043092}
   - {fileID: 2038900352}
   - {fileID: 612688287}
+  _eventHandler: {fileID: 1873429184}
 --- !u!114 &624921032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2194,7 +2195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4731036914522215167, guid: de1b66832f78cf44eb2231fa79de711d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6045279800981343477, guid: de1b66832f78cf44eb2231fa79de711d, type: 3}
       propertyPath: m_Pivot.x
