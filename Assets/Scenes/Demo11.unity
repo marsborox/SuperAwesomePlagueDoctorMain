@@ -127,6 +127,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 240802016641802013, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: _waves.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 240802016641802013, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: '_waves.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 37bf804b99eea104e8a8faa653cc6476, type: 2}
+    - target: {fileID: 240802016641802013, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: '_waves.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0bd05411d24d96c4593e60dbf1a9e14d, type: 2}
     - target: {fileID: 1114579476402230071, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -170,6 +182,18 @@ PrefabInstance:
     - target: {fileID: 1743118937846616695, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
       propertyPath: m_Name
       value: SceneContent
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508372840656636024, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: attackSpeed_s.amount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508372840656636024, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: healthMax_s.upgradeAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508372840656636024, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: attackSpeed_s.upgradeAmount
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
