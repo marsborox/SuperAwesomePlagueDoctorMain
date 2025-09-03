@@ -1,5 +1,9 @@
 
 using System.Collections.Generic;
+
+using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Collections;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,15 +24,24 @@ public class PostWave_UI : UI , I_InitiateButton
     {
         CloseButtons();
     }
-
-    public void OpenButtons()
+    public void CloseButtons()
     {
         foreach (PostWaveButton_UI button in _buttons)
         {
+            //button.gameObject.SetActive(false);
+            button.button.onClick.RemoveAllListeners();
+        }
+    }
+
+    public void OpenButtons()
+    {
+        List<int> usedStatIndexes = new List<int>();
+        foreach (PostWaveButton_UI button in _buttons)
+        {
             //button.gameObject.SetActive(true);
-            
             var statlist = mainUI.player.unitStats.statList;
-            int randomStatIndex = Random.Range(0, statlist.Count);
+            int randomStatIndex = GetRandomStat(statlist, usedStatIndexes);
+            
               
             button.statName.text = statlist[randomStatIndex].name;
             button.statValue.text = statlist[randomStatIndex].amount.ToString() + " + " + statlist[randomStatIndex].upgradeAmount;
@@ -43,13 +56,31 @@ public class PostWave_UI : UI , I_InitiateButton
             ((I_InitiateButton)this).InitiateButton(button.button, SimplifyButtonMethod);
         }
     }
-    public void CloseButtons()
+    private int GetRandomStat(List<UnitStats.Stat> statList, List<int> usedStatIndexes)
     {
-        foreach (PostWaveButton_UI button in _buttons)
+        int returnIndex;
+        //returnIndex = 2;
+        returnIndex = Random.Range(0, statList.Count);
+        bool isDuplicate = true;
+        while (isDuplicate)
         {
-            //button.gameObject.SetActive(false);
-            button.button.onClick.RemoveAllListeners();
+            isDuplicate = false;
+            returnIndex = Random.Range(0, statList.Count);
+
+            for (int i = 0; i < usedStatIndexes.Count; i++)
+            {
+                if (returnIndex == usedStatIndexes[i])
+                {
+                    isDuplicate = true;
+                }
+            }
         }
+        usedStatIndexes.Add(returnIndex);
+        return returnIndex;
+    }
+    private void CheckIfInList()
+    {
+        
     }
     void SetButtonProperties(PostWaveButton_UI button)
     {
