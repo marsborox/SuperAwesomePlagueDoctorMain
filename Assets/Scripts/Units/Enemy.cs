@@ -1,5 +1,4 @@
 using System.Threading;
-
 using UnityEngine;
 
 public class Enemy : Unit
@@ -14,15 +13,9 @@ public class Enemy : Unit
     //public int damage = 10;
     public int rewardScore = 5;
     public float range = 3;
-    
-    public float movementSpeed = 3;
-    public float attackInterval;
-    public float attackTimer=0;
-
-    public bool attackReady = true;
-
+   
     [SerializeField] private SpriteRenderer _sprite;
-
+    
     private void Awake()
     {
         base.Awake();
@@ -62,7 +55,7 @@ public class Enemy : Unit
         }
         else if (other.tag == targetTag)
         {
-            target.unitEventHandler.ChangeHealth(-damage);
+            target.unitEventHandler.ChangeHealth(-unitStats.damage_s.amount);
             Destroy(this.gameObject);
         }
     }
@@ -76,19 +69,20 @@ public class Enemy : Unit
         }
         else
         {
-            damage = enemyTemplate.damage;
+            unitStats.damage_s.amount = enemyTemplate.damage;
             rewardScore = enemyTemplate.rewardScore;
-            movementSpeed = enemyTemplate.movementSpeed;
+            unitStats.movementSpeed_s.amount = enemyTemplate.movementSpeed;
             range = enemyTemplate.range;
-            attackInterval = enemyTemplate.attackInterval;
+            //unitStats.attackInterval = enemyTemplate.attackInterval;
+            unitStats.attackSpeed_s.amount = enemyTemplate.attackSpeed;
             unitEventHandler.ResetHealth();//may be redundant - or take value from SO
-            unitHealth.healthMax = enemyTemplate.healthMax;
+            unitStats.healthMax_s.amount = enemyTemplate.healthMax;
             _sprite.color = enemyTemplate.color;
         }
     }
     private void SetDefaultEnemyProperties()
-    { 
-        damage = 10;
+    {
+        unitStats.damage_s.amount = 10;
         Debug.Log("no template on enemy");
     }
     private void PerformEnemyBehavior()
@@ -100,7 +94,7 @@ public class Enemy : Unit
             //Debug.Log("target not null");
             Debug.Log("template null");
             //Vector3 delta = target.transform.position*movementSpeed*Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, movementSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, unitStats.movementSpeed_s.amount * Time.deltaTime);
         }
         else
         {
@@ -109,13 +103,13 @@ public class Enemy : Unit
     }
     private void ShotReload()
     {
-        if (!attackReady)
+        if (!isAttackReady)
         {
-            attackTimer += Time.deltaTime;
-            if (attackTimer >= attackInterval)
+            unitStats.attackTimer += Time.deltaTime;
+            if (unitStats.attackTimer >= unitStats.attackInterval)
             {
-                attackTimer =-attackInterval;
-                attackReady = true;
+                unitStats.attackTimer =-unitStats.attackInterval;
+                isAttackReady = true;
             }
         }
     }

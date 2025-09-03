@@ -2,19 +2,19 @@ using UnityEngine;
 using System;
 public class EventHandler_Unit : MonoBehaviour
 {
-    public delegate void HealthChangeEvent(int healthChangeValue);
+    public delegate void HealthChangeEvent(float healthChangeValue);
     public event HealthChangeEvent OnHealthChange;
-    public delegate void ScoreChangeEvent(int scoreToAdd);
+    public delegate void ScoreChangeEvent(float scoreToAdd);
     public event ScoreChangeEvent OnScoreChange;
     public event Action OnDeath;
     public event Action OnResetHealth;
     public event Action OnResetScore;
-    public void ChangeHealth(int healthChangeValue)
+    public void ChangeHealth(float healthChangeValue)
     {
         OnHealthChange?.Invoke(healthChangeValue);
         //Debug.Log("HealthChangeEvent run");
     }
-    public void ChangeScore(int healthChangeValue)
+    public void ChangeScore(float healthChangeValue)
     { 
         OnScoreChange?.Invoke(healthChangeValue);
     }

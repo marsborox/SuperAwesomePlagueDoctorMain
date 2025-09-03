@@ -13,6 +13,6 @@ public class EnemyBehavior_SO : ScriptableObject
     }
     public void MoveToTarget(Unit target, Unit usedEnemy)
     {
-        usedEnemy.transform.position = Vector2.MoveTowards(usedEnemy.transform.position, target.transform.position, ((Enemy)usedEnemy).movementSpeed * Time.deltaTime);
+        usedEnemy.transform.position = Vector2.MoveTowards(usedEnemy.transform.position, target.transform.position, ((Enemy)usedEnemy).unitStats.movementSpeed_s.amount * Time.deltaTime);
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2336925100564582378}
   - component: {fileID: 5210266296709679943}
   - component: {fileID: 7720377023653862749}
+  - component: {fileID: 5324939490564865067}
   - component: {fileID: 1789071070035419239}
   - component: {fileID: 276873268226481901}
   - component: {fileID: 2021190335892129596}
@@ -184,13 +185,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5726d4f18ec1be043b0573349b8af4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitEventHandler: {fileID: 0}
+  unitEventHandler: {fileID: 2336925100564582378}
+  unitHealth: {fileID: 7720377023653862749}
+  unitStats: {fileID: 5324939490564865067}
   targetTag: Enemy
-  damage: 1
-  healthMax: 1
-  unitHealth: {fileID: 0}
+  isAttackReady: 1
   respawnPoint: {fileID: 0}
-  score: 0
+  attackPlayer: {fileID: 5210266296709679943}
 --- !u!114 &2336925100564582378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,10 +217,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 3087324221369710027, guid: 7bb97bc4f62fcbf43ba49f672eb091f1, type: 3}
-  damage: 1
   _mouseFollow: {fileID: 3672550521405967202}
   _activeAction: {fileID: 0}
-  _player: {fileID: 0}
+  _player: {fileID: 7747861109025471582}
+  isAttacking: 0
 --- !u!114 &7720377023653862749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +235,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 100
   healthCurrent: 0
+--- !u!114 &5324939490564865067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2923917330372891961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf93109a293c24f4cae579079528beaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax_s:
+    name: healthMax
+    value: 10
+  damage_s:
+    name: damage
+    value: 1
+  movementSpeed_s:
+    name: movementSpeed
+    value: 3
+  attackSpeed_s:
+    name: attackSpeed
+    value: 100
+  healthMax: 10
+  damage: 1
+  movementSpeed: 3
+  attackSpeed: 100
+  attackInterval: 0.5
+  attackTimer: 0
+  SpeedToIntervaL: 100
+  score: 0
+  statListFloat: []
+  statList: []
+  upgradeAmount: 0
+  _player: {fileID: 7747861109025471582}
 --- !u!114 &1789071070035419239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveInput: {x: 0, y: 0}
+  _player: {fileID: 0}
 --- !u!114 &2021190335892129596
 MonoBehaviour:
   m_ObjectHideFlags: 0

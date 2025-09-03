@@ -60,6 +60,7 @@ public class EnemySpawner : MonoBehaviour
         enemy.transform.position = ReturnSpawnpoint().position;//will probably be done by SO
         enemy.target = _player;
         enemy.unitEventHandler.ResetHealth();
+        enemy.transform.SetParent(transform);
         //StartCoroutine(GetNextSpawnTimeRoutine());
     }
     public void SpawnEnemy(Enemy_SO enemyTemplate)
@@ -77,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
         enemy.transform.position = ReturnSpawnpoint().position;//will probably be done by SO
         enemy.target = _player;
         enemy.unitEventHandler.ResetHealth();
+        enemy.transform.SetParent(transform);
         //StartCoroutine(GetNextSpawnTimeRoutine());
     }
     public Transform ReturnSpawnpoint()

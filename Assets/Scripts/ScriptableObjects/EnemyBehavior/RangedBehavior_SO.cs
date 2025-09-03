@@ -9,7 +9,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
     public override void EnemyBehavior(Unit target, Unit usedEnemy)
     {
         var enemy = ((Enemy)usedEnemy);
-        if (enemy.attackReady)
+        if (enemy.isAttackReady)
         {        
             if (IsInRange(target, usedEnemy))
             {
@@ -19,7 +19,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
                 }
                 else
                 {
-                    ((Enemy)usedEnemy).attackReady = false;
+                    ((Enemy)usedEnemy).isAttackReady = false;
                     Vector3 targetPosition = (target.transform.position - usedEnemy.transform.position).normalized;
                     float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
                     angle -= 90f;
@@ -52,13 +52,13 @@ public class RangedBehavior_SO : EnemyBehavior_SO
     
     private void Attack(Unit target, Unit usedEnemy)
     {//this is just in case
-        ((Enemy)usedEnemy).attackReady = false;
+        ((Enemy)usedEnemy).isAttackReady = false;
         Vector3 shootPosition = target.transform.position;
         Projectile spawnedProjectile = Instantiate(_projectilePrefab);
         spawnedProjectile.transform.position = usedEnemy.transform.position;
         spawnedProjectile.transform.up = -(usedEnemy.transform.position - shootPosition);
         spawnedProjectile.targetTag = ((Enemy)usedEnemy).targetTag;
-        spawnedProjectile.damage = ((Enemy)usedEnemy).damage;
+        spawnedProjectile.damage = ((Enemy)usedEnemy).unitStats.damage_s.amount;
         
     }
     private void AttackFromSO()

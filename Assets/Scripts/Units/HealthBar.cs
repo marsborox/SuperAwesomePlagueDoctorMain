@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Image _healthBarImage;
@@ -22,7 +21,7 @@ public class HealthBar : MonoBehaviour
     }
     public void SetBarSize()
     {
-        float fillAmount = (float)_unit.unitHealth.healthCurrent / (float)_unit.unitHealth.healthMax;
+        float fillAmount = (float)_unit.unitHealth.healthCurrent / _unit.unitStats.healthMax_s.amount;
         _healthBarImage.fillAmount = fillAmount;
     }
 }

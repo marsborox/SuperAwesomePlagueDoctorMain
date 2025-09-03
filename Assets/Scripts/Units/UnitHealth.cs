@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class UnitHealth : MonoBehaviour
 {
-    public int healthMax = 1;//might be private
-    public int healthCurrent;//might be private
+    
+    //public float healthMax = 1;//might be private
+    public float healthCurrent;//might be private
     private Unit _unit;
     private void Awake()
     {
         _unit = GetComponent<Unit>();
-
     }
 
     void Start()
@@ -66,19 +66,19 @@ public class UnitHealth : MonoBehaviour
     {
         if (_unit is Enemy)
         {
-            healthMax = ((Enemy)_unit).enemyTemplate.healthMax;
+            _unit.unitStats.healthMax_s.amount = ((Enemy)_unit).enemyTemplate.healthMax;
         }
         else if (_unit is Player)
         {
-            healthMax = ((Player)_unit).healthMax;
+            //healthMax = ((Player)_unit).unitStats.healthMax_s.amount;
         }
     }
-    private void ResetHealth()
+    public void ResetHealth()
     {
 
-        healthCurrent = healthMax;    
+        healthCurrent = _unit.unitStats.healthMax_s.amount;    
     }
-    private void ChangeHealth(int changeHealthValue)
+    private void ChangeHealth(float changeHealthValue)
     {
         //Debug.Log(_unit.name+" changingHelath");
         healthCurrent += changeHealthValue;

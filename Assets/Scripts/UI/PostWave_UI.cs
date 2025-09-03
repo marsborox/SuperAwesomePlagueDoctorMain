@@ -1,16 +1,99 @@
+
+using System.Collections.Generic;
+
+using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Collections;
+
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PostWave_UI : UI
+public class PostWave_UI : UI , I_InitiateButton
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private List <PostWaveButton_UI> _buttons = new List<PostWaveButton_UI>();
+    [SerializeField] private MyGlobalEventHandler _eventHandler;
+
     void Start()
+    { 
+    
+    }
+    void OnEnable()
     {
-        
+        OpenButtons();
+    }
+    void OnDisable()
+    {
+        CloseButtons();
+    }
+    public void CloseButtons()
+    {
+        foreach (PostWaveButton_UI button in _buttons)
+        {
+            //button.gameObject.SetActive(false);
+            button.button.onClick.RemoveAllListeners();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OpenButtons()
+    {
+        List<int> usedStatIndexes = new List<int>();
+        foreach (PostWaveButton_UI button in _buttons)
+        {
+            //button.gameObject.SetActive(true);
+            var statlist = mainUI.player.unitStats.statList;
+            int randomStatIndex = GetRandomStat(statlist, usedStatIndexes);
+            
+              
+            button.statName.text = statlist[randomStatIndex].name;
+            button.statValue.text = statlist[randomStatIndex].amount.ToString() + " + " + statlist[randomStatIndex].upgradeAmount;
+            
+            var unitStats = mainUI.player.unitStats;
+            void SimplifyButtonMethod()
+            {
+                ((UnitStats_Player)unitStats).UpgradeStat(button.statName.text);
+                _eventHandler.ResumeGame();
+                mainUI.OpenCloseUI(this);
+            }
+            ((I_InitiateButton)this).InitiateButton(button.button, SimplifyButtonMethod);
+        }
+    }
+    private int GetRandomStat(List<UnitStats.Stat> statList, List<int> usedStatIndexes)
+    {
+        int returnIndex;
+        //returnIndex = 2;
+        returnIndex = Random.Range(0, statList.Count);
+        bool isDuplicate = true;
+        while (isDuplicate)
+        {
+            isDuplicate = false;
+            returnIndex = Random.Range(0, statList.Count);
+
+            for (int i = 0; i < usedStatIndexes.Count; i++)
+            {
+                if (returnIndex == usedStatIndexes[i])
+                {
+                    isDuplicate = true;
+                }
+            }
+        }
+        usedStatIndexes.Add(returnIndex);
+        return returnIndex;
+    }
+    private void CheckIfInList()
     {
         
     }
+    void SetButtonProperties(PostWaveButton_UI button)
+    {
+        string strin = "string";
+        button.statName.text = strin;
+        button.statValue.text = strin;
+    }
+
+    private float ReturnValueSetText(PostWaveButton_UI button)
+    {
+        float nbr = 5f;
+        //int random = Random.Range(0,mainUi.)//
+        return nbr;
+    }
+
 }
