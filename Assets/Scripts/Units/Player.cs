@@ -48,6 +48,35 @@ public class Player : Unit
         unitEventHandler.ResetScore();
         transform.position=respawnPoint.position;
     }
+    public float ReturnHealthCurrent()
+    {
+
+        return unitHealth.healthCurrent;
+    }
+    public float ReturnHealthMax()
+    { 
+        return unitStats.healthMax_s.amount;
+    }
+    public float ReturnDamageAmount()
+    { 
+        return unitStats.damage_s.amount;
+    }
+    public float ReturnMovementSpeedAmount()
+    { 
+        return unitStats.movementSpeed_s.amount;
+    }
+    public float ReturnAttackSpeedAmount()
+    {
+        return unitStats.attackSpeed_s.amount;
+    }
+    public float ReturnAttackIntervalAmount()
+    { 
+        return unitStats.attackInterval;
+    }
+    public float ReturnScoreAmount()
+    {
+        return unitStats.score;
+    }
 
     public override void OnColliderTrigger(Collider2D other)
     {
