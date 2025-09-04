@@ -139,6 +139,18 @@ PrefabInstance:
       propertyPath: '_waves.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 0bd05411d24d96c4593e60dbf1a9e14d, type: 2}
+    - target: {fileID: 240802016641802013, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: '_waves.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0bd05411d24d96c4593e60dbf1a9e14d, type: 2}
+    - target: {fileID: 240802016641802013, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: '_waves.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0bd05411d24d96c4593e60dbf1a9e14d, type: 2}
+    - target: {fileID: 240802016641802013, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: '_waves.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0bd05411d24d96c4593e60dbf1a9e14d, type: 2}
     - target: {fileID: 1114579476402230071, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -194,6 +206,14 @@ PrefabInstance:
     - target: {fileID: 6508372840656636024, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
       propertyPath: attackSpeed_s.upgradeAmount
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569883249834720368, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.898706
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569883249834720368, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.5225596
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
