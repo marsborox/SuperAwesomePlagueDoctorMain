@@ -54,8 +54,9 @@ public class Enemy : Unit
             }
         }
         else if (other.tag == targetTag)
-        {
-            target.unitEventHandler.ChangeHealth(-unitStats.damage_s.amount);
+        {            
+            target.TakeDamage(ReturnDamageAmount());
+
             Destroy(this.gameObject);
         }
     }
@@ -94,7 +95,7 @@ public class Enemy : Unit
             //Debug.Log("target not null");
             Debug.Log("template null");
             //Vector3 delta = target.transform.position*movementSpeed*Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, unitStats.movementSpeed_s.amount * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, ReturnMovementSpeedAmount() * Time.deltaTime);
         }
         else
         {
@@ -106,9 +107,9 @@ public class Enemy : Unit
         if (!isAttackReady)
         {
             unitStats.attackTimer += Time.deltaTime;
-            if (unitStats.attackTimer >= unitStats.attackInterval)
+            if (unitStats.attackTimer >= ReturnAttackIntervalAmount())
             {
-                unitStats.attackTimer =-unitStats.attackInterval;
+                unitStats.attackTimer =- ReturnAttackIntervalAmount();
                 isAttackReady = true;
             }
         }
@@ -116,7 +117,7 @@ public class Enemy : Unit
     private void Die()
     {
         //Debug.Log("Implement Loot");
-        target.unitEventHandler.ChangeScore(rewardScore);
+        target.AddScore(rewardScore);
         Destroy(this.gameObject);
 
     }
@@ -126,8 +127,14 @@ public class Enemy : Unit
     }
     private void GotHit(Projectile projectile)
     {
+        TakeDamage(projectile.damage);
+        //projectile.sourceUnit.AddScore(rewardScore);
+    }
+    /*
+    private void GotHit(Projectile projectile)
+    {
         unitEventHandler.ChangeHealth(-projectile.damage);
         projectile.sourceUnit.unitEventHandler.ChangeScore(rewardScore);
     }
-        
+     */   
 }

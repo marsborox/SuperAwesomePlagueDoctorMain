@@ -18,5 +18,45 @@ public class Unit : MonoBehaviour
     { }
     public virtual void Die()
     { }
-    
+        public float ReturnHealthCurrent()
+    {
+
+        return unitHealth.healthCurrent;
+    }
+    public float ReturnHealthMax()
+    { 
+        return unitStats.healthMax_s.amount;
+    }
+    public float ReturnDamageAmount()
+    { 
+        return unitStats.damage_s.amount;
+    }
+    public float ReturnMovementSpeedAmount()
+    { 
+        return unitStats.movementSpeed_s.amount;
+    }
+    public float ReturnAttackSpeedAmount()
+    {
+        return unitStats.attackSpeed_s.amount;
+    }
+    public float ReturnAttackIntervalAmount()
+    { 
+        return unitStats.attackInterval;
+    }
+    public float ReturnScoreAmount()
+    {
+        return unitStats.score;
+    }
+    public void TakeDamage(float damageAmount)
+    { 
+        unitEventHandler.ChangeHealth(-damageAmount);
+    }
+    public void GetHeal(float healAmount)
+    {
+        unitEventHandler.ChangeHealth(healAmount);
+    }
+    public void AddScore(int score)
+    { 
+        unitStats.score += score;
+    }
 }

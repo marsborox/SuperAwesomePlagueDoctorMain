@@ -76,7 +76,7 @@ public class UnitHealth : MonoBehaviour
     public void ResetHealth()
     {
 
-        healthCurrent = _unit.unitStats.healthMax_s.amount;    
+        healthCurrent = _unit.ReturnHealthMax();    
     }
     private void ChangeHealth(float changeHealthValue)
     {
