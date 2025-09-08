@@ -58,6 +58,8 @@ public class Enemy : Unit
             target.TakeDamage(ReturnDamageAmount());
 
             Destroy(this.gameObject);
+
+
         }
     }
 

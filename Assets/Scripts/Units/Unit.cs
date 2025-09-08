@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Unit : MonoBehaviour
@@ -5,11 +6,12 @@ public class Unit : MonoBehaviour
     public EventHandler_Unit unitEventHandler;
     public UnitHealth unitHealth;
     public UnitStats unitStats;
+    public UnitEffects unitEffects;
     public string targetTag;
 
     public bool isAttackReady = true;//might be moved elsewhere
 
-
+    
     public void Awake()
     {
 
@@ -59,4 +61,6 @@ public class Unit : MonoBehaviour
     { 
         unitStats.score += score;
     }
+
+
 }

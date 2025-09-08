@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 1789071070035419239}
   - component: {fileID: 276873268226481901}
   - component: {fileID: 2021190335892129596}
+  - component: {fileID: 6653408828665316970}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -188,6 +189,7 @@ MonoBehaviour:
   unitEventHandler: {fileID: 2336925100564582378}
   unitHealth: {fileID: 7720377023653862749}
   unitStats: {fileID: 5324939490564865067}
+  unitEffects: {fileID: 6653408828665316970}
   targetTag: Enemy
   isAttackReady: 1
   respawnPoint: {fileID: 0}
@@ -233,7 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70812aa5c9506845a9c528898ff9a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 100
   healthCurrent: 0
 --- !u!114 &5324939490564865067
 MonoBehaviour:
@@ -249,20 +250,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax_s:
     name: healthMax
-    value: 10
+    amount: 0
+    upgradeAmount: 0
   damage_s:
     name: damage
-    value: 1
+    amount: 0
+    upgradeAmount: 0
   movementSpeed_s:
     name: movementSpeed
-    value: 3
+    amount: 0
+    upgradeAmount: 0
   attackSpeed_s:
     name: attackSpeed
-    value: 100
-  healthMax: 10
-  damage: 1
-  movementSpeed: 3
-  attackSpeed: 100
+    amount: 0
+    upgradeAmount: 0
   attackInterval: 0.5
   attackTimer: 0
   SpeedToIntervaL: 100
@@ -328,6 +329,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
+--- !u!114 &6653408828665316970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2923917330372891961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99d7b6258946e340851c7328edf7c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 7747861109025471582}
 --- !u!1 &3323479504044513688
 GameObject:
   m_ObjectHideFlags: 0
