@@ -9,6 +9,10 @@ public class Action_SO : ScriptableObject
     { 
     
     }
+    public virtual void Attack(Unit sourceUnit)
+    { 
+        
+    }
     public virtual void Attack(Projectile projectilePrefab, Unit sourceUnit, Transform shootRotation)
     { 
     
@@ -24,5 +28,9 @@ public class Action_SO : ScriptableObject
     public virtual void Attack(Unit sourceUnit, Transform shootRotation, Quaternion shootDirection)
     {
 
+    }
+    public virtual void DoOnTouch(Unit sourceUnit)
+    { 
+        
     }
 }

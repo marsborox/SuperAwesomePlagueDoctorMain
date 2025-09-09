@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 240802016641802013, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
       propertyPath: _waves.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 240802016641802013, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
       propertyPath: '_waves.Array.data[0]'

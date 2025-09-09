@@ -54,11 +54,11 @@ public class Enemy : Unit
             }
         }
         else if (other.tag == targetTag)
-        {            
-            target.TakeDamage(ReturnDamageAmount());
-
-            Destroy(this.gameObject);
-
+        {
+            Debug.Log("touched enemy");
+            /*target.TakeDamage(ReturnDamageAmount());
+            Destroy(this.gameObject);*/
+            enemyTemplate.enemyBehavior_SO.TouchedTarget(this);
 
         }
     }

@@ -47,7 +47,7 @@ public class Explosion : Projectile
             Explode();//Debug.Log("bullet Hit");
         }
     }
-    private void Explode()
+    public void Explode()
     { 
         _isExploding = true;
     }

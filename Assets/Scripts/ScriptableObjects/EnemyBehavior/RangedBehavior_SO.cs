@@ -6,6 +6,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
     [SerializeField] Projectile _projectilePrefab;
     [Tooltip("rangedAttackPattern")]
     [SerializeField] private Action_SO _attackSO;
+    
     public override void EnemyBehavior(Unit target, Unit usedEnemy)
     {
         var enemy = ((Enemy)usedEnemy);
@@ -23,10 +24,9 @@ public class RangedBehavior_SO : EnemyBehavior_SO
                     Vector3 targetPosition = (target.transform.position - usedEnemy.transform.position).normalized;
                     float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
                     angle -= 90f;
-                    //Quaternion shootingDirection;/* = Quaternion.Euler(targetPosition.x,targetPosition.y,targetPosition.z);*/
-                    //Transform shootingTransform = usedEnemy.transform;
+                    
                     Quaternion shootingDirection = Quaternion.Euler(0,0,angle);
-                    //shootingTransform.rotation = shootingDirection;
+                    
                     _attackSO.Attack(usedEnemy, target.transform, shootingDirection);
                 }
             }
@@ -37,7 +37,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
         }
     }
     
-    private bool IsInRange(Unit target, Unit usedEnemy)
+    /*public bool IsInRange(Unit target, Unit usedEnemy)
     { 
         float distance = Vector2.Distance(target.transform.position,usedEnemy.transform.position);
         if (distance < ((Enemy)usedEnemy).range)
@@ -48,7 +48,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
         {
             return false;
         }
-    }
+    }*/
     
     private void Attack(Unit target, Unit usedEnemy)
     {//this is just in case
