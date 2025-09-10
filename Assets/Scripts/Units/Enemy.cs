@@ -55,9 +55,8 @@ public class Enemy : Unit
         }
         else if (other.tag == targetTag)
         {
-            Debug.Log("touched enemy");
-            /*target.TakeDamage(ReturnDamageAmount());
-            Destroy(this.gameObject);*/
+            //Debug.Log("touched enemy");
+
             enemyTemplate.enemyBehavior_SO.TouchedTarget(this);
 
         }
@@ -81,6 +80,7 @@ public class Enemy : Unit
             unitEventHandler.ResetHealth();//may be redundant - or take value from SO
             unitStats.healthMax_s.amount = enemyTemplate.healthMax;
             _sprite.color = enemyTemplate.color;
+            unitStats.attackRange_s.amount = enemyTemplate.range;
         }
     }
     private void SetDefaultEnemyProperties()

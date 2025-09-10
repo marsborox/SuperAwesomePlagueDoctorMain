@@ -5,15 +5,21 @@ public class BomberBehavior_SO : EnemyBehavior_SO
 {
     [SerializeField] Explosion explosion;
 
-    public void TouchedTarget(Unit sourceUnit)
+    public override void EnemyBehavior(Unit target, Unit usedEnemy)
+    {
+        MoveToTarget(target, usedEnemy);
+    }
+    public override void TouchedTarget(Unit usedEnemy)
     {
         Debug.Log("Should be exploding rn");
         Explosion explodingExplosion = Instantiate(explosion);
 
-        explodingExplosion.damage = sourceUnit.ReturnDamageAmount();
-        explodingExplosion.targetTag = sourceUnit.targetTag;
-        explodingExplosion.sourceUnit = sourceUnit;
+        explodingExplosion.damage = usedEnemy.ReturnDamageAmount();
+        explodingExplosion.targetTag = usedEnemy.targetTag;
+        explodingExplosion.sourceUnit = usedEnemy;
         explodingExplosion.movementSpeed = 0f;
-        Destroy(sourceUnit.gameObject);
+        explodingExplosion.transform.position = usedEnemy.transform.position;
+        usedEnemy.gameObject.SetActive(false);
+
     }
 }

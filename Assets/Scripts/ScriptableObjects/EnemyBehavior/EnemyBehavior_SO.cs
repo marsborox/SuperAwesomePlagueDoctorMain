@@ -32,8 +32,8 @@ public class EnemyBehavior_SO : ScriptableObject
     {
 
     }
-    public void TouchedTarget(Unit usedEnemy)
-    { 
-        
+    public virtual void TouchedTarget(Unit usedEnemy)
+    {
+        Debug.Log("Touched Target.EnemyBehavior_SO");
     }
 }

@@ -4,15 +4,15 @@
 [CreateAssetMenu(fileName = "Enemy_SO", menuName = "Scriptable Objects/Enemy_SO")]
 public class Enemy_SO : ScriptableObject
 {
-    public Color color;
+    public Color color = Color.white;
     public EnemyBehavior_SO enemyBehavior_SO;
 
     public int damage = 10;
     public int rewardScore = 5;
-    public int range = 3;
+    public float range = 3;
     public int healthMax = 2;
     public int attackSpeed = 50;
-    public float movementSpeed = 300;
+    public float movementSpeed = 3f;
     //public float attackInterval = 2f;
     
     public void DoBehavior(Player target, Enemy usedEnemy)
