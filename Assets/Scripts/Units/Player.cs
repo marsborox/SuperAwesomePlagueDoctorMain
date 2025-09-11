@@ -60,7 +60,8 @@ public class Player : Unit
             if (projectile.targetTag == gameObject.tag)
             {
                 //Debug.Log("PlayerGotHit with projectile by enemy w damage " + projectile.damage);
-                unitEventHandler.ChangeHealth(-projectile.damage);
+                //unitEventHandler.ChangeHealth(-projectile.damage);
+                TakeDamage(projectile.damage);
                 Destroy(projectile.gameObject);
             }
         }

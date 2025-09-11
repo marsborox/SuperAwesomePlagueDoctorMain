@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3509358026528709863}
   - component: {fileID: 1618963730610498757}
-  - component: {fileID: 6822139641047870221}
   - component: {fileID: 1382589919490229520}
   - component: {fileID: 7747861109025471582}
   - component: {fileID: 2336925100564582378}
@@ -101,52 +100,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6822139641047870221
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2923917330372891961}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.65, y: 0.65}
-    newSize: {x: 0.65, y: 0.65}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.65, y: 0.65}
-  m_EdgeRadius: 0
 --- !u!50 &1382589919490229520
 Rigidbody2D:
   serializedVersion: 5
@@ -192,6 +145,7 @@ MonoBehaviour:
   unitEffects: {fileID: 6653408828665316970}
   targetTag: Enemy
   isAttackReady: 1
+  isSpecialEffect: 0
   respawnPoint: {fileID: 0}
   attackPlayer: {fileID: 5210266296709679943}
 --- !u!114 &2336925100564582378
@@ -262,6 +216,10 @@ MonoBehaviour:
     upgradeAmount: 0
   attackSpeed_s:
     name: attackSpeed
+    amount: 0
+    upgradeAmount: 0
+  attackRange_s:
+    name: 
     amount: 0
     upgradeAmount: 0
   attackInterval: 0.5

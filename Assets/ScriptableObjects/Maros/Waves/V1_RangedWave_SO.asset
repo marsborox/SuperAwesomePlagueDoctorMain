@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: V1_RangedWave_SO
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 4c0fb82712540d84bb8f5358edb15638, type: 2}
-  numberOfEnemies: 20
+  numberOfEnemies: 2
   minSpawnTime: 0.2
   maxSpawnTime: 0.5

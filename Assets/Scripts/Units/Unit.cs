@@ -11,7 +11,7 @@ public class Unit : MonoBehaviour
 
     public bool isAttackReady = true;//might be moved elsewhere
 
-    
+    public bool isSpecialEffect = false;// this si for stuff like is exploding, or some stuff that should happen just once boud to Behavior_SO
     public void Awake()
     {
 
