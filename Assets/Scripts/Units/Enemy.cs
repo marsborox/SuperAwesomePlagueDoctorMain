@@ -50,12 +50,16 @@ public class Enemy : Unit
             if (projectile.targetTag == gameObject.tag)
             {
                 GotHit(projectile);
-                Destroy(projectile.gameObject);
+                if (!(projectile is Explosion))
+                {
+                    Destroy(projectile.gameObject);
+                }
             }
         }
+
         else if (other.tag == targetTag)
         {
-            //Debug.Log("touched enemy");
+            Debug.Log("touched enemy");
 
             enemyTemplate.enemyBehavior_SO.TouchedTarget(this);
 

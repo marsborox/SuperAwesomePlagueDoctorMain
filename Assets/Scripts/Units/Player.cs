@@ -62,7 +62,10 @@ public class Player : Unit
                 //Debug.Log("PlayerGotHit with projectile by enemy w damage " + projectile.damage);
                 //unitEventHandler.ChangeHealth(-projectile.damage);
                 TakeDamage(projectile.damage);
-                Destroy(projectile.gameObject);
+                if (!(projectile is Explosion))
+                {
+                    Destroy(projectile.gameObject);
+                }
             }
         }
     }

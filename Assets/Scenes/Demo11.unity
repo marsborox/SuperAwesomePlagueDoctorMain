@@ -134,11 +134,11 @@ PrefabInstance:
     - target: {fileID: 240802016641802013, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
       propertyPath: '_waves.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 0bd05411d24d96c4593e60dbf1a9e14d, type: 2}
+      objectReference: {fileID: 11400000, guid: 2338d14404ea4824d8e4a2f98163a8c5, type: 2}
     - target: {fileID: 240802016641802013, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
       propertyPath: '_waves.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 37bf804b99eea104e8a8faa653cc6476, type: 2}
+      objectReference: {fileID: 11400000, guid: 0bd05411d24d96c4593e60dbf1a9e14d, type: 2}
     - target: {fileID: 240802016641802013, guid: a14efd3910bc7b8489b0be8eb939e37a, type: 3}
       propertyPath: '_waves.Array.data[2]'
       value: 

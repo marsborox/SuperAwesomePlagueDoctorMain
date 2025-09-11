@@ -65,7 +65,7 @@ public class UnitStats_Player : UnitStats
     public void UpgradeStatAny(ref Stat stat)
     {
         stat.amount += stat.upgradeAmount;
-        Debug.Log("Upgrading stat " + stat.name + " to value " + stat.amount.ToString());
+        //Debug.Log("Upgrading stat " + stat.name + " to value " + stat.amount.ToString());
     }
     public void UpgradeStat(string statText)
     {

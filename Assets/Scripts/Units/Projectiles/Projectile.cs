@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
     public string targetTag;
     [SerializeField] public float movementSpeed = 8f;
     public float damage;
+    
     private void Start()
     {
 
