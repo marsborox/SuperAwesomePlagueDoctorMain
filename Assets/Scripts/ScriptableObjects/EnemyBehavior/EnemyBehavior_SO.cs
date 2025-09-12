@@ -28,7 +28,7 @@ public class EnemyBehavior_SO : ScriptableObject
             return false;
         }
     }
-    public void Attack(Unit target, Unit usedEnemy)
+    public virtual void Attack(Unit target, Unit usedEnemy)
     {
 
     }

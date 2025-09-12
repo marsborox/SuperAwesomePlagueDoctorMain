@@ -9,6 +9,7 @@ public class EventHandler_Unit : MonoBehaviour
     public event Action OnDeath;
     public event Action OnResetHealth;
     public event Action OnResetScore;
+    public event Action OnAttack;
     public void ChangeHealth(float healthChangeValue)
     {
         OnHealthChange?.Invoke(healthChangeValue);
@@ -29,6 +30,10 @@ public class EventHandler_Unit : MonoBehaviour
     public void ResetScore()
     { 
         OnResetScore?.Invoke();
+    }
+    public void Attack()
+    { 
+        OnAttack?.Invoke();
     }
 
 }

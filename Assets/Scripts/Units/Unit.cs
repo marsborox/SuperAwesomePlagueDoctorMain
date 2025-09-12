@@ -45,6 +45,10 @@ public class Unit : MonoBehaviour
     { 
         return unitStats.attackInterval;
     }
+    public float ReturnAttackTimer()
+    { 
+        return unitStats.attackTimer;
+    }
     public float ReturnScoreAmount()
     {
         return unitStats.score;
@@ -57,10 +61,13 @@ public class Unit : MonoBehaviour
     {
         unitEventHandler.ChangeHealth(healAmount);
     }
+    public void Attack()
+    {
+        unitEventHandler.Attack();
+    }
     public void AddScore(int score)
     { 
         unitStats.score += score;
     }
-
 
 }

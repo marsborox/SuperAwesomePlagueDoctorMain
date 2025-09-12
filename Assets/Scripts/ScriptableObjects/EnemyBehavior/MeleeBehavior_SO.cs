@@ -12,7 +12,7 @@ public class MeleeBehavior_SO : EnemyBehavior_SO
         {
             if (IsInRange(target, usedEnemy))
             {
-
+                Attack(target, usedEnemy);
 
             }
             else
@@ -21,9 +21,12 @@ public class MeleeBehavior_SO : EnemyBehavior_SO
             }
         }
     }
-    public void Attack(Unit target, Unit usedEnemy)
+    public override void Attack(Unit target, Unit usedEnemy)
     {
+        Debug.Log("melee attacking");
         ((Enemy)usedEnemy).isAttackReady = false;
+        target.TakeDamage(usedEnemy.ReturnDamageAmount());
+        usedEnemy.Attack();
     }
 
 }

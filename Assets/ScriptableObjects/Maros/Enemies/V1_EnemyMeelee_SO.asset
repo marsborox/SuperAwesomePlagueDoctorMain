@@ -16,7 +16,7 @@ MonoBehaviour:
   enemyBehavior_SO: {fileID: 11400000, guid: 971d980681eb8bf4d8dd09fd4b9c4548, type: 2}
   damage: 1
   rewardScore: 5
-  range: 0
+  range: 0.2
   healthMax: 2
   attackSpeed: 50
   movementSpeed: 3

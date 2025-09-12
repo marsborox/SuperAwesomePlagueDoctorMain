@@ -1,5 +1,6 @@
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : Unit
 {
@@ -15,7 +16,8 @@ public class Enemy : Unit
     public float range = 3;
    
     [SerializeField] private SpriteRenderer _sprite;
-    
+
+
     private void Awake()
     {
         base.Awake();
@@ -29,7 +31,7 @@ public class Enemy : Unit
     private void Update()
     {
         PerformEnemyBehavior();
-        ShotReload();
+        AttackReload();
 
     }
     private void OnEnable()
@@ -108,7 +110,7 @@ public class Enemy : Unit
             enemyTemplate.DoBehavior(target,this);
         }
     }
-    private void ShotReload()
+    private void AttackReload()
     {
         if (!isAttackReady)
         {
