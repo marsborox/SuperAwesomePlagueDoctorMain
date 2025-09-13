@@ -18,6 +18,7 @@ public class Enemy : Unit
     [SerializeField] private SpriteRenderer _sprite;
 
 
+
     private void Awake()
     {
         base.Awake();
@@ -124,6 +125,7 @@ public class Enemy : Unit
     }
     private void Die()
     {
+        enemyTemplate.enemyBehavior_SO.Die(this);
         //Debug.Log("Implement Loot");
         target.AddScore(rewardScore);
         Destroy(this.gameObject);

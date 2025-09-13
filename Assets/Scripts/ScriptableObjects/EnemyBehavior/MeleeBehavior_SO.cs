@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "MeleeBehavior_SO", menuName = "Scriptable Objects/EnemyBehavior_SO/MeleeBehavior_SO")]
-public class MeleeBehavior_SO : EnemyBehavior_SO
+public class MeleeBehavior_SO : EnemyBehavior_SO, I_MeleeAttack
 {
     public override void EnemyBehavior(Unit target, Unit usedEnemy)
     {
@@ -12,7 +12,7 @@ public class MeleeBehavior_SO : EnemyBehavior_SO
         {
             if (IsInRange(target, usedEnemy))
             {
-                Attack(target, usedEnemy);
+                ((I_MeleeAttack)this).Attack(target, usedEnemy);
 
             }
             else
@@ -20,13 +20,6 @@ public class MeleeBehavior_SO : EnemyBehavior_SO
                 MoveToTarget(target, usedEnemy);
             }
         }
-    }
-    public override void Attack(Unit target, Unit usedEnemy)
-    {
-        Debug.Log("melee attacking");
-        ((Enemy)usedEnemy).isAttackReady = false;
-        target.TakeDamage(usedEnemy.ReturnDamageAmount());
-        usedEnemy.Attack();
     }
 
 }

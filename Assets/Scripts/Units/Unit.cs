@@ -7,6 +7,7 @@ public class Unit : MonoBehaviour
     public UnitHealth unitHealth;
     public UnitStats unitStats;
     public UnitEffects unitEffects;
+    public EnemySpawner enemySpawner;
     public string targetTag;
 
     public bool isAttackReady = true;//might be moved elsewhere
