@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: e661659ba7ee26d46bedb083cb4dd206, type: 3}
-  m_Color: {r: 1, g: 0.7830188, b: 0.7830188, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -303,6 +303,7 @@ MonoBehaviour:
   unitHealth: {fileID: -5898622976812679044}
   unitStats: {fileID: 5247265383988435941}
   unitEffects: {fileID: 1259375934075160838}
+  enemySpawner: {fileID: 0}
   targetTag: 
   isAttackReady: 1
   isSpecialEffect: 0
