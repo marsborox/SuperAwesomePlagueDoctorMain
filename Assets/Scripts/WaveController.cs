@@ -25,7 +25,7 @@ public class WaveController : MonoBehaviour
     private void ProcessWave(Wave_SO waveSO)
     {
         var enemySpawner = gameManager.enemySpawner;
-        if (enemySpawner.spawnRoutine == null&& _spawnedEnemiesThisWave <= waveSO.numberOfEnemies)
+        if (enemySpawner.spawnRoutine == null&& _spawnedEnemiesThisWave < waveSO.numberOfEnemies)
         {
             enemySpawner.spawnRoutine = enemySpawner.StartCoroutine(enemySpawner.GetNextSpawnTimeRoutine(waveSO.minSpawnTime,waveSO.maxSpawnTime,waveSO.enemySO));
             _spawnedEnemiesThisWave++;

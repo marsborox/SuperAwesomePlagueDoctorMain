@@ -13,7 +13,9 @@ public class UnitHealth : MonoBehaviour
 
     void Start()
     {
-        SubscribeToEventsPlayer();// when enable is run here, awake seems not to be finished in Unit for some reason (initialisation Order)
+        //SubscribeToEventsPlayer();// when enable is run here, awake seems not to be finished in Unit for some reason (initialisation Order)
+        //however this was added here sometimes for some reason, then we realised method is subscribed2times
+        //removed it from here but not sure if we get issue elsewhere
         InitialiseHealth();
         ResetHealth();
     }
@@ -76,7 +78,7 @@ public class UnitHealth : MonoBehaviour
     public void ResetHealth()
     {
 
-        healthCurrent = _unit.unitStats.healthMax_s.amount;    
+        healthCurrent = _unit.ReturnHealthMax();    
     }
     private void ChangeHealth(float changeHealthValue)
     {

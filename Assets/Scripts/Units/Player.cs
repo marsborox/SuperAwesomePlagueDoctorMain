@@ -49,6 +49,7 @@ public class Player : Unit
         transform.position=respawnPoint.position;
     }
 
+
     public override void OnColliderTrigger(Collider2D other)
     {
         //Debug.Log("PlayerGotHit");
@@ -59,8 +60,12 @@ public class Player : Unit
             if (projectile.targetTag == gameObject.tag)
             {
                 //Debug.Log("PlayerGotHit with projectile by enemy w damage " + projectile.damage);
-                unitEventHandler.ChangeHealth(-projectile.damage);
-                Destroy(projectile.gameObject);
+                //unitEventHandler.ChangeHealth(-projectile.damage);
+                TakeDamage(projectile.damage);
+                if (!(projectile is Explosion))
+                {
+                    Destroy(projectile.gameObject);
+                }
             }
         }
     }

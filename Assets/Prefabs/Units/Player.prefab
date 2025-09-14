@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3509358026528709863}
   - component: {fileID: 1618963730610498757}
-  - component: {fileID: 6822139641047870221}
   - component: {fileID: 1382589919490229520}
   - component: {fileID: 7747861109025471582}
   - component: {fileID: 2336925100564582378}
@@ -20,6 +19,7 @@ GameObject:
   - component: {fileID: 1789071070035419239}
   - component: {fileID: 276873268226481901}
   - component: {fileID: 2021190335892129596}
+  - component: {fileID: 6653408828665316970}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -100,52 +100,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6822139641047870221
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2923917330372891961}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.65, y: 0.65}
-    newSize: {x: 0.65, y: 0.65}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.65, y: 0.65}
-  m_EdgeRadius: 0
 --- !u!50 &1382589919490229520
 Rigidbody2D:
   serializedVersion: 5
@@ -188,8 +142,10 @@ MonoBehaviour:
   unitEventHandler: {fileID: 2336925100564582378}
   unitHealth: {fileID: 7720377023653862749}
   unitStats: {fileID: 5324939490564865067}
+  unitEffects: {fileID: 6653408828665316970}
   targetTag: Enemy
   isAttackReady: 1
+  isSpecialEffect: 0
   respawnPoint: {fileID: 0}
   attackPlayer: {fileID: 5210266296709679943}
 --- !u!114 &2336925100564582378
@@ -233,7 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70812aa5c9506845a9c528898ff9a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 100
   healthCurrent: 0
 --- !u!114 &5324939490564865067
 MonoBehaviour:
@@ -249,20 +204,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax_s:
     name: healthMax
-    value: 10
+    amount: 0
+    upgradeAmount: 0
   damage_s:
     name: damage
-    value: 1
+    amount: 0
+    upgradeAmount: 0
   movementSpeed_s:
     name: movementSpeed
-    value: 3
+    amount: 0
+    upgradeAmount: 0
   attackSpeed_s:
     name: attackSpeed
-    value: 100
-  healthMax: 10
-  damage: 1
-  movementSpeed: 3
-  attackSpeed: 100
+    amount: 0
+    upgradeAmount: 0
+  attackRange_s:
+    name: 
+    amount: 0
+    upgradeAmount: 0
   attackInterval: 0.5
   attackTimer: 0
   SpeedToIntervaL: 100
@@ -328,6 +287,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
+--- !u!114 &6653408828665316970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2923917330372891961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99d7b6258946e340851c7328edf7c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 7747861109025471582}
 --- !u!1 &3323479504044513688
 GameObject:
   m_ObjectHideFlags: 0

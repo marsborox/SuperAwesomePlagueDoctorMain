@@ -23,7 +23,7 @@ public class SpreadShot_SO : Action_SO
             Quaternion directionOfProjectile = Quaternion.Euler(shootDirection.x, shootDirection.y, angleOfShot);
             Projectile projectile;
             projectile = Instantiate(projectilePrefab, sourceUnit.transform.position, directionOfProjectile);
-            projectile.damage = sourceUnit.unitStats.damage_s.amount;
+            projectile.damage = sourceUnit.ReturnDamageAmount();
             projectile.targetTag = sourceUnit.targetTag;
             projectile.sourceUnit = sourceUnit;
             //projectile.transform.SetParent(sourceUnit.transform); //so bullet will move but will add source GO movement

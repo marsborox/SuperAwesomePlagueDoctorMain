@@ -57,6 +57,7 @@ public class EnemySpawner : MonoBehaviour
             enemy.enemyTemplate = _enemyTemplateToSpawn;
         }
         //enemy.transform.position = _spawnPoints[spawnPointSlot].transform.position;
+        enemy.enemySpawner = this;
         enemy.transform.position = ReturnSpawnpoint().position;//will probably be done by SO
         enemy.target = _player;
         enemy.unitEventHandler.ResetHealth();
@@ -69,14 +70,27 @@ public class EnemySpawner : MonoBehaviour
         int spawnPointSlot = Random.Range(0, _spawnPoints.Count);//set position
 
         Enemy enemy = Instantiate(_enemyPrefab);
-
-        if (_enemyTemplateToSpawn != null)
-        {
-            enemy.enemyTemplate = enemyTemplate;
-        }
+        enemy.enemyTemplate = enemyTemplate;
+        enemy.enemySpawner = this;
         //enemy.transform.position = _spawnPoints[spawnPointSlot].transform.position;
         enemy.transform.position = ReturnSpawnpoint().position;//will probably be done by SO
         enemy.target = _player;
+        enemy.unitEventHandler.ResetHealth();
+        enemy.transform.SetParent(transform);
+        //StartCoroutine(GetNextSpawnTimeRoutine());
+    }
+    public void SpawnEnemy(Enemy_SO enemyTemplate,Enemy enemyPrefab, Transform spawnTransform)
+    {
+
+        int spawnPointSlot = Random.Range(0, _spawnPoints.Count);//set position
+
+        Enemy enemy = Instantiate(enemyPrefab);
+        enemy.enemyTemplate = enemyTemplate;
+        enemy.enemySpawner = this;
+        //enemy.transform.position = _spawnPoints[spawnPointSlot].transform.position;
+        enemy.transform.position = spawnTransform.position;//will probably be done by SO
+        enemy.target = _player;
+
         enemy.unitEventHandler.ResetHealth();
         enemy.transform.SetParent(transform);
         //StartCoroutine(GetNextSpawnTimeRoutine());

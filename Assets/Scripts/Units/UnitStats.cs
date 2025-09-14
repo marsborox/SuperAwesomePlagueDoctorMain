@@ -18,6 +18,7 @@ public class UnitStats : MonoBehaviour
     public Stat damage_s;
     public Stat movementSpeed_s;
     public Stat attackSpeed_s;
+    public Stat attackRange_s;
 
     [Header(" ")]
     //public UnitStats unitStats;

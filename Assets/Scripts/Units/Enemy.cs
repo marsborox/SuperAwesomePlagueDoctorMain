@@ -1,5 +1,6 @@
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : Unit
 {
@@ -15,7 +16,9 @@ public class Enemy : Unit
     public float range = 3;
    
     [SerializeField] private SpriteRenderer _sprite;
-    
+
+
+
     private void Awake()
     {
         base.Awake();
@@ -29,7 +32,7 @@ public class Enemy : Unit
     private void Update()
     {
         PerformEnemyBehavior();
-        ShotReload();
+        AttackReload();
 
     }
     private void OnEnable()
@@ -50,13 +53,19 @@ public class Enemy : Unit
             if (projectile.targetTag == gameObject.tag)
             {
                 GotHit(projectile);
-                Destroy(projectile.gameObject);
+                if (!(projectile is Explosion))
+                {
+                    Destroy(projectile.gameObject);
+                }
             }
         }
+
         else if (other.tag == targetTag)
         {
-            target.unitEventHandler.ChangeHealth(-unitStats.damage_s.amount);
-            Destroy(this.gameObject);
+            Debug.Log("touched enemy");
+
+            enemyTemplate.enemyBehavior_SO.TouchedTarget(this);
+
         }
     }
 
@@ -78,6 +87,7 @@ public class Enemy : Unit
             unitEventHandler.ResetHealth();//may be redundant - or take value from SO
             unitStats.healthMax_s.amount = enemyTemplate.healthMax;
             _sprite.color = enemyTemplate.color;
+            unitStats.attackRange_s.amount = enemyTemplate.range;
         }
     }
     private void SetDefaultEnemyProperties()
@@ -94,29 +104,30 @@ public class Enemy : Unit
             //Debug.Log("target not null");
             Debug.Log("template null");
             //Vector3 delta = target.transform.position*movementSpeed*Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, unitStats.movementSpeed_s.amount * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, ReturnMovementSpeedAmount() * Time.deltaTime);
         }
         else
         {
             enemyTemplate.DoBehavior(target,this);
         }
     }
-    private void ShotReload()
+    private void AttackReload()
     {
         if (!isAttackReady)
         {
             unitStats.attackTimer += Time.deltaTime;
-            if (unitStats.attackTimer >= unitStats.attackInterval)
+            if (unitStats.attackTimer >= ReturnAttackIntervalAmount())
             {
-                unitStats.attackTimer =-unitStats.attackInterval;
+                unitStats.attackTimer =- ReturnAttackIntervalAmount();
                 isAttackReady = true;
             }
         }
     }
     private void Die()
     {
+        enemyTemplate.enemyBehavior_SO.Die(this);
         //Debug.Log("Implement Loot");
-        target.unitEventHandler.ChangeScore(rewardScore);
+        target.AddScore(rewardScore);
         Destroy(this.gameObject);
 
     }
@@ -126,8 +137,14 @@ public class Enemy : Unit
     }
     private void GotHit(Projectile projectile)
     {
+        TakeDamage(projectile.damage);
+        //projectile.sourceUnit.AddScore(rewardScore);
+    }
+    /*
+    private void GotHit(Projectile projectile)
+    {
         unitEventHandler.ChangeHealth(-projectile.damage);
         projectile.sourceUnit.unitEventHandler.ChangeScore(rewardScore);
     }
-        
+     */   
 }

@@ -21,7 +21,7 @@ public class HealthBar : MonoBehaviour
     }
     public void SetBarSize()
     {
-        float fillAmount = (float)_unit.unitHealth.healthCurrent / _unit.unitStats.healthMax_s.amount;
+        float fillAmount = _unit.ReturnHealthCurrent() / _unit.ReturnHealthMax();
         _healthBarImage.fillAmount = fillAmount;
     }
 }

@@ -6,7 +6,7 @@ public class Explosion : Projectile
 {
     public float explosionRadius = 10f;
     public float explosionSpeed = 60f;
-    public float craterDisplayTime = 0.5f;
+    public float craterDisplayTime = 2f;
     private bool _isExploding = false;
     private bool _isExploded = false; 
     private Vector3 _scaleChange;
@@ -38,16 +38,18 @@ public class Explosion : Projectile
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Wall")
-        {
-            Explode();
-        }
-        else if (other.tag == targetTag)
-        {
-            Explode();//Debug.Log("bullet Hit");
-        }
+            
+            if (other.tag == "Wall")
+            {
+                Explode();
+            }
+            else if (other.tag == targetTag)
+            {
+                Explode();//Debug.Log("bullet Hit");
+            }
+        
     }
-    private void Explode()
+    public void Explode()
     { 
         _isExploding = true;
     }
@@ -59,6 +61,7 @@ public class Explosion : Projectile
             _isExploding = false;
             _myCollider2D.enabled = false;
             StartCoroutine(PostExplosionRoutine());
+
         }
         else 
         { 

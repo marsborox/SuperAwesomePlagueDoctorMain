@@ -41,10 +41,11 @@ public class PostWave_UI : UI , I_InitiateButton
             //button.gameObject.SetActive(true);
             var statlist = mainUI.player.unitStats.statList;
             int randomStatIndex = GetRandomStat(statlist, usedStatIndexes);
-            
-              
-            button.statName.text = statlist[randomStatIndex].name;
-            button.statValue.text = statlist[randomStatIndex].amount.ToString() + " + " + statlist[randomStatIndex].upgradeAmount;
+            UnitStats_Player.Stat usedStat = statlist[randomStatIndex];
+
+
+            button.statName.text = usedStat.name;
+            button.statValue.text = usedStat.amount.ToString() + " + " + usedStat.upgradeAmount;
             
             var unitStats = mainUI.player.unitStats;
             void SimplifyButtonMethod()
@@ -57,7 +58,7 @@ public class PostWave_UI : UI , I_InitiateButton
         }
     }
     private int GetRandomStat(List<UnitStats.Stat> statList, List<int> usedStatIndexes)
-    {
+    {//random stat but check if is repeating
         int returnIndex;
         //returnIndex = 2;
         returnIndex = Random.Range(0, statList.Count);

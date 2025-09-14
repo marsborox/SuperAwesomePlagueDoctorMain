@@ -15,4 +15,29 @@ public class EnemyBehavior_SO : ScriptableObject
     {
         usedEnemy.transform.position = Vector2.MoveTowards(usedEnemy.transform.position, target.transform.position, ((Enemy)usedEnemy).unitStats.movementSpeed_s.amount * Time.deltaTime);
     }
+
+    public bool IsInRange(Unit target, Unit usedEnemy)
+    {
+        float distance = Vector2.Distance(target.transform.position, usedEnemy.transform.position);
+        if (distance < ((Enemy)usedEnemy).range)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public virtual void Attack(Unit target, Unit usedEnemy)
+    {
+
+    }
+    public virtual void TouchedTarget(Unit usedEnemy)
+    {
+        Debug.Log("Touched Target.EnemyBehavior_SO");
+    }
+    public virtual void Die(Unit usedEnemy)
+    {
+        Debug.Log("Die .EnemyBehavior_SO");
+    }
 }
