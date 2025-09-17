@@ -42,12 +42,12 @@ public class ActiveWeapon : MonoBehaviour
         if (Input.mousePosition.x > playerScreenPoint.x)
         {
             //Debug.Log("right");
-            transform.rotation = Quaternion.Euler(0f, 180f, angle);
+            transform.rotation = Quaternion.Euler(180f, 0f, -angle);
         }
         else if (Input.mousePosition.x < playerScreenPoint.x)
         {
             //Debug.Log("left");
-            transform.rotation = Quaternion.Euler(0f, 180f, -angle);
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
     }
 }
