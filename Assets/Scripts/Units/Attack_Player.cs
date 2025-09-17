@@ -6,6 +6,7 @@ public class Attack_Player: MonoBehaviour
     [SerializeField] private MouseFollow _mouseFollow;
     [SerializeField] private Action_SO _activeAction;
     [SerializeField] private Player _player;
+    [SerializeField] private ActiveWeapon _activeWeapon;
 
     public bool isAttacking = false;
     
@@ -38,8 +39,8 @@ public class Attack_Player: MonoBehaviour
         }
         else
         {
-            
-            _activeAction.Attack(/*projectile,*/ _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
+            //_activeAction.Attack(/*projectile,*/ _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
+            _activeWeapon.Attack();
             _player.isAttackReady = false;
         }
 
@@ -48,7 +49,8 @@ public class Attack_Player: MonoBehaviour
     {
         if (isAttacking && _player.isAttackReady)
         {
-            _activeAction.Attack(/*projectile,*/ _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
+            //_activeAction.Attack(/*projectile,*/ _player, _mouseFollow.transform, _mouseFollow.transform.rotation);
+            _activeWeapon.Attack();
             _player.isAttackReady = false;
         }
     }

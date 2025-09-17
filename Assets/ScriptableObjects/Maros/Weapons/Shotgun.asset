@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaeb2f206bf6dc345bc5655531af344b, type: 3}
+  m_Name: Shotgun
+  m_EditorClassIdentifier: 
+  attackAction: {fileID: 11400000, guid: 1c8cd0de291bcd646882ed47a985702a, type: 2}
+  weaponSprite: {fileID: -2505125261248690692, guid: 152bf99cec7b7a14dbdc6017e10ec1f4, type: 3}

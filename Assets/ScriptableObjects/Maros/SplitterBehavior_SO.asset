@@ -15,3 +15,4 @@ MonoBehaviour:
   _miniMePrefab: {fileID: 2457313501359828067, guid: dca3f35c165bb3545b9c92182dcb0ed4, type: 3}
   _amountOfMiniMeSpawns: 3
   _miniMe_SO: {fileID: 11400000, guid: e58b8d8ba7ffe264fbde039374b2965e, type: 2}
+  _miniMeMaxSpawnDistance: 1
