@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SplitterBehavior_SO", menuName = "Scriptable Objects/EnemyBehavior_SO/SplitterBehavior_SO")]
-public class SplitterBehavior_SO : EnemyBehavior_SO, I_MeleeAttack,I_RandomPointOnDistance
+public class SplitterBehavior_SO : EnemyBehavior_SO, I_MeleeAttack, I_RandomPointOnDistance
 {
     [SerializeField] private Enemy _miniMePrefab;
     [SerializeField] private int _amountOfMiniMeSpawns;
@@ -14,9 +14,17 @@ public class SplitterBehavior_SO : EnemyBehavior_SO, I_MeleeAttack,I_RandomPoint
         if (enemy.isAttackReady)
         {
             if (IsInRange(target, usedEnemy))
-            {
+            {//problem here with method - why?
+                
+                Debug.Log("player in range");
                 ((I_MeleeAttack)this).Attack(target, usedEnemy);
-
+                Debug.Log("should have attacked");
+                
+                /*
+                Debug.Log("melee attacking from SplitterBehavior_SO");
+                ((Enemy)usedEnemy).isAttackReady = false;
+                target.TakeDamage(usedEnemy.ReturnDamageAmount());
+                usedEnemy.Attack();*/
             }
             else
             {
@@ -33,5 +41,4 @@ public class SplitterBehavior_SO : EnemyBehavior_SO, I_MeleeAttack,I_RandomPoint
             usedEnemy.enemySpawner.SpawnEnemy(_miniMe_SO, _miniMePrefab, usedEnemy.transform);
         }
     }
-
 }
