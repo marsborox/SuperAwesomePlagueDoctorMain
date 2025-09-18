@@ -62,7 +62,7 @@ public class Enemy : Unit
 
         else if (other.tag == targetTag)
         {
-            Debug.Log("touched enemy");
+            Debug.Log("touched player");
 
             enemyTemplate.enemyBehavior_SO.TouchedTarget(this);
 

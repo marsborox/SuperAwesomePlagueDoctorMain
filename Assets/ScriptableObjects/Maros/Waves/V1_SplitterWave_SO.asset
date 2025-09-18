@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a5def6ffd1786428fc845ece32cdd3, type: 3}
   m_Name: V1_SplitterWave_SO
   m_EditorClassIdentifier: 
-  enemySO: {fileID: 11400000, guid: da8fbf206c205bc4ab496f33610c159a, type: 2}
+  enemySO: {fileID: 11400000, guid: f7a10a923eb90634db9ec66365e37c26, type: 2}
   numberOfEnemies: 3
   minSpawnTime: 0.2
   maxSpawnTime: 2

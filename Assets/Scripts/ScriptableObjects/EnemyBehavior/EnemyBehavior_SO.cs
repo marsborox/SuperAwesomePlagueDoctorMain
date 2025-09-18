@@ -21,6 +21,7 @@ public class EnemyBehavior_SO : ScriptableObject
         float distance = Vector2.Distance(target.transform.position, usedEnemy.transform.position);
         if (distance < ((Enemy)usedEnemy).range)
         {
+            //Debug.Log(":is in range ");
             return true;
         }
         else

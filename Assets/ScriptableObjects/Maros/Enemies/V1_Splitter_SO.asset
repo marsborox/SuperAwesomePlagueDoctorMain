@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007cda95c889360469764a108726ef80, type: 3}
   m_Name: V1_Splitter_SO
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0.98952365, b: 0.4481132, a: 1}
+  color: {r: 1, g: 0.98823535, b: 0.44705886, a: 1}
   enemyBehavior_SO: {fileID: 11400000, guid: 67760aa209456a849a55474a34140411, type: 2}
   damage: 2
   rewardScore: 10

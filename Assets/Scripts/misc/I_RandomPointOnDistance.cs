@@ -6,11 +6,12 @@ public interface I_RandomPointOnDistance
     {
         Transform point = inputTransform;
         float randomDegree=Random.Range(0, 360);
-        Debug.Log("degree = "+randomDegree);
-        Debug.Log("distance = " + distance);
+        //Debug.Log("DoWeGet any Log???");
+        //Debug.Log("degree = "+randomDegree.ToString());
+        //Debug.Log("distance = " + distance.ToString());
         float xIncrement = Mathf.Cos(randomDegree) * distance;
         float yIncrement = Mathf.Sin(randomDegree) * distance;
-        Debug.Log("x = "+ xIncrement + " y = "+yIncrement);
+        //Debug.Log("x = "+ xIncrement.ToString() + " y = "+yIncrement.ToString());
         point.position = new Vector3(inputTransform.position.x+xIncrement,inputTransform.position.y+yIncrement, inputTransform.position.z); 
 
         return point;

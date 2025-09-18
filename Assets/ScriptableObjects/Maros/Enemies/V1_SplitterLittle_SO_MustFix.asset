@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 007cda95c889360469764a108726ef80, type: 3}
-  m_Name: V1_SplitterLittle_SO
+  m_Name: V1_SplitterLittle_SO_MustFix
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0.98823535, b: 0.44705886, a: 1}
   enemyBehavior_SO: {fileID: 11400000, guid: 971d980681eb8bf4d8dd09fd4b9c4548, type: 2}

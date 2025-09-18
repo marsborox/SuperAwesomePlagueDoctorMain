@@ -38,7 +38,7 @@ public class ActiveWeapon : MonoBehaviour
         
         //Quaternion rotation = _mouseFollow.transform.localEulerAngles.z;
         float angle = _mouseFollow.transform.localEulerAngles.z-90;
-        Debug.Log(angle);
+        //Debug.Log(angle);
         if (Input.mousePosition.x > playerScreenPoint.x)
         {
             //Debug.Log("right");
