@@ -12,8 +12,12 @@ public class MeleeBehavior_SO : EnemyBehavior_SO, I_MeleeAttack
         {
             if (IsInRange(target, usedEnemy))
             {
-                ((I_MeleeAttack)this).Attack(target, usedEnemy);
+                //((I_MeleeAttack)this).Attack(target, usedEnemy);
 
+                Debug.Log("melee attacking from MeleeBehavior_SO");
+                ((Enemy)usedEnemy).isAttackReady = false;
+                target.TakeDamage(usedEnemy.ReturnDamageAmount());
+                usedEnemy.Attack();
             }
             else
             {

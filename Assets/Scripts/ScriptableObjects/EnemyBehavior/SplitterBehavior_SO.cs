@@ -16,15 +16,15 @@ public class SplitterBehavior_SO : EnemyBehavior_SO, I_MeleeAttack, I_RandomPoin
             if (IsInRange(target, usedEnemy))
             {//problem here with method - why?
                 
-                Debug.Log("player in range");
+                //Debug.Log("player in range");
                 ((I_MeleeAttack)this).Attack(target, usedEnemy);
-                Debug.Log("should have attacked");
+                //Debug.Log("should have attacked");
                 
-                /*
+                
                 Debug.Log("melee attacking from SplitterBehavior_SO");
                 ((Enemy)usedEnemy).isAttackReady = false;
                 target.TakeDamage(usedEnemy.ReturnDamageAmount());
-                usedEnemy.Attack();*/
+                usedEnemy.Attack();
             }
             else
             {
@@ -32,11 +32,15 @@ public class SplitterBehavior_SO : EnemyBehavior_SO, I_MeleeAttack, I_RandomPoin
             }
         }
     }
-
+    /*public override void TouchedTarget(Unit usedEnemy)
+    {
+        Debug.Log("touched Target.SplitterBehavior_SO");
+    }*/
     public override void Die(Unit usedEnemy)
     {
         for (int i = 0; i<_amountOfMiniMeSpawns; i++)
         {
+            Debug.Log("willWeGet any Log???");
             Transform transform = ((I_RandomPointOnDistance)this).ReturnRandomTransformOnDistance(usedEnemy.transform, _miniMeMaxSpawnDistance);
             usedEnemy.enemySpawner.SpawnEnemy(_miniMe_SO, _miniMePrefab, usedEnemy.transform);
         }

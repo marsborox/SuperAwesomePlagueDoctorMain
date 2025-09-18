@@ -42,8 +42,7 @@ public class PostWave_UI : UI , I_InitiateButton
             var statlist = mainUI.player.unitStats.statList;
             int randomStatIndex = GetRandomStat(statlist, usedStatIndexes);
             UnitStats_Player.Stat usedStat = statlist[randomStatIndex];
-
-
+            
             button.statName.text = usedStat.name;
             button.statValue.text = usedStat.amount.ToString() + " + " + usedStat.upgradeAmount;
             

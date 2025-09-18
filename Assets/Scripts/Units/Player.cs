@@ -6,16 +6,11 @@ public class Player : Unit
     //[SerializeField] private Projectile Bullet;
     //public EventHandler_Unit unitEventHandler;
     public Attack_Player attackPlayer;
-
-    
-    
-    
+        
     void Awake()
     {
         base.Awake();
         Debug.Log("Player awake done");
-
-        
     }
     void Start()
     {
