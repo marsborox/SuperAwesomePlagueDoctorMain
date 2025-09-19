@@ -1,11 +1,7 @@
 
 using System.Collections.Generic;
 
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Collections;
-
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PostWave_UI : UI , I_InitiateButton
 {

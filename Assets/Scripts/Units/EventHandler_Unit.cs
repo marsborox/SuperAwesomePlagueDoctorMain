@@ -13,7 +13,7 @@ public class EventHandler_Unit : MonoBehaviour
     public void ChangeHealth(float healthChangeValue)
     {
         OnHealthChange?.Invoke(healthChangeValue);
-        Debug.Log("HealthChangeEvent run");
+        //Debug.Log("HealthChangeEvent run");
     }
     public void ChangeScore(float healthChangeValue)
     { 

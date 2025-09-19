@@ -19,10 +19,8 @@ public class SplitterBehavior_SO : EnemyBehavior_SO, I_MeleeAttack, I_RandomPoin
                 //Debug.Log("player in range");
                 ((I_MeleeAttack)this).Attack(target, usedEnemy);
                 //Debug.Log("should have attacked");
-                
-                
-                Debug.Log("melee attacking from SplitterBehavior_SO");
-                ((Enemy)usedEnemy).isAttackReady = false;
+                //Debug.Log("melee attacking from SplitterBehavior_SO");
+                //((Enemy)usedEnemy).isAttackReady = false;
                 target.TakeDamage(usedEnemy.ReturnDamageAmount());
                 usedEnemy.Attack();
             }
@@ -40,7 +38,7 @@ public class SplitterBehavior_SO : EnemyBehavior_SO, I_MeleeAttack, I_RandomPoin
     {
         for (int i = 0; i<_amountOfMiniMeSpawns; i++)
         {
-            Debug.Log("willWeGet any Log???");
+            //Debug.Log("willWeGet any Log???");
             Transform transform = ((I_RandomPointOnDistance)this).ReturnRandomTransformOnDistance(usedEnemy.transform, _miniMeMaxSpawnDistance);
             usedEnemy.enemySpawner.SpawnEnemy(_miniMe_SO, _miniMePrefab, usedEnemy.transform);
         }

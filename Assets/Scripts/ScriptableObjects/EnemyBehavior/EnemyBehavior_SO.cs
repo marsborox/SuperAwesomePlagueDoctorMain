@@ -35,10 +35,10 @@ public class EnemyBehavior_SO : ScriptableObject
     }
     public virtual void TouchedTarget(Unit usedEnemy)
     {
-        Debug.Log("Touched Target.EnemyBehavior_SO");
+        //Debug.Log("Touched Target.EnemyBehavior_SO");
     }
     public virtual void Die(Unit usedEnemy)
     {
-        Debug.Log("Die .EnemyBehavior_SO");
+        //Debug.Log("Die .EnemyBehavior_SO");
     }
 }
