@@ -15,7 +15,7 @@ public class Enemy_SO : ScriptableObject
     public float movementSpeed = 3f;
     //public float attackInterval = 2f;
     
-    public void DoBehavior(Unit target, Unit usedEnemy)
+    public void DoBehavior(Player target, Enemy usedEnemy)
     {
         if (enemyBehavior_SO == null)
         {
@@ -26,8 +26,8 @@ public class Enemy_SO : ScriptableObject
             enemyBehavior_SO.EnemyBehavior(target,usedEnemy);
         }
     }
-    private void DefaultBehavior(Unit usedEnemy)
+    private void DefaultBehavior(Enemy usedEnemy)
     {
-        usedEnemy.transform.position = Vector2.MoveTowards(usedEnemy.transform.position, ((Enemy)usedEnemy).target.transform.position, movementSpeed * Time.deltaTime);
+        usedEnemy.transform.position = Vector2.MoveTowards(usedEnemy.transform.position, usedEnemy.target.transform.position, movementSpeed * Time.deltaTime);
     }
 }

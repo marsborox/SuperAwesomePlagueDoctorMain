@@ -8,7 +8,7 @@ public class Enemy : Unit
     [SerializeField] private Projectile _projectile;
     //[SerializeField] public string targetTag = "Player";
     public Enemy_SO enemyTemplate;
-    public Unit target;
+    public Player target;
 
 
     //public int damage = 10;
