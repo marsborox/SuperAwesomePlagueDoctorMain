@@ -10,7 +10,7 @@ public class RangedBehavior_SO : EnemyBehavior_SO
     public override void EnemyBehavior(Unit target, Unit usedEnemy)
     {
         var enemy = ((Enemy)usedEnemy);
-        if (enemy.isAttackReady)
+        if (enemy.isAttackReady)  
         {        
             if (IsInRange(target, usedEnemy))
             {
