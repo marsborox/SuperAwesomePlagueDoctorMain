@@ -15,9 +15,9 @@ public class SplitterBehavior_SO : EnemyBehavior_SO, I_MeleeAttack, I_RandomPoin
         {
             if (IsInRange(target, usedEnemy))
             {//problem here with method - why?
-                
+                ((I_MeleeAttack)this).MeleeAttack();
                 //Debug.Log("player in range");
-                ((I_MeleeAttack)this).Attack(target, usedEnemy);
+                ((I_MeleeAttack)this).MeleeAttack(target, usedEnemy);
                 //Debug.Log("should have attacked");
                 //Debug.Log("melee attacking from SplitterBehavior_SO");
                 //((Enemy)usedEnemy).isAttackReady = false;
