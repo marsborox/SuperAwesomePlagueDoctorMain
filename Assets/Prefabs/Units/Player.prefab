@@ -270,7 +270,7 @@ MonoBehaviour:
     amount: 0
     upgradeAmount: 0
   attackRange_s:
-    name: 
+    name: attackRange
     amount: 0
     upgradeAmount: 0
   attackInterval: 0.5

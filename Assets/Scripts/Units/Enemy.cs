@@ -116,7 +116,10 @@ public class Enemy : Unit
             unitStats.attackTimer += Time.deltaTime;
             if (unitStats.attackTimer >= ReturnAttackIntervalAmount())
             {
-                unitStats.attackTimer =- ReturnAttackIntervalAmount();
+                //Debug.Log("AttackTimer is = "+ReturnAttackTimer().ToString());
+                unitStats.attackTimer -=  ReturnAttackIntervalAmount();
+                //Debug.Log("timer reduction .Enemy");
+                //Debug.Log("AttackTimer is = " + ReturnAttackTimer().ToString());
                 //unitStats.attackTimer = 0;
                 isAttackReady = true;
             }

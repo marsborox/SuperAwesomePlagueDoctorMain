@@ -8,8 +8,9 @@ public interface I_MeleeAttack
     }
     public void MeleeAttack(Unit target, Unit usedEnemy)
     {
+        usedEnemy.isAttackReady = false;
         //Debug.Log("melee attacking from interface");
-        ((Enemy)usedEnemy).isAttackReady = false;
+        //((Enemy)usedEnemy).isAttackReady = false;
         target.TakeDamage(usedEnemy.ReturnDamageAmount());
         usedEnemy.Attack();
     }
