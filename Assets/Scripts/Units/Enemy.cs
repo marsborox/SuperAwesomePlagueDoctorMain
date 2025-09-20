@@ -62,7 +62,7 @@ public class Enemy : Unit
 
         else if (other.tag == targetTag)
         {
-            Debug.Log("touched player");
+            //Debug.Log("touched player");
 
             enemyTemplate.enemyBehavior_SO.TouchedTarget(this);
 
@@ -91,7 +91,7 @@ public class Enemy : Unit
     private void SetDefaultEnemyProperties()
     {
         unitStats.damage_s.amount = 10;
-        Debug.Log("no template on enemy");
+        //Debug.Log("no template on enemy");
     }
     private void PerformEnemyBehavior()
     {
@@ -100,7 +100,7 @@ public class Enemy : Unit
         if (enemyTemplate ==null)
         {
             //Debug.Log("target not null");
-            Debug.Log("template null");
+            //Debug.Log("template null");
             //Vector3 delta = target.transform.position*movementSpeed*Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, ReturnMovementSpeedAmount() * Time.deltaTime);
         }
@@ -110,13 +110,17 @@ public class Enemy : Unit
         }
     }
     private void AttackReload()
-    {
+    {//why gets timer doubled
         if (!isAttackReady)
         {
             unitStats.attackTimer += Time.deltaTime;
             if (unitStats.attackTimer >= ReturnAttackIntervalAmount())
             {
-                unitStats.attackTimer =- ReturnAttackIntervalAmount();
+                //Debug.Log("AttackTimer is = "+ReturnAttackTimer().ToString());
+                unitStats.attackTimer -=  ReturnAttackIntervalAmount();
+                //Debug.Log("timer reduction .Enemy");
+                //Debug.Log("AttackTimer is = " + ReturnAttackTimer().ToString());
+                //unitStats.attackTimer = 0;
                 isAttackReady = true;
             }
         }

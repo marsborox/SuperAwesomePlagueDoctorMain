@@ -24,18 +24,18 @@ public class UnitAttackIndicator : MonoBehaviour
     }
     private void OnEnable()
     {
-        _unit.unitEventHandler.OnAttack += AttackRoutineMethod;
+        _unit.unitEventHandler.OnAttack += AttackAnimationRoutineMethod;
     }
     private void OnDisable()
     {
-        _unit.unitEventHandler.OnAttack += AttackRoutineMethod;
+        _unit.unitEventHandler.OnAttack -= AttackAnimationRoutineMethod;
     }
 
-    private void AttackRoutineMethod()
+    private void AttackAnimationRoutineMethod()
     {
-        StartCoroutine(AttackRoutine());
+        StartCoroutine(AttackAnimationRoutine());
     }
-    IEnumerator AttackRoutine()
+    IEnumerator AttackAnimationRoutine()
     { 
         _IndicatorSprite.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.5f);
