@@ -1,5 +1,3 @@
-
-
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SpreadShot_SO", menuName = "Scriptable Objects/Action_SO/SpreadShot_SO")]

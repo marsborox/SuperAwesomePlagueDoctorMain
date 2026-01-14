@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
         }
         else if (other.tag == targetTag)
         {
-            //Debug.Log("bullet Hit");
+            
         }
     }
     public void Update()
