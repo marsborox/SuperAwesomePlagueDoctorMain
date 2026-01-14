@@ -15,7 +15,7 @@ public class MeleeBehavior_SO : EnemyBehavior_SO, I_MeleeAttack
 
                 ((I_MeleeAttack)this).MeleeAttack(target, usedEnemy);
 
-                Debug.Log("melee attacking from MeleeBehavior_SO");
+                //Debug.Log("melee attacking from MeleeBehavior_SO");
 
             }
             else

@@ -59,7 +59,6 @@ public class RangedBehavior_SO : EnemyBehavior_SO
         spawnedProjectile.transform.up = -(usedEnemy.transform.position - shootPosition);
         spawnedProjectile.targetTag = ((Enemy)usedEnemy).targetTag;
         spawnedProjectile.damage = ((Enemy)usedEnemy).unitStats.damage_s.amount;
-        
     }
     private void AttackFromSO()
     { 
