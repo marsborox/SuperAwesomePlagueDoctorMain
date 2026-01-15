@@ -1,5 +1,5 @@
 UnityVer 6000.1.12f1
-Itch:
+Itch: https://marsboro.itch.io/superawesomeplaguedoctor
 On this project i started to consider project architecture and work distribution among members. 
 Idea behind it was to create system designer / non programing personnel (user) could use to develop game  / do changes.
  During gameplay enemies spawn in waves, after clearing the wave player gets 3 random upgrades - he can upgrade his health, damage, movement speed, attack speed).
